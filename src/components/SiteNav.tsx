@@ -1,20 +1,12 @@
 import Link from "next/link";
-import navRaw from "../../data/navigation.json";
 
-const DEFAULT_NAV = [
+const nav = [
   { title: "Oferta", url: "/uslugi" },
   { title: "O Nas", url: "/o-nas" },
-  { title: "Referencje", url: "/referencje" },
   { title: "Realizacje", url: "/realizacje" },
-  { title: "Energia", url: "/energia" },
   { title: "Blog", url: "/blog" },
   { title: "Kontakt", url: "/kontakt" },
 ];
-
-const nav =
-  Array.isArray(navRaw) && navRaw.some((n: any) => n.title && n.url)
-    ? (navRaw as { title: string; url: string }[]).filter((n) => n.title && n.url)
-    : DEFAULT_NAV;
 
 export function SiteNav() {
   return (
