@@ -1,0 +1,97 @@
+/* =====================================================================
+   K1 — Engineering Blueprint tokens
+   Surowa precyzja techniczna. Cool palette, Supreme + JetBrains Mono,
+   strict grid, ZERO rounded corners.
+   ===================================================================== */
+
+[data-kierunek="k1"] {
+  /* Type */
+  --k1-font-display: "Supreme", system-ui, sans-serif;
+  --k1-font-body:    "Supreme", system-ui, sans-serif;
+  --k1-font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* Palette — cool, paper-like, blueprint */
+  --k1-bg:          oklch(0.975 0.005 220);  /* cool off-white, technical paper */
+  --k1-surface:     oklch(0.995 0.003 220);  /* paper */
+  --k1-ink:         oklch(0.14 0.025 230);   /* graphite blue-black */
+  --k1-ink-muted:   oklch(0.42 0.022 220);
+  --k1-ink-faint:   oklch(0.62 0.014 220);
+  --k1-line:        oklch(0.84 0.010 220);   /* technical grid */
+  --k1-line-strong: oklch(0.68 0.015 220);
+
+  --k1-accent:      oklch(0.50 0.16 140);    /* deep forest green — serious */
+  --k1-accent-fg:   oklch(0.98 0.01 140);
+  --k1-accent-tint: oklch(0.93 0.06 140);
+
+  --k1-warn:        oklch(0.66 0.14 60);     /* amber — highlight */
+  --k1-warn-tint:   oklch(0.95 0.05 70);
+
+  --k1-negative:    oklch(0.58 0.18 25);     /* red — for "before" numbers */
+
+  /* Motion */
+  --k1-ease-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --k1-container:   1320px;
+  --k1-gutter:      clamp(1rem, 0.8rem + 1.8vw, 2rem);
+
+  background: var(--k1-bg);
+  color: var(--k1-ink);
+  font-family: var(--k1-font-body);
+  font-feature-settings: "ss01", "cv11", "kern";
+}
+
+[data-kierunek="k1"] .k1-display {
+  font-family: var(--k1-font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+[data-kierunek="k1"] .k1-mono {
+  font-family: var(--k1-font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+[data-kierunek="k1"] .k1-label {
+  font-family: var(--k1-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--k1-ink-faint);
+  font-weight: 500;
+}
+
+[data-kierunek="k1"] .k1-container {
+  max-width: var(--k1-container);
+  margin-inline: auto;
+  padding-inline: var(--k1-gutter);
+}
+
+[data-kierunek="k1"] .k1-rule {
+  height: 1px;
+  background: var(--k1-line);
+}
+
+[data-kierunek="k1"] .k1-rule-strong {
+  height: 1px;
+  background: var(--k1-line-strong);
+}
+
+/* Technical dashed line — like blueprints */
+[data-kierunek="k1"] .k1-rule-dashed {
+  height: 0;
+  border-bottom: 1px dashed var(--k1-line-strong);
+}
+
+/* Tick marks (for section headers like drawing coordinate markers) */
+[data-kierunek="k1"] .k1-ticks {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--k1-line-strong) 0,
+    var(--k1-line-strong) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+}

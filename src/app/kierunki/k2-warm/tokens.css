@@ -1,0 +1,87 @@
+/* =====================================================================
+   K2 — Warm Authority tokens
+   Premium korporacyjny z duszą. Serif display + cream bg + forest green.
+   ===================================================================== */
+
+[data-kierunek="k2"] {
+  --k2-font-display: "Gambarino", "Reckless Neue", Georgia, serif;
+  --k2-font-body:    "General Sans", system-ui, sans-serif;
+  --k2-font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* Warm cream palette */
+  --k2-bg:          oklch(0.965 0.015 78);   /* warm cream */
+  --k2-surface:     oklch(0.985 0.009 78);   /* lighter cream */
+  --k2-ink:         oklch(0.16 0.025 40);    /* warm black */
+  --k2-ink-muted:   oklch(0.36 0.02 40);
+  --k2-ink-faint:   oklch(0.54 0.015 40);
+  --k2-line:        oklch(0.87 0.015 65);
+  --k2-line-strong: oklch(0.78 0.02 55);
+
+  --k2-accent:      oklch(0.38 0.12 145);    /* deep forest green */
+  --k2-accent-bg:   oklch(0.93 0.05 140);
+  --k2-accent-fg:   oklch(0.98 0.01 78);
+
+  --k2-gold:        oklch(0.70 0.14 68);     /* warm amber/gold */
+  --k2-gold-tint:   oklch(0.94 0.08 75);
+
+  --k2-dark:        oklch(0.18 0.03 150);    /* very dark forest */
+  --k2-dark-fg:     oklch(0.95 0.015 70);
+
+  --k2-container:   1280px;
+  --k2-gutter:      clamp(1.25rem, 1rem + 2vw, 2.5rem);
+
+  background: var(--k2-bg);
+  color: var(--k2-ink);
+  font-family: var(--k2-font-body);
+}
+
+[data-kierunek="k2"] .k2-display {
+  font-family: var(--k2-font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+[data-kierunek="k2"] .k2-italic {
+  font-family: var(--k2-font-display);
+  font-style: italic;
+}
+
+[data-kierunek="k2"] .k2-mono {
+  font-family: var(--k2-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+[data-kierunek="k2"] .k2-label {
+  font-family: var(--k2-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--k2-ink-faint);
+  font-weight: 500;
+}
+
+[data-kierunek="k2"] .k2-container {
+  max-width: var(--k2-container);
+  margin-inline: auto;
+  padding-inline: var(--k2-gutter);
+}
+
+[data-kierunek="k2"] .k2-paper {
+  background: var(--k2-surface);
+  box-shadow:
+    0 1px 0 oklch(0.95 0.01 65),
+    0 24px 64px -28px oklch(0.16 0.03 60 / 0.18),
+    0 10px 24px -18px oklch(0.16 0.03 60 / 0.14);
+}
+
+/* Subtle paper noise for that "real material" feel */
+[data-kierunek="k2"] .k2-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}

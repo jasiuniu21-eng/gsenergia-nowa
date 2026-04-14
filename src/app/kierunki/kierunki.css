@@ -1,0 +1,64 @@
+/* =====================================================================
+   /kierunki — shared CSS base for all 5 direction landing pages.
+   Each kierunek defines its own scoped tokens in its own tokens.css.
+   ===================================================================== */
+
+/* Reset site body font for kierunki pages — each kierunek sets its own. */
+[data-kierunek] {
+  font-feature-settings: "ss01", "ss02", "cv01", "cv11", "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Perpetual motion primitives (shared across directions) */
+@keyframes kierunki-pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  70%  { transform: scale(1.8); opacity: 0; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes kierunki-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes kierunki-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+@keyframes kierunki-tick {
+  0%, 40%  { opacity: 0.25; }
+  50%      { opacity: 1; }
+  60%, 100% { opacity: 0.25; }
+}
+
+@keyframes kierunki-scan {
+  0%   { transform: translateY(-10%); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.7; }
+  100% { transform: translateY(110%); opacity: 0; }
+}
+
+@keyframes kierunki-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.8); }
+}
+
+@keyframes kierunki-line-draw {
+  from { stroke-dashoffset: var(--line-length, 400); }
+  to   { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-kierunek] * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Hide scrollbar utility (for horizontal carousels) */
+.kierunki-hide-sb { scrollbar-width: none; -ms-overflow-style: none; }
+.kierunki-hide-sb::-webkit-scrollbar { display: none; }

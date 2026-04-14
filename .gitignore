@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large media archive (578MB - not needed for deploy)
+/public/media/
+
+# Admin credentials
+admin-credentials.txt

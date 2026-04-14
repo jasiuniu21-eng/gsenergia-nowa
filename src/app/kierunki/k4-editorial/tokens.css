@@ -1,0 +1,74 @@
+/* =====================================================================
+   K4 — Editorial Minimal tokens
+   Pure white, radical minimalism. Gambarino display + Synonym body.
+   Gigantic typography, zero cards, tons of whitespace.
+   ===================================================================== */
+
+[data-kierunek="k4"] {
+  --k4-font-display: "Gambarino", "Reckless Neue", Georgia, serif;
+  --k4-font-body:    "Synonym", "General Sans", system-ui, sans-serif;
+  --k4-font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --k4-bg:          oklch(0.99 0.002 120);   /* near-pure white, tiny green hint */
+  --k4-ink:         oklch(0.12 0.008 145);   /* near-black, green tint */
+  --k4-ink-muted:   oklch(0.40 0.01 140);
+  --k4-ink-faint:   oklch(0.65 0.008 140);
+  --k4-line:        oklch(0.88 0.005 140);
+  --k4-line-strong: oklch(0.18 0.01 145);    /* strong editorial rules */
+
+  --k4-accent:      oklch(0.45 0.15 145);    /* one single green */
+
+  --k4-container:   1320px;
+  --k4-narrow:      780px;
+  --k4-gutter:      clamp(1.5rem, 1rem + 3vw, 4rem);
+
+  background: var(--k4-bg);
+  color: var(--k4-ink);
+  font-family: var(--k4-font-body);
+  font-feature-settings: "ss01", "cv11";
+}
+
+[data-kierunek="k4"] .k4-display {
+  font-family: var(--k4-font-display);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+}
+
+[data-kierunek="k4"] .k4-italic {
+  font-family: var(--k4-font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+[data-kierunek="k4"] .k4-mono {
+  font-family: var(--k4-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+[data-kierunek="k4"] .k4-label {
+  font-family: var(--k4-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--k4-ink-faint);
+  font-weight: 500;
+}
+
+[data-kierunek="k4"] .k4-container {
+  max-width: var(--k4-container);
+  margin-inline: auto;
+  padding-inline: var(--k4-gutter);
+}
+
+[data-kierunek="k4"] .k4-narrow {
+  max-width: var(--k4-narrow);
+  margin-inline: auto;
+  padding-inline: var(--k4-gutter);
+}
+
+/* Editorial rule — thicker top of section */
+[data-kierunek="k4"] .k4-top-rule {
+  height: 1px;
+  background: var(--k4-line-strong);
+}
