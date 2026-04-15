@@ -1,0 +1,49 @@
+---
+title: "Telemetria i System Zarządzania Energią"
+slug: "telemetria"
+date: "2019-06-13 10:55:58"
+type: "realizacje"
+realizacja_name: "Shell Polska Sp. z o.o."
+realizacja_type: "EMS / Telemetria"
+metaTitle: "System telemetrii energetycznej Shell Polska · GS Energia"
+excerpt: "Zaprojektowanie i wdrożenie centralnego systemu telemetrii energetycznej dla sieci stacji benzynowych Shell — monitoring mediów i optymalizacja kosztów energii w czasie rzeczywistym."
+metrics:
+  savings_pct: 23
+  roi_months: 20
+  kwh_saved: 1850000
+  co2_t_year: 996
+---
+
+## O projekcie
+
+GS Energia zaprojektowała i wykonała centralny system telemetrii energetycznej dla **Shell Polska Sp. z o.o.** — jednej z wiodących sieci stacji paliw w Polsce, zarządzającej kilkuset obiektami na terenie całego kraju. Projekt obejmował opracowanie architektury systemu monitoringu, wdrożenie infrastruktury pomiarowej na wybranych stacjach benzynowych oraz integrację z centralną platformą zarządzania energią. Równolegle GS Energia przeprowadziła audyt energetyczny wybranych obiektów jako wsparcie dla procesu wdrożenia systemu Energy Management (przejście z zarządzania zdecentralizowanego na centralne).
+
+## Wyzwanie
+
+Stacje benzynowe to obiekty energochłonne pracujące 24 godziny na dobę, 7 dni w tygodniu. Główne konsumenty energii to: oświetlenie zewnętrzne i wewnętrzne (w tym wiata, dystrybutory, sklep), systemy grzewania i chłodzenia sklepów i pomieszczeń technicznych, urządzenia chłodnicze (lady chłodnicze, chłodnie do napojów), systemy wentylacji, pylony i reklamy świetlne, systemy IT i płatności oraz pompy paliwowe.
+
+Przed wdrożeniem telemetrii Shell Polska nie miał bieżącego wglądu w zużycie energii na poszczególnych stacjach — dane o kosztach docierały tylko z faktur, z opóźnieniem. Brak możliwości porównania zużycia między stacjami o podobnym wolumenie sprzedaży utrudniał identyfikację obiektów energetycznie nieefektywnych. Zarządzanie mocą zamówioną i optymalizacja taryf opierały się na danych historycznych, nie na bieżących pomiarach.
+
+Wyzwaniem technicznym była integracja z heterogeniczną infrastrukturą stacji — różne generacje urządzeń, różne systemy sterowania, różni dostawcy energii elektrycznej z różnymi strukturami taryfowymi.
+
+## Nasze działania
+
+**Audyt energetyczny pilotażowej grupy stacji:** przed wdrożeniem telemetrii GS Energia przeprowadziła audyt energetyczny wybranych stacji reprezentujących różne typy lokalizacji (autostradowa, miejska, podmiejska). Identyfikacja głównych konsumentów energii, analiza taryf i struktur poboru mocy, optymalizacja mocy zamówionej.
+
+**Projektowanie architektury systemu telemetrii:** opracowanie koncepcji technicznej systemu — wybór liczników energii elektrycznej (klasa B zgodnie z MID), protokołów komunikacyjnych (Modbus RTU/TCP, M-Bus), infrastruktury komunikacyjnej (GSM/LTE) i platformy centralnej. Projekt uwzględniał wymagania cyberbezpieczeństwa sieci OT Shell.
+
+**Instalacja infrastruktury pomiarowej:** montaż liczników energii elektrycznej na głównych obwodach każdej stacji (oświetlenie, HVAC, urządzenia chłodnicze, dystrybutory), koncentratorów danych i routerów komunikacyjnych. Integracja z istniejącymi systemami SCADA stacji.
+
+**Wdrożenie platformy EMS:** konfiguracja centralnej platformy zarządzania energią z dashboardami dla poszczególnych stacji i agregacją dla całej sieci. Wdrożenie alertów o przekroczeniu progów zużycia i mocy, raportowania automatycznego oraz narzędzi do benchmarkingu stacji.
+
+**Optymalizacja przyłączy i mocy zamówionej:** na podstawie danych z telemetrii przeprowadzono analizę dostosowania mocy zamówionej do rzeczywistego zapotrzebowania na każdej stacji — identyfikując obiekty z nadmierną rezerwą mocy (koszt przekroczenia) lub z niedostosowaną taryfą.
+
+## Wyniki
+
+Wdrożenie systemu telemetrii i przeprowadzony audyt energetyczny przyniosły redukcję kosztów energii o **23%** — jeden z najlepszych wyników w portfelu GS Energia, będący efektem połączenia identyfikacji strat energetycznych (audyt) z ciągłym monitorowaniem i bieżącą optymalizacją (telemetria). Oszczędność energii elektrycznej wyniosła **1 850 000 kWh** rocznie, co przekłada się na redukcję emisji CO₂ o **996 ton/rok**. Zwrot z inwestycji osiągnięty po **20 miesiącach** — dzięki bezpośredniemu wpływowi na koszty operacyjne sieci.
+
+Sam system telemetrii umożliwił Shell Polska trwałe zarządzanie efektywnością energetyczną: bieżący podgląd zużycia na każdej stacji, automatyczne wykrywanie anomalii (np. urządzenie chłodnicze pracujące nocą z pełną mocą zamiast w trybie eco), benchmarking i stały nacisk na poprawę wskaźników energetycznych sieci.
+
+## Zastosowane technologie
+
+Projekt realizowany z użyciem liczników energii MID klasy B (Kamstrup, Schneider Electric), koncentratorów danych i modemów GSM/LTE, protokołów Modbus RTU/TCP i M-Bus, chmurowej platformy EMS z API do integracji z systemami Shell, analizatorów mocy do pomiarów audytowych klasy 0,5S, termowizji i ultradźwiękowych detektorów wycieków (systemy sprężonego powietrza i chłodnicze) oraz metodyki zarządzania energią zgodnej z ISO 50001.

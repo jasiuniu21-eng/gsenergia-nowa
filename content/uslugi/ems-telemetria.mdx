@@ -1,0 +1,102 @@
+---
+title: "System zarządzania energią EMS i telemetria mediów"
+slug: "ems-telemetria"
+date: "2024-02-20"
+type: "uslugi"
+metaTitle: "EMS i telemetria – monitoring energii w czasie rzeczywistym"
+excerpt: "System EMS z telemetrią IoT umożliwia monitoring energii elektrycznej, ciepła, gazu i wody w czasie rzeczywistym z alarmami i raportami ISO 50001."
+faq:
+  - question: "Co to jest EMS i jakie są jego główne funkcje?"
+    answer: "EMS (Energy Management System — System Zarządzania Energią) to platforma informatyczna integrująca dane z liczników, czujników i systemów automatyki budynkowej lub przemysłowej, umożliwiająca ciągły monitoring zużycia mediów energetycznych w czasie rzeczywistym. Główne funkcje EMS to: wizualizacja zużycia energii elektrycznej, ciepła, gazu i wody na dashboardach graficznych (wykresy, wskaźniki KPI, mapy cieplne), automatyczne alarmy przekroczeń zadanych poziomów zużycia lub mocy, raportowanie dla potrzeb audytów i systemu ISO 50001, analiza trendów i wykrywanie anomalii zużycia, harmonogramowanie i optymalizacja poboru mocy w celu unikania szczytów taryfowych. EMS zgodny z wymaganiami normy ISO 50001:2018 stanowi rdzeń systemu zarządzania energią wymaganego przez tę normę i wspiera duże przedsiębiorstwa w spełnieniu obowiązku audytu energetycznego co cztery lata (art. 36 Ustawy o efektywności energetycznej 2016)."
+  - question: "Jakie media można monitorować za pomocą systemu EMS i telemetrii?"
+    answer: "System EMS i telemetria wdrażana przez GS Energia umożliwia monitoring praktycznie wszystkich mediów energetycznych stosowanych w przemyśle i budownictwie komercyjnym. Energia elektryczna: moc czynna i bierna, napięcie, prąd, cos φ, harmoniczne — na poziomie rozdzielnicy głównej, podrozdzielnic i poszczególnych odbiorników. Ciepło i para technologiczna: przepływ, temperatura zasilania i powrotu, moc cieplna, ilość skroplin — przez liczniki ciepła z interfejsem M-Bus lub Modbus. Gaz ziemny i LPG: przepływ objętościowy i masowy, ciśnienie — integracja z gazomierzami elektronicznymi (AMI). Woda i ścieki technologiczne: przepływ, temperatury, ciśnienie w sieci. Sprężone powietrze: przepływ, ciśnienie w sieci i na odbiornikach, temperatura punktu rosy. Każde medium może być monitorowane z rozdzielczością czasową od 1 sekundy do 15 minut, z archiwizacją danych przez minimum 5 lat."
+  - question: "Jak szybko zwraca się inwestycja w system EMS?"
+    answer: "Czas zwrotu inwestycji w system EMS zależy od skali zakładu i wynikającego z wdrożenia EMS potencjału optymalizacji. Dla typowego zakładu przemysłowego o rocznym rachunku za energię 1–5 mln zł, inwestycja w EMS (50 000–300 000 zł w zależności od liczby punktów pomiarowych) zwraca się zazwyczaj w ciągu 6–18 miesięcy. Oszczędności pochodzą z kilku źródeł: wykrycie i eliminacja zbędnych pobytów energii w trybie stand-by (typowo 3–8% zużycia), optymalizacja profilu poboru mocy i uniknięcie przekroczeń mocy umownej (redukcja opłaty za przekroczenie o 60–100%), przesunięcie elastycznych obciążeń poza strefy szczytu taryfowego B23 (strefy G2, G3), wykrycie anomalii wskazujących na awarie lub nieszczelności (np. nagły wzrost zużycia sprężonego powietrza lub gazu). Zakład spożywczy w Małopolsce (Case PL-2024-087) odnotował ROI na EMS wynoszący 8 miesięcy."
+  - question: "Czy wdrożenie EMS wymaga ingerencji w istniejące instalacje elektryczne?"
+    answer: "Wdrożenie EMS może być realizowane z minimalną ingerencją w istniejące instalacje, szczególnie gdy stosuje się bezprzewodowe czujniki IoT i liczniki z komunikacją bezprzewodową (LoRaWAN, ZigBee, NB-IoT). W typowym scenariuszu wdrożenia dla zakładu przemysłowego montujemy: liczniki energii elektrycznej z szyną Modbus lub M-Bus (instalowane przy rozdzielnicach — wymagane krótkie przerwanie zasilania rozdzielnicy, ok. 30–60 minut na punkt pomiarowy), czujniki temperatury, przepływu i ciśnienia na rurociągach (w większości wypadków bez konieczności odcięcia medium, stosując zaciski do montażu bez spawania), koncentratory danych z komunikacją LTE lub Ethernet. Dla instalacji, gdzie dostęp do szyn zbiorczych jest utrudniony, stosujemy bezinwazyjne mierniki cęgowe. Cały proces montażu dla zakładu średniej wielkości (20–50 punktów pomiarowych) trwa zazwyczaj 3–7 dni roboczych."
+  - question: "Czy EMS można zintegrować z istniejącymi systemami SCADA i BMS?"
+    answer: "Tak — integracja EMS z istniejącymi systemami SCADA (Supervisory Control and Data Acquisition) i BMS (Building Management System) jest standardowym elementem wdrożeń GS Energia. Kluczowym warunkiem jest obsługa otwartych protokołów komunikacyjnych: Modbus RTU/TCP, BACnet IP/MSTP, OPC UA, MQTT, M-Bus (wired lub wireless), KNX lub PROFIBUS. Większość nowoczesnych sterowników PLC i central HVAC obsługuje co najmniej jeden z tych protokołów. W przypadku starszych systemów proprietary (np. Siemens S5, stare systemy DDC) stosujemy konwertery protokołów. Platforma EMS GS Energia posiada gotowe sterowniki (drivers) dla najpopularniejszych systemów na rynku polskim: Siemens Desigo, Schneider Electric EcoStruxure, Johnson Controls Metasys, Honeywell EBI. Dane z SCADA i BMS są agregowane w jednolitej warstwie danych EMS, gdzie użytkownik widzi energię elektryczną, ciepło, gaz i media procesowe w jednym interfejsie."
+---
+
+## System zarządzania energią EMS i telemetria — pełna kontrola nad zużyciem mediów energetycznych
+
+Nie można zarządzać tym, czego się nie mierzy. Ta zasada, sformułowana przez W. Edwardsa Deminga, jest szczególnie trafna w kontekście zarządzania energią. Zakłady przemysłowe, które monitorują swoje zużycie energii w czasie rzeczywistym, osiągają średnio o 15–25% niższe zużycie niż porównywalne obiekty bez systemu monitoringu — wynika to z badań prowadzonych przez Europejską Agencję Środowiska (EEA) i licznych audytów GS Energia.
+
+System zarządzania energią (EMS) połączony z infrastrukturą telemetryczną to inwestycja, która nie tylko obniża rachunki za energię, ale również wspiera spełnienie wymagań prawnych (norma ISO 50001:2018, obowiązek audytu energetycznego dla dużych przedsiębiorstw na mocy art. 36 Ustawy o efektywności energetycznej 2016) oraz dostarcza danych do raportowania ESG i CSRD.
+
+## Kogo dotyczy EMS i telemetria?
+
+System EMS jest szczególnie wartościowy dla:
+
+- **Zakładów przemysłowych** z rocznym rachunkiem za energię powyżej 500 000 zł, gdzie nawet 5% optymalizacja oznacza ponad 25 000 zł oszczędności rocznie
+- **Obiektów wielooddziałowych** — sieci handlowych, zakładów produkcyjnych z kilkoma halami, kampusów biurowych — gdzie centralne zarządzanie energią z jednej platformy jest kluczem do kontroli kosztów
+- **Firm certyfikowanych ISO 50001** lub dążących do certyfikacji — norma wymaga ciągłego pomiaru i monitorowania wskaźników efektywności energetycznej (EnPI)
+- **Dużych przedsiębiorstw objętych CSRD** — wymagających udokumentowanych danych o emisjach Scope 1 i 2 z podziałem na obiekty i procesy
+- **Podmiotów uczestniczących w programach DSR** (Demand Side Response) — dla których precyzyjny pomiar i możliwość szybkiego sterowania obciążeniami jest warunkiem uczestnictwa w rynku mocy
+
+## Co obejmuje wdrożenie EMS i telemetrii?
+
+### Warstwa pomiarowa (hardware)
+
+**Liczniki energii elektrycznej** klasy A (MID) lub B (wyższa dokładność), montowane przy rozdzielnicach głównych i podrozdzielnicach, z komunikacją Modbus RTU/TCP lub M-Bus. Typowy zakład 10 000 m² hal produkcyjnych wymaga 15–40 punktów pomiarowych energii elektrycznej.
+
+**Liczniki ciepła i zimna** — ultradźwiękowe lub elektromagnetyczne, z interfejsem M-Bus, montowane na przyłączach cieplnych, węzłach ciepłowniczych i obiegach procesu.
+
+**Gazomierze elektroniczne** z rejestratorami danych i transmisją GSM/NB-IoT — zgodne z wymaganiami OSD i taryf gazowych, z automatycznym korektorem ciśnienia i temperatury.
+
+**Czujniki IoT** — bezprzewodowe mierniki temperatury, wilgotności, ciśnienia i przepływu na sieciach sprężonego powietrza, pary i mediów procesowych. Protokoły: LoRaWAN (zasięg do 5 km w terenie zurbanizowanym), ZigBee (mesh, do 100 m), NB-IoT (zasięg operatora komórkowego).
+
+### Warstwa transmisji danych
+
+Koncentratory danych (data loggers) zbierają odczyty ze wszystkich punktów pomiarowych z rozdzielczością 1–15 minut i przesyłają je do chmury obliczeniowej lub lokalnego serwera EMS. Transmisja: Ethernet, WiFi lub LTE (4G/5G). Dane są szyfrowane (TLS 1.3) i archiwizowane przez minimum 5 lat.
+
+### Platforma EMS — dashboardy i raporty
+
+**Dashboard kierownika zakładu** — codzienny podgląd kluczowych wskaźników: zużycie energii elektrycznej dobowe vs. plan, aktualny profil mocy, cost per unit produkcji (kWh/tonę lub kWh/m²), alerty aktywne.
+
+**Dashboard energetyka** — szczegółowe wykresy godzinowe dla każdego medium, analiza harmonicznych, mapa cieplna zużycia w układzie doba/godzina, trendy miesięczne i roczne.
+
+**Raporty automatyczne** — tygodniowe i miesięczne raporty PDF generowane automatycznie i rozsyłane e-mailem do wskazanych odbiorców. Raporty zawierają: porównanie z analogicznym okresem poprzedniego roku, wskaźniki EnPI wymagane przez ISO 50001, analizę rachunków za energię vs. dane pomiarowe.
+
+**System alarmów** — powiadomienia SMS i e-mail przy: przekroczeniu zaprogramowanego poziomu mocy umownej (alarm 15 minut przed upływem okresu rozliczeniowego 15-minutowego), nagłym skoku zużycia (wskazującym na awarię lub nieszczelność), braku komunikacji z licznikiem (wykrycie uszkodzenia lub manipulacji).
+
+## Korzyści z EMS i telemetrii
+
+| Źródło oszczędności | Typowa wartość | Wymagania |
+|--------------------|---------------|-----------|
+| Eliminacja zbędnego zużycia stand-by | 3–8% rachunku | Identyfikacja przez monitoring nocny |
+| Uniknięcie przekroczeń mocy umownej | 30 000–150 000 zł/rok | Alarm 15-minutowy + sterowanie |
+| Optymalizacja taryfy (zmiana grupy) | 5–12% rachunku | Dane 15-minutowe z 12 miesięcy |
+| Przesunięcie obciążeń do strefy nocnej | 8–15% kosztów energii | Elastyczne procesy i bufory cieplne |
+| DSR — wynagrodzenie za ograniczenie poboru | 20–80 zł/MWh redukcji | Moc do dyspozycji min. 200 kW |
+| Wykrycie anomalii (awarie, nieszczelności) | Indywidualnie | Alarmy przekroczeń wzorca |
+
+## Jak przebiega wdrożenie EMS?
+
+**Etap 1 — Audyt pomiarowy i projekt (2–3 tygodnie)**
+Inwentaryzacja istniejących liczników i systemów, opracowanie projektu architektury EMS, dobór urządzeń pomiarowych, specyfikacja punktów pomiarowych.
+
+**Etap 2 — Dostarczenie i montaż hardware (1–3 tygodnie)**
+Montaż liczników, czujników i koncentratorów danych przez certyfikowanych elektryków GS Energia. Minimalna ingerencja w istniejące instalacje.
+
+**Etap 3 — Konfiguracja platformy EMS (1–2 tygodnie)**
+Konfiguracja dashboardów, progów alarmowych, raportów i integracji z istniejącymi systemami SCADA/BMS/ERP.
+
+**Etap 4 — Szkolenie i przekazanie (1–2 dni)**
+Szkolenie personelu technicznego i kadry zarządzającej z obsługi platformy EMS.
+
+**Etap 5 — Wsparcie i serwis (ciągłe)**
+GS Energia oferuje umowę serwisową obejmującą: monitoring zdalny, aktualizacje oprogramowania, serwis urządzeń pomiarowych, kwartalne raporty doradcze i coroczny przegląd efektywności systemu.
+
+## Przykładowe oszczędności
+
+**Case PL-2024-087 — zakład produkcji spożywczej, Małopolska**
+
+Po wdrożeniu EMS z 47 punktami pomiarowymi (energia elektryczna, para technologiczna, sprężone powietrze, gaz, woda) zakład uzyskał pełen wgląd w strukturę zużycia mediów. W ciągu pierwszych 3 miesięcy eksploatacji EMS zidentyfikowano:
+- Pracę sprężarek po godzinach produkcji generującą stratę 85 000 kWh/rok (koszt: 51 000 zł/rok) — wyeliminowaną przez blokadę czasową w układzie automatyki
+- Nieszczelności instalacji sprężonego powietrza odpowiadające 18% produkowanego powietrza — wykryte przez monitoring nocny przepływu
+- Możliwość zmiany grupy taryfowej z B23 na C21 — oszczędność 67 000 zł/rok
+
+Łączny wynik EMS i szerszego audytu: **redukcja zużycia energii o 26,8%, oszczędność 1 090 000 zł/rok, zwrot nakładów w 2 lata i 4 miesiące.**
+
+Zadzwoń: **+48 606 590 931** | GS Energia, Kraków. Bezpłatna analiza potencjału wdrożenia EMS dla Twojego zakładu.

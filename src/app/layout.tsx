@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SITE } from "@/lib/site";
+import { localBusinessSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gsenergia.pl"),
@@ -23,7 +24,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pl" className="h-full" suppressHydrationWarning>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema()),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
