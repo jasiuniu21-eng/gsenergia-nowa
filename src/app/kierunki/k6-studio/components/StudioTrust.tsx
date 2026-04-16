@@ -99,8 +99,8 @@ export function StudioTrust() {
         </div>
       ) : (
         <div className="space-y-6 lg:space-y-8">
-          <Row ids={ROW_A} duration={85} direction="normal" />
-          <Row ids={ROW_B} duration={95} direction="reverse" />
+          <Row ids={ROW_A} duration={180} direction="normal" />
+          <Row ids={ROW_B} duration={200} direction="reverse" />
         </div>
       )}
 
