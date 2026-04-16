@@ -1,0 +1,99 @@
+/* =====================================================================
+   K6 — Studio (wordware-core)
+   Deep black, lime accent, editorial serif headlines, warm off-white text.
+   Subtle grain, generous whitespace, typography-first.
+   ===================================================================== */
+
+[data-kierunek="k6"] {
+  --k6-font-display: "Gambarino", Georgia, serif;
+  --k6-font-body: "General Sans", system-ui, sans-serif;
+  --k6-font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Deep warm-tinted black — not pure #000 */
+  --k6-bg: oklch(0.08 0.005 145);
+  --k6-bg-elevated: oklch(0.11 0.006 145);
+  --k6-surface: oklch(0.13 0.007 145);
+
+  --k6-line: oklch(0.18 0.008 145);
+  --k6-line-strong: oklch(0.28 0.012 145);
+
+  /* Warm off-white — editorial feel */
+  --k6-ink: oklch(0.96 0.01 85);
+  --k6-ink-muted: oklch(0.70 0.008 85);
+  --k6-ink-faint: oklch(0.48 0.006 85);
+
+  /* Lime accent */
+  --k6-accent: oklch(0.85 0.19 140);
+  --k6-accent-dim: oklch(0.55 0.14 140);
+  --k6-accent-faint: oklch(0.30 0.06 140);
+
+  --k6-container: 1280px;
+  --k6-gutter: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+
+  background: var(--k6-bg);
+  color: var(--k6-ink);
+  font-family: var(--k6-font-body);
+  position: relative;
+}
+
+/* Very subtle noise texture */
+[data-kierunek="k6"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+[data-kierunek="k6"] .k6-container {
+  max-width: var(--k6-container);
+  margin: 0 auto;
+  padding-inline: var(--k6-gutter);
+  position: relative;
+  z-index: 1;
+}
+
+[data-kierunek="k6"] .k6-display {
+  font-family: var(--k6-font-display);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+[data-kierunek="k6"] .k6-serif {
+  font-family: var(--k6-font-display);
+}
+
+[data-kierunek="k6"] .k6-mono {
+  font-family: var(--k6-font-mono);
+  font-variant-ligatures: none;
+}
+
+[data-kierunek="k6"] .k6-label {
+  font-family: var(--k6-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--k6-ink-faint);
+  font-weight: 500;
+}
+
+[data-kierunek="k6"] .k6-accent-glow {
+  position: relative;
+}
+[data-kierunek="k6"] .k6-accent-glow::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(ellipse at center, oklch(0.85 0.19 140 / 0.22), transparent 60%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+[data-kierunek="k6"] *::selection {
+  background: var(--k6-accent);
+  color: var(--k6-bg);
+}

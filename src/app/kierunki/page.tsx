@@ -114,6 +114,25 @@ const VARIANTS: Variant[] = [
     tracking: "0.02em",
     hint: "steel · LED · copper",
   },
+  {
+    slug: "k6-studio",
+    code: "K6",
+    name: "Studio",
+    tagline: "Editorial premium — czerń, zieleń, liczby",
+    description:
+      "Wordware-core. Deep black, lime accent, cycling animated headline, editorial serif. Sekcja 'Zaufali nam' z logosami klientów (PGE, BSH, Shell, PAŻP).",
+    mode: "Dark · Editorial",
+    bgHex: "#0a0a0a",
+    inkHex: "#f5f2ea",
+    accentHex: "#8fe67a",
+    accentName: "Lime studio",
+    displayFontFamily: "'Gambarino', Georgia, serif",
+    displayWeight: 400,
+    displayItalic: true,
+    bodyFontFamily: "'General Sans', system-ui, sans-serif",
+    tracking: "-0.03em",
+    hint: "studio · wordware-core",
+  },
 ];
 
 export default function KierunkiHub() {
@@ -130,7 +149,7 @@ export default function KierunkiHub() {
             </span>
             <span className="h-4 w-px bg-white/20" />
             <span className="text-[11px] uppercase tracking-[0.22em] text-white/50">
-              Design Review · 5 kierunków
+              Design Review · 6 kierunków
             </span>
           </div>
           <Link
@@ -196,7 +215,7 @@ export default function KierunkiHub() {
 }
 
 function VariantCard({ v, index }: { v: Variant; index: number }) {
-  const isDark = v.code === "K3" || v.code === "K5";
+  const isDark = v.code === "K3" || v.code === "K5" || v.code === "K6";
   const subtle = isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)";
   const subtleLine = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
   const mutedInk = isDark ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)";
@@ -361,7 +380,7 @@ function VariantCard({ v, index }: { v: Variant; index: number }) {
  * Positioned top-right of the preview area, below the meta bar.
  */
 function DirectionDecor({ variant: v }: { variant: Variant }) {
-  const isDark = v.code === "K3" || v.code === "K5";
+  const isDark = v.code === "K3" || v.code === "K5" || v.code === "K6";
   if (v.code === "K1") {
     // Blueprint mini-schematic
     return (

@@ -1,0 +1,130 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { SHARED } from "../../_data/content";
+
+export function StudioProof() {
+  const reduced = useReducedMotion();
+  const { proof } = SHARED;
+
+  return (
+    <section id="realizacje" className="relative py-32 lg:py-40 overflow-hidden border-t" style={{ borderColor: "var(--k6-line)" }}>
+      <div className="k6-container">
+        <motion.p
+          initial={reduced ? false : { opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8 }}
+          className="k6-mono text-[11px] tracking-[0.2em] mb-16 flex items-center gap-2"
+          style={{ color: "var(--k6-accent)" }}
+        >
+          <span aria-hidden="true">//</span>
+          CASE PL-2024-087
+        </motion.p>
+
+        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-20 items-center">
+          {/* Giant delta */}
+          <motion.div
+            initial={reduced ? false : { opacity: 0, scale: 0.92 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, oklch(0.85 0.19 140 / 0.18), transparent 65%)",
+              }}
+            />
+            <p
+              className="k6-display relative text-[clamp(6rem,4rem+10vw,16rem)] leading-[0.92] italic"
+              style={{ color: "var(--k6-accent)" }}
+            >
+              {proof.delta}
+            </p>
+            <p className="k6-mono text-[12px] mt-4 text-[color:var(--k6-ink-faint)] uppercase tracking-[0.15em]">
+              redukcja zużycia rok do roku
+            </p>
+          </motion.div>
+
+          {/* Case card */}
+          <motion.div
+            initial={reduced ? false : { opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative p-8 lg:p-10 rounded-sm border"
+            style={{
+              background: "var(--k6-bg-elevated)",
+              borderColor: "var(--k6-line-strong)",
+            }}
+          >
+            <p className="k6-mono text-[11px] tracking-[0.15em] text-[color:var(--k6-ink-faint)] uppercase">
+              {proof.caseId}
+            </p>
+            <h3 className="k6-serif text-[28px] lg:text-[32px] mt-3 leading-tight">
+              {proof.client}
+            </h3>
+            <p className="text-[14px] text-[color:var(--k6-ink-muted)] mt-1">
+              {proof.region} · {proof.year}
+            </p>
+
+            {/* Before / After */}
+            <div className="mt-8 grid grid-cols-2 gap-6 pb-6 border-b" style={{ borderColor: "var(--k6-line)" }}>
+              <div>
+                <p className="k6-mono text-[11px] text-[color:var(--k6-ink-faint)] uppercase tracking-[0.1em]">
+                  {proof.before.label}
+                </p>
+                <p className="k6-display text-[26px] lg:text-[32px] mt-2 text-[color:var(--k6-ink-muted)]">
+                  {proof.before.value}{" "}
+                  <span className="text-[16px] text-[color:var(--k6-ink-faint)]">
+                    {proof.before.unit}
+                  </span>
+                </p>
+              </div>
+              <div>
+                <p className="k6-mono text-[11px] text-[color:var(--k6-ink-faint)] uppercase tracking-[0.1em]">
+                  {proof.after.label}
+                </p>
+                <p className="k6-display text-[26px] lg:text-[32px] mt-2" style={{ color: "var(--k6-accent)" }}>
+                  {proof.after.value}{" "}
+                  <span className="text-[16px] text-[color:var(--k6-ink-faint)]">
+                    {proof.after.unit}
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <dl className="mt-6 space-y-3">
+              <div className="flex justify-between text-[14px]">
+                <dt className="text-[color:var(--k6-ink-muted)]">ROI</dt>
+                <dd className="text-[color:var(--k6-ink)] font-medium">{proof.roi}</dd>
+              </div>
+              <div className="flex justify-between text-[14px]">
+                <dt className="text-[color:var(--k6-ink-muted)]">Redukcja CO₂</dt>
+                <dd className="text-[color:var(--k6-ink)] font-medium">{proof.co2}</dd>
+              </div>
+              <div className="flex justify-between text-[14px]">
+                <dt className="text-[color:var(--k6-ink-muted)]">Bonus</dt>
+                <dd className="text-[color:var(--k6-ink)] font-medium">{proof.certificates}</dd>
+              </div>
+            </dl>
+
+            <a
+              href="#kontakt"
+              className="inline-flex items-center gap-2 mt-8 text-[14px] font-medium transition-all hover:gap-3"
+              style={{ color: "var(--k6-accent)" }}
+            >
+              Pobierz case study (PDF)
+              <span aria-hidden="true">→</span>
+            </a>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
