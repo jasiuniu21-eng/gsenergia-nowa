@@ -15,7 +15,7 @@
 7. [Dynamiczne strony (Next.js App Router)](#7-dynamiczne-strony)
 8. [Treść stron usług — 800+ słów + FAQ](#8-tre-stron-us-ug)
 9. [Core Web Vitals — wydajność](#9-core-web-vitals)
-10. [Co trzeba zrobić po stronie Joanny](#10-co-trzeba-zrobi-po-stronie-joanny)
+10. [Co trzeba zrobić po stronie programisty](#10-co-trzeba-zrobi-po-stronie-joanny)
 11. [Jak sprawdzić czy działa](#11-jak-sprawdzi-czy-dzia-a)
 12. [Struktura plików SEO w projekcie](#12-struktura-plik-w)
 13. [Kiedy będą efekty](#13-kiedy-b-d-efekty)
@@ -286,7 +286,7 @@ Dlaczego jest dobrze:
 
 ---
 
-## 10. Co trzeba zrobić po stronie Joanny
+## 10. Co trzeba zrobić po stronie programisty
 
 ### KROK 1 (obowiązkowe, 15 minut) — Google Search Console
 

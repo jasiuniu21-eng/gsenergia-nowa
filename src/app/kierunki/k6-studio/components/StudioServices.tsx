@@ -9,28 +9,18 @@ export function StudioServices() {
   return (
     <section id="uslugi" className="relative py-32 lg:py-40">
       <div className="k6-container">
-        {/* Section header */}
+        {/* Section header — simpler, no mono eyebrow */}
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="mb-20 max-w-[60ch]"
+          className="mb-24 max-w-[20ch]"
         >
-          <p
-            className="k6-mono text-[11px] tracking-[0.2em] mb-6 flex items-center gap-2"
-            style={{ color: "var(--k6-accent)" }}
-          >
-            <span aria-hidden="true">//</span>
-            SIEDEM DZIEDZIN
-          </p>
-          <h2 className="k6-display text-[clamp(2.5rem,1.5rem+3vw,4.5rem)]">
-            Każda usługa zaczyna się od pomiarów.
+          <h2 className="k6-display text-[clamp(2.5rem,1.5rem+3vw,5rem)] leading-[1]">
+            Siedem<br/>dziedzin.<br/>
+            <em className="italic" style={{ color: "var(--k6-accent)" }}>Każda z pomiarami.</em>
           </h2>
-          <p className="mt-6 text-[17px] text-[color:var(--k6-ink-muted)] leading-[1.55]">
-            Nie spekulujemy. Nie kopiujemy benchmarków z internetu. Każda
-            rekomendacja ma dane, które potwierdzają jej sens.
-          </p>
         </motion.div>
 
         {/* Services list */}
@@ -52,43 +42,31 @@ export function StudioServices() {
                 className="group block py-10 lg:py-12 border-b relative transition-colors"
                 style={{ borderColor: "var(--k6-line)" }}
               >
-                <div className="grid grid-cols-[auto_1fr_auto] gap-6 lg:gap-12 items-baseline">
-                  {/* Index */}
+                <div className="grid grid-cols-[48px_1fr_auto] gap-8 lg:gap-16 items-baseline">
+                  {/* Index — smaller, understated */}
                   <span
-                    className="k6-serif italic text-[28px] lg:text-[36px]"
-                    style={{ color: "var(--k6-accent-dim)" }}
+                    className="k6-mono text-[13px] pt-2"
+                    style={{ color: "var(--k6-ink-faint)" }}
                   >
                     {s.n}
                   </span>
 
-                  {/* Title + description */}
+                  {/* Title + one-line description */}
                   <div className="min-w-0">
-                    <h3 className="k6-display text-[clamp(1.75rem,1.25rem+1.5vw,3rem)] transition-colors group-hover:text-[color:var(--k6-accent)]">
+                    <h3 className="k6-display text-[clamp(1.75rem,1rem+2vw,3.5rem)] leading-[1.05] transition-colors group-hover:text-[color:var(--k6-accent)]">
                       {s.title}
                     </h3>
-                    <p className="mt-3 text-[15px] lg:text-[16px] text-[color:var(--k6-ink-muted)] leading-[1.5] max-w-[60ch]">
-                      {s.body}
+                    <p className="mt-3 text-[15px] lg:text-[17px] text-[color:var(--k6-ink-muted)] leading-[1.5] max-w-[56ch]">
+                      {s.short}
                     </p>
-                    <div className="mt-4 flex items-baseline gap-3">
-                      <span
-                        className="k6-mono text-[12px]"
-                        style={{ color: "var(--k6-accent)" }}
-                      >
-                        {s.metric}
-                      </span>
-                      <span className="text-[12px] text-[color:var(--k6-ink-faint)]">
-                        {s.metricLabel}
-                      </span>
-                    </div>
                   </div>
 
-                  {/* Arrow */}
+                  {/* Metric on the right (replaces arrow for clarity) */}
                   <span
-                    aria-hidden="true"
-                    className="k6-serif text-[24px] transition-transform group-hover:translate-x-2"
+                    className="k6-mono text-[13px] whitespace-nowrap pt-3"
                     style={{ color: "var(--k6-accent)" }}
                   >
-                    →
+                    {s.metric}
                   </span>
                 </div>
               </a>

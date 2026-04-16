@@ -77,24 +77,19 @@ export function StudioTrust() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative py-20 border-t border-b" style={{ borderColor: "var(--k6-line)" }}>
+    <section className="relative py-24 lg:py-28 border-t" style={{ borderColor: "var(--k6-line)" }}>
       <div className="k6-container">
         <motion.div
-          initial={reduced ? false : { opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={reduced ? false : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8 }}
+          className="text-center"
         >
-          <p
-            className="k6-mono text-[11px] tracking-[0.2em] mb-8 flex items-center gap-2"
-            style={{ color: "var(--k6-accent)" }}
-          >
-            <span aria-hidden="true">//</span>
-            ZAUFALI NAM
-          </p>
+          <p className="k6-label mb-12">Zaufali nam</p>
 
-          {/* Wordmarks row */}
-          <ul className="flex flex-wrap items-center gap-x-12 gap-y-6 lg:gap-x-16 mb-8">
+          {/* Wordmarks row — larger gap, centered, more breathing room */}
+          <ul className="flex flex-wrap items-center justify-center gap-x-14 gap-y-8 lg:gap-x-20">
             {WORDMARKS.map((wm) => (
               <motion.li
                 key={wm.label}
@@ -103,19 +98,13 @@ export function StudioTrust() {
                 style={{
                   ...wm.style,
                   color: "var(--k6-ink)",
-                  opacity: 0.7,
+                  opacity: 0.55,
                 }}
               >
                 {wm.label}
               </motion.li>
             ))}
           </ul>
-
-          <p className="text-[14px] text-[color:var(--k6-ink-faint)] max-w-[70ch] leading-relaxed">
-            Realizacje w przemyśle spożywczym, automotive, lotnictwie, energetyce
-            i infrastrukturze krytycznej. 11 opublikowanych case studies — od
-            audytu chłodniczego po ścieżkę Net Zero zgodną z CSRD.
-          </p>
         </motion.div>
       </div>
     </section>

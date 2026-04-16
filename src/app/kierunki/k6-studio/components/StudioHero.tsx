@@ -23,53 +23,37 @@ export function StudioHero() {
   }, [reduced]);
 
   return (
-    <section className="relative pt-[160px] pb-32 lg:pt-[200px] lg:pb-40 overflow-hidden">
-      {/* Subtle accent glow top-right */}
+    <section className="relative min-h-[92vh] flex items-center pt-[120px] pb-20 lg:pt-[140px] overflow-hidden">
+      {/* Subtle centered glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full opacity-[0.08]"
+        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[600px] opacity-[0.10]"
         style={{
           background:
-            "radial-gradient(circle, oklch(0.85 0.19 140) 0%, transparent 65%)",
+            "radial-gradient(ellipse at center, oklch(0.85 0.19 140) 0%, transparent 60%)",
         }}
       />
 
-      <div className="k6-container relative">
-        {/* Eyebrow */}
-        <motion.p
-          initial={reduced ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="k6-label mb-10 flex items-center gap-3"
-        >
-          <span
-            aria-hidden="true"
-            className="inline-block h-[6px] w-[6px] rounded-full"
-            style={{ background: "var(--k6-accent)" }}
-          />
-          Studio · Kraków · od 2008
-        </motion.p>
-
-        {/* Headline */}
-        <h1 className="k6-display text-[clamp(3rem,2rem+5vw,8rem)] leading-[0.98] max-w-[18ch]">
+      <div className="k6-container relative w-full">
+        {/* Headline — single focus, no eyebrow, generous whitespace */}
+        <h1 className="k6-display text-[clamp(3.25rem,2rem+6vw,9rem)] leading-[0.95] tracking-[-0.035em] max-w-[16ch]">
           <motion.span
-            initial={reduced ? false : { opacity: 0, y: 20 }}
+            initial={reduced ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="block text-[color:var(--k6-ink)]"
           >
             Audyt, który
           </motion.span>
 
-          {/* Cycling word */}
           <span className="relative block h-[1.05em]">
             <AnimatePresence mode="wait">
               <motion.span
                 key={i}
-                initial={reduced ? false : { opacity: 0, y: 30, filter: "blur(6px)" }}
+                initial={reduced ? false : { opacity: 0, y: 30, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={reduced ? undefined : { opacity: 0, y: -30, filter: "blur(6px)" }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                exit={reduced ? undefined : { opacity: 0, y: -30, filter: "blur(8px)" }}
+                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className="italic absolute left-0 top-0"
                 style={{ color: "var(--k6-accent)" }}
               >
@@ -79,37 +63,27 @@ export function StudioHero() {
           </span>
         </h1>
 
-        {/* Closing line */}
+        {/* Subheadline — short, single line on desktop */}
         <motion.p
           initial={reduced ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="k6-serif italic text-[clamp(1.25rem,1rem+0.8vw,1.75rem)] text-[color:var(--k6-ink-muted)] mt-6"
+          transition={{ duration: 0.9, delay: 0.35 }}
+          className="mt-12 max-w-[48ch] text-[18px] lg:text-[19px] leading-[1.55] text-[color:var(--k6-ink-muted)]"
         >
-          — bez magii, tylko liczby.
+          Od 2008 r. — 400+ audytów w przemyśle, pomiary klasy A,
+          raport z&nbsp;obliczonym ROI dla każdej rekomendacji.
         </motion.p>
 
-        {/* Subheadline */}
-        <motion.p
-          initial={reduced ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45 }}
-          className="mt-10 max-w-[55ch] text-[17px] leading-[1.55] text-[color:var(--k6-ink-muted)]"
-        >
-          400+ audytów w przemyśle od 2008. Pomiary klasy A, raport z
-          obliczonym ROI dla każdej rekomendacji, wsparcie do wdrożenia.
-        </motion.p>
-
-        {/* CTAs */}
+        {/* Single primary CTA, secondary is a text link */}
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-10 flex flex-wrap gap-4 items-center"
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="mt-14 flex flex-wrap gap-8 items-center"
         >
           <a
             href={SURVEY_URL}
-            className="group inline-flex items-center gap-3 h-[52px] px-7 rounded-full text-[14px] font-medium transition-all hover:scale-[1.02]"
+            className="group inline-flex items-center gap-3 h-[56px] px-8 rounded-full text-[15px] font-medium transition-transform hover:scale-[1.03]"
             style={{
               background: "var(--k6-accent)",
               color: "var(--k6-bg)",
@@ -122,40 +96,13 @@ export function StudioHero() {
           </a>
           <a
             href="#realizacje"
-            className="group inline-flex items-center gap-3 h-[52px] px-7 rounded-full border text-[14px] font-medium text-[color:var(--k6-ink)] transition-colors"
-            style={{ borderColor: "var(--k6-line-strong)" }}
+            className="group text-[15px] font-medium text-[color:var(--k6-ink-muted)] hover:text-[color:var(--k6-ink)] transition-colors"
           >
             Zobacz realizacje
-            <span aria-hidden="true" className="transition-transform group-hover:translate-y-1">
+            <span aria-hidden="true" className="inline-block ml-2 transition-transform group-hover:translate-y-1">
               ↓
             </span>
           </a>
-        </motion.div>
-
-        {/* Stat bar */}
-        <motion.div
-          initial={reduced ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-16 pt-6 border-t flex flex-wrap gap-x-8 gap-y-2 k6-mono text-[12px] text-[color:var(--k6-ink-muted)]"
-          style={{ borderColor: "var(--k6-line)" }}
-        >
-          <span>
-            <span className="text-[color:var(--k6-ink)] font-medium">400+</span>{" "}
-            audytów
-          </span>
-          <span aria-hidden="true">·</span>
-          <span>
-            <span className="text-[color:var(--k6-ink)] font-medium">18</span>{" "}
-            lat doświadczenia
-          </span>
-          <span aria-hidden="true">·</span>
-          <span>
-            <span style={{ color: "var(--k6-accent)" }} className="font-medium">
-              −26.8%
-            </span>{" "}
-            średnia redukcja (case PL-087)
-          </span>
         </motion.div>
       </div>
     </section>
