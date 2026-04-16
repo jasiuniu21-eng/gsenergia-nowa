@@ -1,7 +1,7 @@
 /* =====================================================================
    K7 — Bloom (wordware-core)
-   Deep black, lime accent, editorial serif headlines, warm off-white text.
-   Subtle grain, generous whitespace, typography-first.
+   Deep near-black with green undertone, BRAND GREEN pulled from GS logo
+   (#3c8c3c / #008c14 — forest/emerald), editorial serif, warm off-white.
    ===================================================================== */
 
 [data-kierunek="k7"] {
@@ -27,11 +27,14 @@
   --k7-ink-muted: oklch(0.78 0.010 85);
   --k7-ink-faint: oklch(0.56 0.008 85);
 
-  /* Lime accent — brighter, more pop */
-  --k7-accent: oklch(0.88 0.22 140);
-  --k7-accent-dim: oklch(0.62 0.16 140);
-  --k7-accent-glow: oklch(0.88 0.22 140 / 0.35);
-  --k7-accent-faint: oklch(0.30 0.06 140);
+  /* Brand green — pulled directly from GS Energia logo (#3c8c3c / #008c14).
+     Two-step: `brand` = exact logo color, `accent` = brighter for pop on dark bg.
+     Same hue (145) so they're on the same green axis. */
+  --k7-accent-brand: oklch(0.55 0.17 145);   /* exact logo green */
+  --k7-accent: oklch(0.72 0.19 145);          /* bright, readable on dark */
+  --k7-accent-dim: oklch(0.45 0.12 145);
+  --k7-accent-glow: oklch(0.72 0.19 145 / 0.35);
+  --k7-accent-faint: oklch(0.28 0.06 145);
 
   --k7-container: 1280px;
   --k7-gutter: clamp(1rem, 0.5rem + 2vw, 2.5rem);
@@ -94,7 +97,7 @@
   content: "";
   position: absolute;
   inset: -40%;
-  background: radial-gradient(ellipse at center, oklch(0.85 0.19 140 / 0.22), transparent 60%);
+  background: radial-gradient(ellipse at center, oklch(0.72 0.19 145 / 0.22), transparent 60%);
   z-index: -1;
   pointer-events: none;
 }

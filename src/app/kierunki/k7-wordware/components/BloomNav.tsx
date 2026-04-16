@@ -72,7 +72,7 @@ export function BloomNav() {
                   background: "oklch(0.11 0.006 145 / 0.96)",
                   borderColor: "var(--k7-line-strong)",
                   boxShadow:
-                    "0 32px 64px -12px oklch(0 0 0 / 0.8), 0 0 40px oklch(0.88 0.22 140 / 0.08)",
+                    "0 32px 64px -12px oklch(0 0 0 / 0.8), 0 0 40px oklch(0.72 0.19 145 / 0.08)",
                 }}
               >
                 {/* Header */}

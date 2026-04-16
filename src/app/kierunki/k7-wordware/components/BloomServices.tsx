@@ -138,7 +138,7 @@ export function BloomServices() {
                           ? "var(--k7-accent)"
                           : "var(--k7-ink-muted)",
                         background: isOpen
-                          ? "oklch(0.88 0.22 140 / 0.08)"
+                          ? "oklch(0.72 0.19 145 / 0.08)"
                           : "transparent",
                       }}
                       aria-hidden="true"

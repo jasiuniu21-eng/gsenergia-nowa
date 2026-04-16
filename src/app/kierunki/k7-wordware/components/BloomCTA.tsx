@@ -18,7 +18,7 @@ export function BloomCTA() {
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[700px] opacity-[0.22]"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.88 0.22 140) 0%, transparent 65%)",
+            "radial-gradient(ellipse at center, oklch(0.72 0.19 145) 0%, transparent 65%)",
           filter: "blur(40px)",
         }}
       />

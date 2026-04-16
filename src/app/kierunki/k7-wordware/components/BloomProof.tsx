@@ -36,7 +36,7 @@ export function BloomProof() {
               className="pointer-events-none absolute inset-0 scale-125"
               style={{
                 background:
-                  "radial-gradient(ellipse at 40% 60%, oklch(0.88 0.22 140 / 0.40), transparent 60%)",
+                  "radial-gradient(ellipse at 40% 60%, oklch(0.72 0.19 145 / 0.40), transparent 60%)",
                 filter: "blur(30px)",
               }}
             />
@@ -44,7 +44,7 @@ export function BloomProof() {
               className="k7-display relative text-[clamp(6.5rem,4rem+12vw,20rem)] leading-[0.88] italic"
               style={{
                 color: "var(--k7-accent)",
-                textShadow: "0 0 80px oklch(0.88 0.22 140 / 0.5)",
+                textShadow: "0 0 80px oklch(0.72 0.19 145 / 0.5)",
                 letterSpacing: "-0.04em",
               }}
             >

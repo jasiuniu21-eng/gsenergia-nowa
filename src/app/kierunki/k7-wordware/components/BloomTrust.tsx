@@ -84,7 +84,7 @@ export function BloomTrust() {
         className="pointer-events-none absolute -top-20 right-0 w-[600px] h-[400px] opacity-30"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.88 0.22 140 / 0.5), transparent 70%)",
+            "radial-gradient(ellipse at center, oklch(0.72 0.19 145 / 0.5), transparent 70%)",
           filter: "blur(60px)",
         }}
       />

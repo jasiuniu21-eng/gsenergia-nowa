@@ -18,7 +18,7 @@ export function BloomHero() {
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[1100px] opacity-[0.18]"
         style={{
           background:
-            "radial-gradient(circle, oklch(0.88 0.22 140) 0%, transparent 55%)",
+            "radial-gradient(circle, oklch(0.72 0.19 145) 0%, transparent 55%)",
           filter: "blur(60px)",
         }}
       />
