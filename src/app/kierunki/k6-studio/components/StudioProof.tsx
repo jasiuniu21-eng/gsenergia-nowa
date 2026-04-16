@@ -116,10 +116,10 @@ export function StudioProof() {
 
             <a
               href="#kontakt"
-              className="inline-flex items-center gap-2 mt-8 text-[14px] font-medium transition-all hover:gap-3"
+              className="inline-flex items-center gap-2 mt-8 text-[14px] font-medium transition-all hover:gap-3 focus-visible:outline-none focus-visible:underline"
               style={{ color: "var(--k6-accent)" }}
             >
-              Pobierz case study (PDF)
+              Poproś o pełne case study
               <span aria-hidden="true">→</span>
             </a>
           </motion.div>

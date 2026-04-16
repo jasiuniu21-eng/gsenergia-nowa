@@ -83,10 +83,12 @@ export function StudioHero() {
         >
           <a
             href={SURVEY_URL}
-            className="group inline-flex items-center gap-3 h-[56px] px-8 rounded-full text-[15px] font-medium transition-transform hover:scale-[1.03]"
+            className="group inline-flex items-center gap-3 h-[56px] px-8 rounded-full text-[15px] font-medium transition-transform hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-offset-[color:var(--k6-bg)]"
             style={{
               background: "var(--k6-accent)",
               color: "var(--k6-bg)",
+              // @ts-expect-error — CSS var
+              "--tw-ring-color": "var(--k6-accent)",
             }}
           >
             Bezpłatna wycena w 48 h
@@ -96,7 +98,7 @@ export function StudioHero() {
           </a>
           <a
             href="#realizacje"
-            className="group text-[15px] font-medium text-[color:var(--k6-ink-muted)] hover:text-[color:var(--k6-ink)] transition-colors"
+            className="group inline-flex items-center h-[48px] px-3 -mx-3 text-[15px] font-medium text-[color:var(--k6-ink-muted)] hover:text-[color:var(--k6-ink)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--k6-accent)] rounded-md"
           >
             Zobacz realizacje
             <span aria-hidden="true" className="inline-block ml-2 transition-transform group-hover:translate-y-1">

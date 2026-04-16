@@ -54,7 +54,7 @@ export function StudioNav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-[14px] text-[color:var(--k6-ink-muted)] hover:text-[color:var(--k6-ink)] transition-colors"
+              className="text-[14px] text-[color:var(--k6-ink-muted)] hover:text-[color:var(--k6-ink)] transition-colors focus-visible:outline-none focus-visible:text-[color:var(--k6-ink)] focus-visible:underline underline-offset-8"
             >
               {l.label}
             </a>
@@ -64,7 +64,7 @@ export function StudioNav() {
         {/* CTA */}
         <a
           href={SURVEY_URL}
-          className="inline-flex items-center gap-2 h-9 px-4 rounded-full border text-[13px] font-medium transition-all hover:scale-[1.02]"
+          className="inline-flex items-center gap-2 h-10 px-5 rounded-full border text-[13px] font-medium transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--k6-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--k6-bg)]"
           style={{
             borderColor: "var(--k6-accent)",
             color: "var(--k6-accent)",

@@ -42,7 +42,10 @@ export function StudioCTA() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="k6-display text-[clamp(2.5rem,1.5rem+3.5vw,5.5rem)] leading-[1.02] max-w-[20ch] mx-auto"
         >
-          Policzmy co możesz <em className="not-italic" style={{ color: "var(--k6-accent)" }}>zaoszczędzić.</em>
+          Policzmy co możesz{" "}
+          <span className="italic" style={{ color: "var(--k6-accent)" }}>
+            zaoszczędzić.
+          </span>
         </motion.h2>
 
         <motion.p
@@ -65,10 +68,12 @@ export function StudioCTA() {
         >
           <a
             href={SURVEY_URL}
-            className="group inline-flex items-center gap-3 h-[56px] px-8 rounded-full text-[15px] font-medium transition-all hover:scale-[1.02]"
+            className="group inline-flex items-center gap-3 h-[56px] px-8 rounded-full text-[15px] font-medium transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-offset-[color:var(--k6-bg)]"
             style={{
               background: "var(--k6-accent)",
               color: "var(--k6-bg)",
+              // @ts-expect-error — CSS var for ring color
+              "--tw-ring-color": "var(--k6-accent)",
             }}
           >
             Napisz do nas
