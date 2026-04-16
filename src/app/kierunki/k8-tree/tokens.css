@@ -1,0 +1,108 @@
+/* =====================================================================
+   K8 — Tree (wordware-core)
+   Deep near-black with green undertone, BRAND GREEN pulled from GS logo
+   (#3c8c3c / #008c14 — forest/emerald), editorial serif, warm off-white.
+   ===================================================================== */
+
+[data-kierunek="k8"] {
+  --k8-font-display: "Gambarino", Georgia, serif;
+  --k8-font-body: "General Sans", system-ui, sans-serif;
+  --k8-font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Deep warm-tinted black — not pure #000 */
+  --k8-bg: oklch(0.09 0.006 145);
+  --k8-bg-elevated: oklch(0.13 0.008 145);
+  --k8-surface: oklch(0.16 0.01 145);
+
+  /* Warm cream panel — for alternating sections (creates WOW contrast) */
+  --k8-cream: oklch(0.96 0.02 85);
+  --k8-cream-ink: oklch(0.18 0.02 145);
+  --k8-cream-muted: oklch(0.42 0.02 145);
+
+  --k8-line: oklch(0.22 0.010 145);
+  --k8-line-strong: oklch(0.34 0.014 145);
+
+  /* Warm off-white — brighter for readability */
+  --k8-ink: oklch(0.97 0.012 85);
+  --k8-ink-muted: oklch(0.78 0.010 85);
+  --k8-ink-faint: oklch(0.56 0.008 85);
+
+  /* Brand green — pulled directly from GS Energia logo (#3c8c3c / #008c14).
+     Two-step: `brand` = exact logo color, `accent` = brighter for pop on dark bg.
+     Same hue (145) so they're on the same green axis. */
+  --k8-accent-brand: oklch(0.55 0.17 145);   /* exact logo green */
+  --k8-accent: oklch(0.72 0.19 145);          /* bright, readable on dark */
+  --k8-accent-dim: oklch(0.45 0.12 145);
+  --k8-accent-glow: oklch(0.72 0.19 145 / 0.35);
+  --k8-accent-faint: oklch(0.28 0.06 145);
+
+  --k8-container: 1280px;
+  --k8-gutter: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+
+  background: var(--k8-bg);
+  color: var(--k8-ink);
+  font-family: var(--k8-font-body);
+  position: relative;
+}
+
+/* Very subtle noise texture */
+[data-kierunek="k8"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+[data-kierunek="k8"] .k8-container {
+  max-width: var(--k8-container);
+  margin: 0 auto;
+  padding-inline: var(--k8-gutter);
+  position: relative;
+  z-index: 1;
+}
+
+[data-kierunek="k8"] .k8-display {
+  font-family: var(--k8-font-display);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+[data-kierunek="k8"] .k8-serif {
+  font-family: var(--k8-font-display);
+}
+
+[data-kierunek="k8"] .k8-mono {
+  font-family: var(--k8-font-mono);
+  font-variant-ligatures: none;
+}
+
+[data-kierunek="k8"] .k8-label {
+  font-family: var(--k8-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--k8-ink-faint);
+  font-weight: 500;
+}
+
+[data-kierunek="k8"] .k8-accent-glow {
+  position: relative;
+}
+[data-kierunek="k8"] .k8-accent-glow::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(ellipse at center, oklch(0.72 0.19 145 / 0.22), transparent 60%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+[data-kierunek="k8"] *::selection {
+  background: var(--k8-accent);
+  color: var(--k8-bg);
+}
