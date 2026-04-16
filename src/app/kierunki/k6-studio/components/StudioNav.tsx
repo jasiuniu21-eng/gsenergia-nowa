@@ -34,13 +34,12 @@ export function StudioNav() {
             style={{ background: "var(--k6-accent)" }}
           />
           <Image
-            src="/logos/gs-energia.png"
+            src="/logos/gs-energia-white.png"
             alt="GS Energia"
-            width={140}
-            height={32}
+            width={160}
+            height={36}
             priority
-            className="h-7 w-auto object-contain"
-            style={{ filter: "brightness(0) invert(1)" }}
+            className="h-8 w-auto object-contain"
           />
         </a>
 

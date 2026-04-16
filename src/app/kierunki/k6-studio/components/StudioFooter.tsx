@@ -15,12 +15,11 @@ export function StudioFooter() {
                 style={{ background: "var(--k6-accent)" }}
               />
               <Image
-                src="/logos/gs-energia.png"
+                src="/logos/gs-energia-white.png"
                 alt="GS Energia"
-                width={160}
-                height={36}
-                className="h-8 w-auto object-contain"
-                style={{ filter: "brightness(0) invert(1)" }}
+                width={180}
+                height={40}
+                className="h-9 w-auto object-contain"
               />
             </div>
             <p className="mt-6 max-w-[32ch] text-[14px] text-[color:var(--k6-ink-muted)] leading-[1.65]">
