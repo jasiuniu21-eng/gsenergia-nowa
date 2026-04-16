@@ -10,21 +10,27 @@
   --k6-font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* Deep warm-tinted black — not pure #000 */
-  --k6-bg: oklch(0.08 0.005 145);
-  --k6-bg-elevated: oklch(0.11 0.006 145);
-  --k6-surface: oklch(0.13 0.007 145);
+  --k6-bg: oklch(0.09 0.006 145);
+  --k6-bg-elevated: oklch(0.13 0.008 145);
+  --k6-surface: oklch(0.16 0.01 145);
 
-  --k6-line: oklch(0.18 0.008 145);
-  --k6-line-strong: oklch(0.28 0.012 145);
+  /* Warm cream panel — for alternating sections (creates WOW contrast) */
+  --k6-cream: oklch(0.96 0.02 85);
+  --k6-cream-ink: oklch(0.18 0.02 145);
+  --k6-cream-muted: oklch(0.42 0.02 145);
 
-  /* Warm off-white — editorial feel */
-  --k6-ink: oklch(0.96 0.01 85);
-  --k6-ink-muted: oklch(0.70 0.008 85);
-  --k6-ink-faint: oklch(0.48 0.006 85);
+  --k6-line: oklch(0.22 0.010 145);
+  --k6-line-strong: oklch(0.34 0.014 145);
 
-  /* Lime accent */
-  --k6-accent: oklch(0.85 0.19 140);
-  --k6-accent-dim: oklch(0.55 0.14 140);
+  /* Warm off-white — brighter for readability */
+  --k6-ink: oklch(0.97 0.012 85);
+  --k6-ink-muted: oklch(0.78 0.010 85);
+  --k6-ink-faint: oklch(0.56 0.008 85);
+
+  /* Lime accent — brighter, more pop */
+  --k6-accent: oklch(0.88 0.22 140);
+  --k6-accent-dim: oklch(0.62 0.16 140);
+  --k6-accent-glow: oklch(0.88 0.22 140 / 0.35);
   --k6-accent-faint: oklch(0.30 0.06 140);
 
   --k6-container: 1280px;

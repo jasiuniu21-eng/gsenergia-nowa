@@ -23,14 +23,41 @@ export function StudioHero() {
   }, [reduced]);
 
   return (
-    <section className="relative min-h-[92vh] flex items-center pt-[140px] pb-20 lg:pt-[170px] overflow-hidden">
-      {/* Subtle centered glow */}
+    <section className="relative min-h-[94vh] flex items-center pt-[140px] pb-20 lg:pt-[170px] overflow-hidden">
+      {/* BOLD radial glow — larger, more intense */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[600px] opacity-[0.10]"
+        className="pointer-events-none absolute -top-20 -left-40 w-[1200px] h-[800px] opacity-[0.22]"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.85 0.19 140) 0%, transparent 60%)",
+            "radial-gradient(circle at 30% 40%, oklch(0.88 0.22 140) 0%, transparent 55%)",
+        }}
+      />
+
+      {/* Ghost number background — gigantic, near-imperceptible */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-[8vw] top-[10%] select-none"
+        style={{
+          fontFamily: "var(--k6-font-display)",
+          fontSize: "min(48vw, 720px)",
+          lineHeight: 0.85,
+          color: "oklch(0.88 0.22 140 / 0.035)",
+          fontWeight: 400,
+          letterSpacing: "-0.06em",
+          fontStyle: "italic",
+        }}
+      >
+        −26.8
+      </div>
+
+      {/* Subtle horizontal grid line top */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-[120px] inset-x-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, var(--k6-line-strong), transparent)",
         }}
       />
 

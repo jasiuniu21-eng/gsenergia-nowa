@@ -9,16 +9,17 @@ export function StudioCTA() {
   return (
     <section
       id="kontakt"
-      className="relative py-32 lg:py-48 border-t text-center overflow-hidden"
+      className="relative py-32 lg:py-56 border-t text-center overflow-hidden"
       style={{ borderColor: "var(--k6-line)" }}
     >
-      {/* Glow accent bottom */}
+      {/* Big glow behind headline */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-60 left-1/2 -translate-x-1/2 w-[900px] h-[500px] opacity-[0.12]"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[700px] opacity-[0.22]"
         style={{
           background:
-            "radial-gradient(ellipse at center, oklch(0.85 0.19 140) 0%, transparent 60%)",
+            "radial-gradient(ellipse at center, oklch(0.88 0.22 140) 0%, transparent 65%)",
+          filter: "blur(40px)",
         }}
       />
 

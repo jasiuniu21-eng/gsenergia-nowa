@@ -42,11 +42,11 @@ export function StudioServices() {
                 className="group block py-10 lg:py-12 border-b relative transition-colors"
                 style={{ borderColor: "var(--k6-line)" }}
               >
-                <div className="grid grid-cols-[48px_1fr_auto] gap-8 lg:gap-16 items-baseline">
-                  {/* Index — smaller, understated */}
+                <div className="grid grid-cols-[60px_1fr_auto] lg:grid-cols-[90px_1fr_auto] gap-6 lg:gap-12 items-baseline">
+                  {/* Index — bigger, serif, italic */}
                   <span
-                    className="k6-mono text-[13px] pt-2"
-                    style={{ color: "var(--k6-ink-faint)" }}
+                    className="k6-serif italic text-[28px] lg:text-[48px] leading-none"
+                    style={{ color: "var(--k6-accent)" }}
                   >
                     {s.n}
                   </span>
@@ -61,10 +61,13 @@ export function StudioServices() {
                     </p>
                   </div>
 
-                  {/* Metric on the right (replaces arrow for clarity) */}
+                  {/* Metric on the right — larger, high contrast */}
                   <span
-                    className="k6-mono text-[13px] whitespace-nowrap pt-3"
-                    style={{ color: "var(--k6-accent)" }}
+                    className="k6-mono text-[14px] lg:text-[15px] font-semibold whitespace-nowrap pt-3 px-3 py-1 rounded-full border"
+                    style={{
+                      color: "var(--k6-accent)",
+                      borderColor: "var(--k6-accent-faint)",
+                    }}
                   >
                     {s.metric}
                   </span>

@@ -27,7 +27,7 @@ function LogoImg({ id }: { id: string }) {
         width={160}
         height={80}
         className="max-h-full max-w-full w-auto h-auto object-contain select-none pointer-events-none"
-        style={{ filter: "grayscale(1) brightness(1.9) contrast(0.9)" }}
+        style={{ filter: "grayscale(1) contrast(1)" }}
       />
     </div>
   );
@@ -72,21 +72,46 @@ export function StudioTrust() {
 
   return (
     <section
-      className="relative py-24 lg:py-28 border-t overflow-hidden"
-      style={{ borderColor: "var(--k6-line)" }}
+      className="relative py-24 lg:py-32 overflow-hidden"
+      style={{
+        background: "var(--k6-cream)",
+        color: "var(--k6-cream-ink)",
+      }}
     >
-      <div className="k6-container">
+      {/* Soft accent glow on cream */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-20 right-0 w-[600px] h-[400px] opacity-30"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, oklch(0.88 0.22 140 / 0.5), transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+
+      <div className="k6-container relative">
         <motion.div
-          initial={reduced ? false : { opacity: 0, y: 8 }}
+          initial={reduced ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
-          <p className="k6-label mb-3">Zaufali nam</p>
-          <p className="text-[14px] text-[color:var(--k6-ink-faint)]">
-            {TOTAL_LOGOS}+ zakładów produkcyjnych i instytucji w Polsce
+          <p
+            className="k6-mono text-[11px] tracking-[0.22em] mb-6 uppercase font-semibold"
+            style={{ color: "var(--k6-accent-dim)" }}
+          >
+            // Zaufali nam
           </p>
+          <h2
+            className="k6-display text-[clamp(2rem,1rem+3vw,3.75rem)] leading-[1.02] max-w-[18ch] mx-auto"
+            style={{ color: "var(--k6-cream-ink)" }}
+          >
+            <em className="italic" style={{ color: "var(--k6-accent-dim)" }}>
+              {TOTAL_LOGOS}+
+            </em>{" "}
+            zakładów, instytucji i marek w Polsce.
+          </h2>
         </motion.div>
       </div>
 
