@@ -133,6 +133,25 @@ const VARIANTS: Variant[] = [
     tracking: "-0.03em",
     hint: "studio · wordware-core",
   },
+  {
+    slug: "k7-wordware",
+    code: "K7",
+    name: "Bloom",
+    tagline: "Wordware clone — central energy bloom",
+    description:
+      "Najbliższy klon wordware.ai — centrowany hero, animowany Energy Bloom (sieć węzłów rozkwita z centrum), spokojny drift. Abstract SVG zamiast kwiatka.",
+    mode: "Dark · Editorial · Centered",
+    bgHex: "#0b0b0a",
+    inkHex: "#f6f3ea",
+    accentHex: "#9df080",
+    accentName: "Bloom lime",
+    displayFontFamily: "'Gambarino', Georgia, serif",
+    displayWeight: 400,
+    displayItalic: true,
+    bodyFontFamily: "'General Sans', system-ui, sans-serif",
+    tracking: "-0.035em",
+    hint: "bloom · central SVG animation",
+  },
 ];
 
 export default function KierunkiHub() {
@@ -149,7 +168,7 @@ export default function KierunkiHub() {
             </span>
             <span className="h-4 w-px bg-white/20" />
             <span className="text-[11px] uppercase tracking-[0.22em] text-white/50">
-              Design Review · 6 kierunków
+              Design Review · 7 kierunków
             </span>
           </div>
           <Link
@@ -215,7 +234,7 @@ export default function KierunkiHub() {
 }
 
 function VariantCard({ v, index }: { v: Variant; index: number }) {
-  const isDark = v.code === "K3" || v.code === "K5" || v.code === "K6";
+  const isDark = v.code === "K3" || v.code === "K5" || v.code === "K6" || v.code === "K7";
   const subtle = isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)";
   const subtleLine = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
   const mutedInk = isDark ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)";
@@ -380,7 +399,7 @@ function VariantCard({ v, index }: { v: Variant; index: number }) {
  * Positioned top-right of the preview area, below the meta bar.
  */
 function DirectionDecor({ variant: v }: { variant: Variant }) {
-  const isDark = v.code === "K3" || v.code === "K5" || v.code === "K6";
+  const isDark = v.code === "K3" || v.code === "K5" || v.code === "K6" || v.code === "K7";
   if (v.code === "K1") {
     // Blueprint mini-schematic
     return (
