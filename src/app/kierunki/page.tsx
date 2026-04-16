@@ -171,6 +171,24 @@ const VARIANTS: Variant[] = [
     tracking: "-0.035em",
     hint: "tree · live counter · DEKRA nav",
   },
+  {
+    slug: "k9-light",
+    code: "K9",
+    name: "Light",
+    tagline: "Biała strona + canvas bouquet z cyfr kWh",
+    description:
+      "Jasny wariant — białe tło, ciemny topbar, Inter + green #16A34A. Canvas hero z bukietem kwiatów zbudowanym z cyfr energetycznych (kWh/MWh/%), wypełnia się od dołu jak woda.",
+    mode: "Light · Canvas · Energy Intelligence",
+    bgHex: "#ffffff",
+    inkHex: "#0a0a0a",
+    accentHex: "#16A34A",
+    accentName: "Energy green 600",
+    displayFontFamily: "Inter, 'General Sans', system-ui, sans-serif",
+    displayWeight: 700,
+    bodyFontFamily: "Inter, 'General Sans', system-ui, sans-serif",
+    tracking: "-0.04em",
+    hint: "light · canvas flowers · search",
+  },
 ];
 
 export default function KierunkiHub() {
@@ -187,7 +205,7 @@ export default function KierunkiHub() {
             </span>
             <span className="h-4 w-px bg-white/20" />
             <span className="text-[11px] uppercase tracking-[0.22em] text-white/50">
-              Design Review · 8 kierunków
+              Design Review · 9 kierunków
             </span>
           </div>
           <Link

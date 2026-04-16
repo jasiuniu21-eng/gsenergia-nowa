@@ -1,0 +1,77 @@
+/* =====================================================================
+   K9 — Light (based on /ebook/gsenergia-hero.html concept)
+   White bg, dark topbar, Inter font, green #16A34A (Tailwind green-600),
+   canvas "flower bouquet" hero with kWh/MWh characters reveal.
+   ===================================================================== */
+
+[data-kierunek="k9"] {
+  --k9-font-display: "General Sans", Inter, system-ui, sans-serif;
+  --k9-font-body: "General Sans", Inter, system-ui, sans-serif;
+  --k9-font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Light palette */
+  --k9-bg: #ffffff;
+  --k9-bg-elevated: #fafafa;
+  --k9-surface: #f5f5f5;
+
+  --k9-topbar: #111111;
+  --k9-topbar-ink: #888888;
+
+  --k9-line: #efefef;
+  --k9-line-strong: #e0e0e0;
+
+  --k9-ink: #0a0a0a;
+  --k9-ink-muted: #555555;
+  --k9-ink-faint: #888888;
+
+  /* Green — exact match to user's HTML (#16A34A = Tailwind green-600) */
+  --k9-accent: #16A34A;
+  --k9-accent-dim: #0f7a37;
+  --k9-accent-faint: rgba(22, 163, 74, 0.1);
+  --k9-accent-glow: rgba(22, 163, 74, 0.35);
+
+  --k9-container: 1280px;
+  --k9-gutter: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+
+  background: var(--k9-bg);
+  color: var(--k9-ink);
+  font-family: var(--k9-font-body);
+}
+
+[data-kierunek="k9"] .k9-container {
+  max-width: var(--k9-container);
+  margin: 0 auto;
+  padding-inline: var(--k9-gutter);
+  position: relative;
+  z-index: 1;
+}
+
+[data-kierunek="k9"] .k9-display {
+  font-family: var(--k9-font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+[data-kierunek="k9"] .k9-serif {
+  font-family: "Gambarino", Georgia, serif;
+}
+
+[data-kierunek="k9"] .k9-mono {
+  font-family: var(--k9-font-mono);
+  font-variant-ligatures: none;
+}
+
+[data-kierunek="k9"] .k9-label {
+  font-family: var(--k9-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--k9-accent);
+  font-weight: 600;
+}
+
+[data-kierunek="k9"] *::selection {
+  background: var(--k9-accent);
+  color: #fff;
+}
