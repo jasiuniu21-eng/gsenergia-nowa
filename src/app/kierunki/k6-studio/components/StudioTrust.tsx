@@ -1,77 +1,19 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 /**
- * "Zaufali nam" — typographic wordmarks (no image files).
- * Each rendered as styled text to feel like an actual logo.
+ * "Zaufali nam" — real client logos from gsenergia.pl archive.
+ * Stored in /public/logos/ (git-tracked, not .gitignored like /public/media/).
  */
-const WORDMARKS = [
-  {
-    label: "PGE Energia",
-    className: "k6-wm-pge",
-    style: {
-      fontFamily: "'General Sans', sans-serif",
-      fontWeight: 700,
-      letterSpacing: "0.06em",
-      textTransform: "uppercase" as const,
-      fontSize: "15px",
-    },
-  },
-  {
-    label: "BSH Bosch",
-    className: "k6-wm-bsh",
-    style: {
-      fontFamily: "'Gambarino', serif",
-      fontStyle: "italic" as const,
-      fontWeight: 400,
-      fontSize: "22px",
-      letterSpacing: "-0.01em",
-    },
-  },
-  {
-    label: "Shell Polska",
-    className: "k6-wm-shell",
-    style: {
-      fontFamily: "'General Sans', sans-serif",
-      fontWeight: 800,
-      fontStretch: "condensed",
-      fontSize: "17px",
-      letterSpacing: "0.01em",
-    },
-  },
-  {
-    label: "PAŻP",
-    className: "k6-wm-pazp",
-    style: {
-      fontFamily: "'JetBrains Mono', monospace",
-      fontWeight: 600,
-      textTransform: "uppercase" as const,
-      fontSize: "14px",
-      letterSpacing: "0.25em",
-    },
-  },
-  {
-    label: "ZF Group",
-    className: "k6-wm-zf",
-    style: {
-      fontFamily: "'General Sans', sans-serif",
-      fontWeight: 300,
-      fontSize: "18px",
-      letterSpacing: "0.08em",
-    },
-  },
-  {
-    label: "Energa",
-    className: "k6-wm-energa",
-    style: {
-      fontFamily: "'Gambarino', serif",
-      fontWeight: 400,
-      fontSize: "20px",
-      letterSpacing: "-0.02em",
-    },
-  },
-];
+const LOGOS = [
+  { src: "/logos/pge.png", alt: "PGE Energia Odnawialna", width: 180, height: 72 },
+  { src: "/logos/bsh.jpg", alt: "BSH Bosch und Siemens Hausgeräte", width: 180, height: 52 },
+  { src: "/logos/zf.webp", alt: "ZF Group", width: 120, height: 60 },
+  { src: "/logos/pse.png", alt: "PSE — Polskie Sieci Elektroenergetyczne", width: 150, height: 60 },
+  { src: "/logos/kv.png", alt: "KV", width: 120, height: 60 },
+] as const;
 
 export function StudioTrust() {
   const reduced = useReducedMotion();
@@ -88,20 +30,27 @@ export function StudioTrust() {
         >
           <p className="k6-label mb-12">Zaufali nam</p>
 
-          {/* Wordmarks row — larger gap, centered, more breathing room */}
-          <ul className="flex flex-wrap items-center justify-center gap-x-14 gap-y-8 lg:gap-x-20">
-            {WORDMARKS.map((wm) => (
+          {/* Client logos row — real marks, grayscale + invert for dark mode consistency */}
+          <ul className="flex flex-wrap items-center justify-center gap-x-14 gap-y-10 lg:gap-x-20">
+            {LOGOS.map((l) => (
               <motion.li
-                key={wm.label}
-                whileHover={{ opacity: 1 }}
-                className="transition-opacity cursor-default select-none"
-                style={{
-                  ...wm.style,
-                  color: "var(--k6-ink)",
-                  opacity: 0.55,
-                }}
+                key={l.src}
+                whileHover={{ opacity: 1, scale: 1.02 }}
+                transition={{ duration: 0.25 }}
+                className="relative h-12 lg:h-14 flex items-center transition-opacity"
+                style={{ opacity: 0.7 }}
               >
-                {wm.label}
+                <Image
+                  src={l.src}
+                  alt={l.alt}
+                  width={l.width}
+                  height={l.height}
+                  className="h-full w-auto object-contain select-none pointer-events-none"
+                  style={{
+                    filter: "brightness(0) invert(1)",
+                    maxWidth: "160px",
+                  }}
+                />
               </motion.li>
             ))}
           </ul>

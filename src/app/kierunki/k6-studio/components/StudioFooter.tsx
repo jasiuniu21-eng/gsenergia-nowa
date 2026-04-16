@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SHARED } from "../../_data/content";
 
 export function StudioFooter() {
@@ -7,13 +8,20 @@ export function StudioFooter() {
         <div className="grid md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 pb-12 border-b" style={{ borderColor: "var(--k6-line)" }}>
           {/* Brand + NAP */}
           <div>
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-3">
               <span
                 aria-hidden="true"
                 className="inline-block h-2 w-2 rounded-full"
                 style={{ background: "var(--k6-accent)" }}
               />
-              <span className="k6-serif text-[18px]">GS Energia</span>
+              <Image
+                src="/logos/gs-energia.png"
+                alt="GS Energia"
+                width={160}
+                height={36}
+                className="h-8 w-auto object-contain"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
             </div>
             <p className="mt-6 max-w-[32ch] text-[14px] text-[color:var(--k6-ink-muted)] leading-[1.65]">
               {SHARED.contact.address}

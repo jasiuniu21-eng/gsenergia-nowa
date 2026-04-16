@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { SURVEY_URL } from "../../_data/content";
 
@@ -25,16 +26,22 @@ export function StudioNav() {
       }}
     >
       <div className="k6-container flex items-center justify-between h-[68px]">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
+        {/* Logo — real GS Energia mark */}
+        <a href="#" className="flex items-center gap-3 group" aria-label="GS Energia — strona główna">
           <span
             aria-hidden="true"
             className="inline-block h-2 w-2 rounded-full transition-transform group-hover:scale-125"
             style={{ background: "var(--k6-accent)" }}
           />
-          <span className="k6-serif text-[18px] tracking-[-0.01em] text-[color:var(--k6-ink)]">
-            GS Energia
-          </span>
+          <Image
+            src="/logos/gs-energia.png"
+            alt="GS Energia"
+            width={140}
+            height={32}
+            priority
+            className="h-7 w-auto object-contain"
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
         </a>
 
         {/* Center links */}
