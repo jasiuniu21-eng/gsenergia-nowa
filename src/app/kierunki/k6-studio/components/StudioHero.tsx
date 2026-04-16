@@ -23,7 +23,7 @@ export function StudioHero() {
   }, [reduced]);
 
   return (
-    <section className="relative min-h-[92vh] flex items-center pt-[120px] pb-20 lg:pt-[140px] overflow-hidden">
+    <section className="relative min-h-[92vh] flex items-center pt-[140px] pb-20 lg:pt-[170px] overflow-hidden">
       {/* Subtle centered glow */}
       <div
         aria-hidden="true"

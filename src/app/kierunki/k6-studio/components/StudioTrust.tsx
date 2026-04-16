@@ -8,24 +8,26 @@ import { motion, useReducedMotion } from "framer-motion";
  * 102 logos stored in /public/logos/clients/001.png ... 102.png
  * Split into 2 rows scrolling opposite directions for visual richness.
  */
-const TOTAL_LOGOS = 102;
-const LOGO_IDS = Array.from({ length: TOTAL_LOGOS }, (_, i) =>
+// Bad IDs filtered out (corrupted downloads); 94 real logos
+const MISSING = new Set(["074", "075", "076", "077", "078", "079", "094", "098"]);
+const LOGO_IDS = Array.from({ length: 102 }, (_, i) =>
   String(i + 1).padStart(3, "0"),
-);
+).filter((id) => !MISSING.has(id));
+const TOTAL_LOGOS = LOGO_IDS.length;
 const HALF = Math.ceil(TOTAL_LOGOS / 2);
 const ROW_A = LOGO_IDS.slice(0, HALF);
 const ROW_B = LOGO_IDS.slice(HALF);
 
 function LogoImg({ id }: { id: string }) {
   return (
-    <div className="flex items-center justify-center h-16 lg:h-20 w-[140px] lg:w-[170px] shrink-0 opacity-65 hover:opacity-100 transition-opacity duration-300">
+    <div className="flex items-center justify-center h-16 lg:h-20 w-[140px] lg:w-[170px] shrink-0 opacity-70 hover:opacity-100 transition-opacity duration-300">
       <Image
         src={`/logos/clients/${id}.png`}
         alt=""
         width={160}
         height={80}
         className="max-h-full max-w-full w-auto h-auto object-contain select-none pointer-events-none"
-        style={{ filter: "brightness(0) invert(1)" }}
+        style={{ filter: "grayscale(1) brightness(1.9) contrast(0.9)" }}
       />
     </div>
   );

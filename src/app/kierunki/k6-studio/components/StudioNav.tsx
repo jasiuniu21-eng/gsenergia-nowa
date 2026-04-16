@@ -25,7 +25,7 @@ export function StudioNav() {
           : "1px solid transparent",
       }}
     >
-      <div className="k6-container flex items-center justify-between h-[68px]">
+      <div className="k6-container flex items-center justify-between h-[84px]">
         {/* Logo — real GS Energia mark */}
         <a href="#" className="flex items-center gap-3 group" aria-label="GS Energia — strona główna">
           <span
@@ -36,10 +36,10 @@ export function StudioNav() {
           <Image
             src="/logos/gs-energia-white.png"
             alt="GS Energia"
-            width={160}
-            height={36}
+            width={240}
+            height={56}
             priority
-            className="h-8 w-auto object-contain"
+            className="h-12 lg:h-14 w-auto object-contain"
           />
         </a>
 
