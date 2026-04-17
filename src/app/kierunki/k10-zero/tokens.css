@@ -1,0 +1,77 @@
+/* =====================================================================
+   K10 — Zero (based on /ebook/gsenergia-hero.html concept)
+   White bg, dark topbar, Inter font, green #16A34A (Tailwind green-600),
+   canvas "flower bouquet" hero with kWh/MWh characters reveal.
+   ===================================================================== */
+
+[data-kierunek="k10"] {
+  --k10-font-display: "General Sans", Inter, system-ui, sans-serif;
+  --k10-font-body: "General Sans", Inter, system-ui, sans-serif;
+  --k10-font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Zero palette */
+  --k10-bg: #ffffff;
+  --k10-bg-elevated: #fafafa;
+  --k10-surface: #f5f5f5;
+
+  --k10-topbar: #111111;
+  --k10-topbar-ink: #888888;
+
+  --k10-line: #efefef;
+  --k10-line-strong: #e0e0e0;
+
+  --k10-ink: #0a0a0a;
+  --k10-ink-muted: #555555;
+  --k10-ink-faint: #888888;
+
+  /* Green — exact match to user's HTML (#16A34A = Tailwind green-600) */
+  --k10-accent: #16A34A;
+  --k10-accent-dim: #0f7a37;
+  --k10-accent-faint: rgba(22, 163, 74, 0.1);
+  --k10-accent-glow: rgba(22, 163, 74, 0.35);
+
+  --k10-container: 1280px;
+  --k10-gutter: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+
+  background: var(--k10-bg);
+  color: var(--k10-ink);
+  font-family: var(--k10-font-body);
+}
+
+[data-kierunek="k10"] .k10-container {
+  max-width: var(--k10-container);
+  margin: 0 auto;
+  padding-inline: var(--k10-gutter);
+  position: relative;
+  z-index: 1;
+}
+
+[data-kierunek="k10"] .k10-display {
+  font-family: var(--k10-font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+[data-kierunek="k10"] .k10-serif {
+  font-family: "Gambarino", Georgia, serif;
+}
+
+[data-kierunek="k10"] .k10-mono {
+  font-family: var(--k10-font-mono);
+  font-variant-ligatures: none;
+}
+
+[data-kierunek="k10"] .k10-label {
+  font-family: var(--k10-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--k10-accent);
+  font-weight: 600;
+}
+
+[data-kierunek="k10"] *::selection {
+  background: var(--k10-accent);
+  color: #fff;
+}

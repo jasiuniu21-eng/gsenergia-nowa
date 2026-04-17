@@ -189,6 +189,24 @@ const VARIANTS: Variant[] = [
     tracking: "-0.04em",
     hint: "light · canvas flowers · search",
   },
+  {
+    slug: "k10-zero",
+    code: "K10",
+    name: "Zero",
+    tagline: "Zeronest-clean + canvas bouquet + SEO sections",
+    description:
+      "Zeronest.pl minimalizm + Twoja canvas animacja bukietu kWh. Modularne karty usług, case study card, search bar. Mocne SEO z H2/H3 hierarchy.",
+    mode: "Light · Zeronest · SEO",
+    bgHex: "#ffffff",
+    inkHex: "#0a0a0a",
+    accentHex: "#16A34A",
+    accentName: "Energy green 600",
+    displayFontFamily: "Inter, 'General Sans', system-ui, sans-serif",
+    displayWeight: 700,
+    bodyFontFamily: "Inter, 'General Sans', system-ui, sans-serif",
+    tracking: "-0.03em",
+    hint: "zero · modular cards · SEO",
+  },
 ];
 
 export default function KierunkiHub() {
@@ -205,7 +223,7 @@ export default function KierunkiHub() {
             </span>
             <span className="h-4 w-px bg-white/20" />
             <span className="text-[11px] uppercase tracking-[0.22em] text-white/50">
-              Design Review · 9 kierunków
+              Design Review · 10 kierunków
             </span>
           </div>
           <Link
