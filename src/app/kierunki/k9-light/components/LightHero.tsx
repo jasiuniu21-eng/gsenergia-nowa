@@ -233,9 +233,9 @@ export function LightHero() {
           ctx.fillText(p.ch, p.x, p.y);
           ctx.restore();
         }
+        if (el > 60000) return; // stop after 60s
         rafRef.current = requestAnimationFrame(frame);
       };
-      rafRef.current = requestAnimationFrame(frame);
     };
 
     const init = () => {

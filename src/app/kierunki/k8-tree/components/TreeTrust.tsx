@@ -14,15 +14,16 @@ const LOGO_IDS = Array.from({ length: 102 }, (_, i) =>
   String(i + 1).padStart(3, "0"),
 ).filter((id) => !MISSING.has(id));
 const TOTAL_LOGOS = LOGO_IDS.length;
-const HALF = Math.ceil(TOTAL_LOGOS / 2);
-const ROW_A = LOGO_IDS.slice(0, HALF);
-const ROW_B = LOGO_IDS.slice(HALF);
+const HALF = 20;
+const ROW_A = LOGO_IDS.slice(0, 20);
+const ROW_B = LOGO_IDS.slice(40, 60);
 
 function LogoImg({ id }: { id: string }) {
   return (
     <div className="flex items-center justify-center h-16 lg:h-20 w-[140px] lg:w-[170px] shrink-0 opacity-70 hover:opacity-100 transition-opacity duration-300">
       <Image
         src={`/logos/clients/${id}.png`}
+        loading="lazy"
         alt=""
         width={160}
         height={80}
