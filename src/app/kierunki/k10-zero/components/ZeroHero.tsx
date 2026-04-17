@@ -220,7 +220,7 @@ export function ZeroHero() {
           const since = el - p.revealAt;
           if (since < 0) continue;
           const alpha = Math.min(since / FADE, 1) * 0.87;
-          if (since > p.nextSwap) {
+          if (el < 8000 && since > p.nextSwap) {
             p.ch = chars[Math.floor(Math.random() * chars.length)];
             p.nextSwap = since + 700 + Math.random() * 3500;
           }
@@ -233,7 +233,7 @@ export function ZeroHero() {
           ctx.fillText(p.ch, p.x, p.y);
           ctx.restore();
         }
-        if (el > 60000) return; // stop after 60s
+        if (el > 8200) return;
         rafRef.current = requestAnimationFrame(frame);
       };
     };

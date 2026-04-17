@@ -220,7 +220,8 @@ export function LightHero() {
           const since = el - p.revealAt;
           if (since < 0) continue;
           const alpha = Math.min(since / FADE, 1) * 0.87;
-          if (since > p.nextSwap) {
+          // Swap characters only during first 8 seconds (then freeze)
+          if (el < 8000 && since > p.nextSwap) {
             p.ch = chars[Math.floor(Math.random() * chars.length)];
             p.nextSwap = since + 700 + Math.random() * 3500;
           }
@@ -233,7 +234,9 @@ export function LightHero() {
           ctx.fillText(p.ch, p.x, p.y);
           ctx.restore();
         }
-        if (el > 60000) return; // stop after 60s
+        // Water-fill completes at ~3.8s, char swaps stop at 8s.
+        // After 8s render one last frame and stop — canvas becomes static.
+        if (el > 8200) return;
         rafRef.current = requestAnimationFrame(frame);
       };
     };
