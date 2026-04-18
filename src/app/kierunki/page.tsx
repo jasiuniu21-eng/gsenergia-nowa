@@ -207,6 +207,25 @@ const VARIANTS: Variant[] = [
     tracking: "-0.03em",
     hint: "zero · modular cards · SEO",
   },
+  {
+    slug: "k11-sankey",
+    code: "K11",
+    name: "Sankey",
+    tagline: "Port Claude Design — Sankey flow + Instrument Serif",
+    description:
+      "Bundle z Claude Design: sticky mega-menu, hero z animacją Sankey (Energia → 9 usług → 700 mln PLN oszczędności), Instrument Serif, navy+emerald, Stats, Cases, Testimonials, News, Contact. Light mode, mega-SEO structured data.",
+    mode: "Light · Sankey · B2B",
+    bgHex: "#F7F6F2",
+    inkHex: "#0E1E2B",
+    accentHex: "#27AE60",
+    accentName: "Emerald + navy #1A5276",
+    displayFontFamily: "'Instrument Serif', Georgia, serif",
+    displayWeight: 400,
+    displayItalic: true,
+    bodyFontFamily: "'General Sans', system-ui, sans-serif",
+    tracking: "-0.02em",
+    hint: "sankey · navy+emerald · Instrument",
+  },
 ];
 
 export default function KierunkiHub() {
@@ -223,7 +242,7 @@ export default function KierunkiHub() {
             </span>
             <span className="h-4 w-px bg-white/20" />
             <span className="text-[11px] uppercase tracking-[0.22em] text-white/50">
-              Design Review · 10 kierunków
+              Design Review · 11 kierunków
             </span>
           </div>
           <Link
