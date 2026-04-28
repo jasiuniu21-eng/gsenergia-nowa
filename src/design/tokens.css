@@ -5,18 +5,18 @@
 
 :root {
   /* -------- Brand / Accent (OKLCH) -------- */
-  /* Inspired by live #8dc73f, desaturated to premium */
-  --c-brand-50:  oklch(0.97 0.02 130);
-  --c-brand-100: oklch(0.94 0.04 130);
-  --c-brand-200: oklch(0.88 0.07 130);
-  --c-brand-300: oklch(0.82 0.11 130);
-  --c-brand-400: oklch(0.76 0.14 130);
-  --c-brand-500: oklch(0.72 0.15 130); /* PRIMARY */
-  --c-brand-600: oklch(0.62 0.14 135);
-  --c-brand-700: oklch(0.50 0.12 140);
-  --c-brand-800: oklch(0.38 0.09 145);
-  --c-brand-900: oklch(0.26 0.06 148);
-  --c-brand-950: oklch(0.18 0.04 150);
+  /* Deloitte-inspired green palette — #26890d (signature) + #86bc25 (lime accent) */
+  --c-brand-50:  oklch(0.97 0.04 130);
+  --c-brand-100: oklch(0.94 0.10 130);
+  --c-brand-200: oklch(0.88 0.16 128);
+  --c-brand-300: oklch(0.82 0.20 125);
+  --c-brand-400: oklch(0.78 0.22 122); /* lime accent #86bc25 */
+  --c-brand-500: oklch(0.58 0.20 138); /* PRIMARY — Deloitte green #26890d */
+  --c-brand-600: oklch(0.50 0.18 140);
+  --c-brand-700: oklch(0.42 0.15 142);
+  --c-brand-800: oklch(0.32 0.11 145);
+  --c-brand-900: oklch(0.22 0.07 148);
+  --c-brand-950: oklch(0.14 0.04 150);
 
   /* Warm accent — decarbonization / heat audits */
   --c-amber-400: oklch(0.82 0.12 75);

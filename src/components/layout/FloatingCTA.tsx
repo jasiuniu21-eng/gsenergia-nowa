@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export function FloatingCTA() {
   const reduced = useReducedMotion();
   return (
-    <div className="fixed bottom-5 left-5 z-30 pointer-events-none">
+    <div className="fixed bottom-5 right-5 z-30 pointer-events-none">
       <motion.a
         href={SITE.surveyUrl}
         target="_blank"

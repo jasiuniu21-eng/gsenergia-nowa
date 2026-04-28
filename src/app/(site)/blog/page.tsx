@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const posts = getAll("blog");
+  const posts = getAll("posts");
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">

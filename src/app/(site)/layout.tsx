@@ -1,5 +1,6 @@
 import { Nav } from "@/components/layout/Nav";
 import { FloatingCTA } from "@/components/layout/FloatingCTA";
+import { Footer } from "@/components/layout/Footer";
 
 export default function SiteLayout({
   children,
@@ -14,6 +15,7 @@ export default function SiteLayout({
       />
       <Nav />
       <main>{children}</main>
+      <Footer />
       <FloatingCTA />
     </>
   );

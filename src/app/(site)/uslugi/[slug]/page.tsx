@@ -57,7 +57,7 @@ export default async function UslugaPage({
 }) {
   const { slug } = await params;
   const doc = getDoc("uslugi", slug);
-  if (!doc) notFound();
+  if (!doc || doc.content.trim().length === 0) notFound();
 
   const { frontmatter, content } = doc;
   const faqs: { q: string; a: string }[] = frontmatter.faq ?? [];

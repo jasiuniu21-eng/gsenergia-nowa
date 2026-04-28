@@ -1,25 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { List, X, CaretRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
-import { NAV, SERVICES, SITE } from "@/lib/site";
+import { List, X, CaretRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
+import { NAV, SITE } from "@/lib/site";
 import { Logo } from "./Logo";
+import { SearchOverlay } from "./SearchOverlay";
 import { spring } from "@/design/motion";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const reduced = useReducedMotion();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      // Close any open mega-menu the moment user scrolls — prevents ghost hover.
+      setOpenMenu(null);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Debounced hover open — ignores accidental pointer brushes (120ms dwell).
+  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const requestOpen = (label: string) => {
+    if (hoverTimer.current) clearTimeout(hoverTimer.current);
+    hoverTimer.current = setTimeout(() => setOpenMenu(label), 120);
+  };
+  const cancelOpen = () => {
+    if (hoverTimer.current) clearTimeout(hoverTimer.current);
+    hoverTimer.current = null;
+  };
+  useEffect(() => () => cancelOpen(), []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -45,188 +63,195 @@ export function Nav() {
         className={[
           "fixed inset-x-0 top-0 z-40 transition-[background-color,border-color,backdrop-filter] duration-300",
           scrolled
-            ? "bg-[color:var(--c-bg)]/75 backdrop-blur-xl border-b border-[color:var(--c-border)]"
-            : "bg-transparent border-b border-transparent",
+            ? "bg-black/95 backdrop-blur-xl border-b border-white/10"
+            : "bg-black border-b border-white/10",
         ].join(" ")}
         onMouseLeave={() => setOpenMenu(null)}
       >
-        <div className="container-site flex h-[68px] items-center justify-between">
-          <Logo className="text-[color:var(--c-fg)]" />
+        <div className="w-full px-8 flex h-[68px] items-center justify-between">
+          <Logo />
 
-          <nav aria-label="Główna" className="hidden lg:flex items-center gap-1">
-            {NAV.map((item) => {
-              const hasChildren = !!item.children?.length;
-              const isOpen = openMenu === item.label;
-              return (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => hasChildren && setOpenMenu(item.label)}
-                >
-                  <Link
-                    href={item.href}
-                    className={[
-                      "inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.95rem] leading-none",
-                      "text-[color:var(--c-fg)] hover:text-[color:var(--c-brand-700)] transition-colors",
-                      isOpen ? "text-[color:var(--c-brand-700)]" : "",
-                    ].join(" ")}
-                    onFocus={() => hasChildren && setOpenMenu(item.label)}
+          <div className="hidden lg:flex items-center gap-4">
+            <nav aria-label="Główna" className="flex items-center gap-0">
+              {NAV.map((item) => {
+                const hasChildren = !!(item.children?.length || item.groups?.length);
+                const isOpen = openMenu === item.label;
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => hasChildren && requestOpen(item.label)}
+                    onMouseLeave={cancelOpen}
                   >
-                    {item.label}
-                    {hasChildren && (
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 10 10"
-                        aria-hidden="true"
-                        className={[
-                          "transition-transform duration-300",
-                          isOpen ? "rotate-180" : "",
-                        ].join(" ")}
-                      >
-                        <path
-                          d="M1.5 3.5L5 7l3.5-3.5"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                    <Link
+                      href={item.href}
+                      className={[
+                        "group/link relative inline-flex items-center gap-1.5 px-3.5 py-2 text-[0.92rem] font-medium leading-none transition-colors",
+                        isOpen ? "text-white" : "text-white/75 hover:text-white",
+                      ].join(" ")}
+                      onFocus={() => hasChildren && setOpenMenu(item.label)}
+                    >
+                      <span className="relative">
+                        {item.label}
+                        {/* Animated underline */}
+                        <span
+                          aria-hidden="true"
+                          className={[
+                            "absolute left-0 -bottom-1 h-[1.5px] bg-[#86bc25] transition-all duration-300 ease-out",
+                            isOpen ? "w-full" : "w-0 group-hover/link:w-full",
+                          ].join(" ")}
                         />
-                      </svg>
-                    )}
-                  </Link>
-                </div>
-              );
-            })}
-          </nav>
+                      </span>
+                      {hasChildren && (
+                        <svg
+                          width="10"
+                          height="10"
+                          viewBox="0 0 10 10"
+                          aria-hidden="true"
+                          className={[
+                            "transition-transform duration-300 opacity-60",
+                            isOpen ? "rotate-180 opacity-100" : "",
+                          ].join(" ")}
+                        >
+                          <path
+                            d="M1.5 3.5L5 7l3.5-3.5"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </Link>
+                  </div>
+                );
+              })}
+            </nav>
 
-          <div className="hidden lg:flex items-center gap-2">
-            <Link
-              href={SITE.phoneHref}
-              className="font-mono text-sm text-[color:var(--c-fg-muted)] hover:text-[color:var(--c-fg)] transition-colors px-3 py-2"
-            >
-              {SITE.phone}
-            </Link>
-            <Link
-              href={SITE.surveyUrl}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="group inline-flex items-center gap-1.5 rounded-full bg-[color:var(--c-ink-900)] text-[color:var(--c-ink-50)] pl-4 pr-3.5 py-2 text-[0.95rem] leading-none hover:bg-[color:var(--c-brand-700)] transition-colors active:translate-y-[1px]"
-            >
-              Bezpłatna konsultacja
-              <ArrowUpRight size={16} weight="bold" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
+            <div className="flex items-center gap-2 ml-2">
+              <button
+                type="button"
+                aria-label="Szukaj"
+                onClick={() => setSearchOpen(true)}
+                className="inline-flex size-8 items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-colors"
+              >
+                <MagnifyingGlass size={16} weight="bold" />
+              </button>
+            </div>
           </div>
 
           <button
             type="button"
+            aria-label="Szukaj"
+            onClick={() => setSearchOpen(true)}
+            className="lg:hidden inline-flex size-11 items-center justify-center rounded-full text-black/60 hover:bg-black/5 transition-colors"
+          >
+            <MagnifyingGlass size={20} weight="bold" />
+          </button>
+          <button
+            type="button"
             aria-label={mobileOpen ? "Zamknij menu" : "Otwórz menu"}
             aria-expanded={mobileOpen}
-            className="lg:hidden inline-flex size-11 items-center justify-center rounded-full text-[color:var(--c-fg)] hover:bg-[color:var(--c-surface)] transition-colors active:scale-[0.98]"
+            className="lg:hidden inline-flex size-11 items-center justify-center rounded-full text-black/60 hover:bg-black/5 transition-colors active:scale-[0.98]"
             onClick={() => setMobileOpen((v) => !v)}
           >
             {mobileOpen ? <X size={20} weight="bold" /> : <List size={20} weight="bold" />}
           </button>
         </div>
 
-        {/* Mega menu (desktop) */}
+        {/* Mega menu (desktop) — generic renderer for .groups (2-col) or .children (1-col) */}
         <AnimatePresence>
-          {openMenu === "Usługi" && (
-            <motion.div
-              key="mega"
-              initial={reduced ? false : { opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduced ? undefined : { opacity: 0, y: -4 }}
-              transition={spring}
-              className="hidden lg:block absolute left-0 right-0 top-full"
-              onMouseEnter={() => setOpenMenu("Usługi")}
-              onMouseLeave={() => setOpenMenu(null)}
-            >
-              <div className="container-site">
-                <div className="mx-auto max-w-[1120px] rounded-[2rem] border border-[color:var(--c-border)] bg-[color:var(--c-bg-elevated)] p-8 shadow-[0_20px_40px_-15px_oklch(0.16_0.01_150/0.12)]">
-                  <div className="grid grid-cols-[1fr_1fr] gap-10">
-                    <div>
-                      <p className="mb-5 text-xs uppercase tracking-[0.18em] text-[color:var(--c-fg-subtle)]">
-                        Usługi audytorskie
-                      </p>
-                      <ul className="flex flex-col">
-                        {SERVICES?.slice(0, 4).map((s) => (
-                          <li key={s.href}>
-                            <Link
-                              href={s.href}
-                              className="group flex items-start justify-between gap-6 rounded-xl px-3 py-3 hover:bg-[color:var(--c-ink-100)] transition-colors"
-                            >
-                              <span>
-                                <span className="block text-[0.98rem] font-medium text-[color:var(--c-fg)]">
-                                  {s.label}
-                                </span>
-                                {s.description && (
-                                  <span className="mt-1 block text-sm text-[color:var(--c-fg-muted)]">
-                                    {s.description}
-                                  </span>
-                                )}
-                              </span>
-                              <CaretRight
-                                size={16}
-                                weight="bold"
-                                className="mt-1 shrink-0 text-[color:var(--c-fg-subtle)] transition-transform group-hover:translate-x-1 group-hover:text-[color:var(--c-brand-700)]"
-                              />
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="mb-5 text-xs uppercase tracking-[0.18em] text-[color:var(--c-fg-subtle)]">
-                        Technologie & strategia
-                      </p>
-                      <ul className="flex flex-col">
-                        {SERVICES?.slice(4).map((s) => (
-                          <li key={s.href}>
-                            <Link
-                              href={s.href}
-                              className="group flex items-start justify-between gap-6 rounded-xl px-3 py-3 hover:bg-[color:var(--c-ink-100)] transition-colors"
-                            >
-                              <span>
-                                <span className="block text-[0.98rem] font-medium text-[color:var(--c-fg)]">
-                                  {s.label}
-                                </span>
-                                {s.description && (
-                                  <span className="mt-1 block text-sm text-[color:var(--c-fg-muted)]">
-                                    {s.description}
-                                  </span>
-                                )}
-                              </span>
-                              <CaretRight
-                                size={16}
-                                weight="bold"
-                                className="mt-1 shrink-0 text-[color:var(--c-fg-subtle)] transition-transform group-hover:translate-x-1 group-hover:text-[color:var(--c-brand-700)]"
-                              />
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 flex items-center justify-between gap-6 rounded-2xl bg-[color:var(--c-ink-100)] p-5">
-                    <p className="text-sm text-[color:var(--c-fg-muted)] max-w-[48ch]">
-                      Nie wiesz którego audytu potrzebujesz? Odpowiedz na kilka pytań — dobierzemy zakres pod Twoją firmę.
-                    </p>
-                    <Link
-                      href={SITE.surveyUrl}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="group shrink-0 inline-flex items-center gap-1.5 rounded-full bg-[color:var(--c-ink-900)] text-[color:var(--c-ink-50)] pl-4 pr-3.5 py-2 text-sm hover:bg-[color:var(--c-brand-700)] transition-colors"
+          {(() => {
+            const active = NAV.find(
+              (n) => n.label === openMenu && (n.groups?.length || n.children?.length),
+            );
+            if (!active) return null;
+            const cols = active.groups ?? [{ label: "", items: active.children ?? [] }];
+            return (
+              <motion.div
+                key={`mega-${active.label}`}
+                initial={reduced ? false : { opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reduced ? undefined : { opacity: 0, y: -4 }}
+                transition={spring}
+                className="hidden lg:block absolute left-0 right-0 top-full pt-3"
+                onMouseEnter={() => setOpenMenu(active.label)}
+                onMouseLeave={() => setOpenMenu(null)}
+              >
+                <div className="w-full px-6">
+                  <div className="ml-auto max-w-[600px] rounded-[2rem] border border-[color:var(--c-border)] bg-white p-8 shadow-[0_30px_60px_-20px_oklch(0.10_0.02_150/0.25)]">
+                    <div
+                      className={[
+                        "grid gap-10",
+                        cols.length > 1 ? "grid-cols-[1fr_1fr]" : "grid-cols-1",
+                      ].join(" ")}
                     >
-                      Bezpłatna konsultacja
-                      <ArrowUpRight size={14} weight="bold" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </Link>
+                      {cols.map((col, ci) => (
+                        <div key={ci}>
+                          {col.label && (
+                            <p className="mb-5 text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-subtle)]">
+                              {col.label}
+                            </p>
+                          )}
+                          <ul className="flex flex-col">
+                            {col.items.map((s) => (
+                              <li key={s.href}>
+                                <Link
+                                  href={s.href}
+                                  className="group flex items-start justify-between gap-6 rounded-xl px-3 py-3 hover:bg-[color:var(--c-brand-50)] transition-colors"
+                                >
+                                  <span>
+                                    <span className="block text-[0.98rem] font-medium text-[color:var(--c-ink-900)]">
+                                      {s.label}
+                                    </span>
+                                    {s.description && (
+                                      <span className="mt-1 block text-sm text-[color:var(--c-fg-muted)]">
+                                        {s.description}
+                                      </span>
+                                    )}
+                                  </span>
+                                  <CaretRight
+                                    size={16}
+                                    weight="bold"
+                                    className="mt-1 shrink-0 text-[color:var(--c-fg-subtle)] transition-transform group-hover:translate-x-1 group-hover:text-[color:var(--c-brand-700)]"
+                                  />
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+
+                    {active.cta && (
+                      <div className="mt-6 flex items-center justify-between gap-6 rounded-2xl bg-[color:var(--c-brand-50)] ring-1 ring-[color:var(--c-brand-200)] p-5">
+                        <div>
+                          <p className="text-sm text-[color:var(--c-ink-900)] font-medium">
+                            {active.cta.label}
+                          </p>
+                          {active.cta.description && (
+                            <p className="mt-0.5 text-sm text-[color:var(--c-fg-muted)]">
+                              {active.cta.description}
+                            </p>
+                          )}
+                        </div>
+                        <Link
+                          href={active.cta.href}
+                          target={active.cta.href.startsWith("http") ? "_blank" : undefined}
+                          rel={active.cta.href.startsWith("http") ? "noreferrer noopener" : undefined}
+                          className="group shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-[color:var(--c-ink-900)] text-white px-4 py-2.5 text-sm hover:bg-[color:var(--c-brand-700)] transition-colors"
+                        >
+                          Przejdź
+                          <ArrowUpRight size={14} weight="bold" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          )}
+              </motion.div>
+            );
+          })()}
         </AnimatePresence>
       </header>
 
@@ -277,21 +302,27 @@ export function Nav() {
                         {item.label}
                         <CaretRight size={16} weight="bold" className="text-[color:var(--c-fg-subtle)]" />
                       </Link>
-                      {item.children && (
-                        <ul className="mb-2 ml-2 flex flex-col border-l border-[color:var(--c-border)] pl-4">
-                          {item.children.map((c) => (
-                            <li key={c.href}>
-                              <Link
-                                href={c.href}
-                                onClick={() => setMobileOpen(false)}
-                                className="block py-1.5 text-sm text-[color:var(--c-fg-muted)] hover:text-[color:var(--c-fg)]"
-                              >
-                                {c.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                      {(() => {
+                        const flat = item.groups
+                          ? item.groups.flatMap((g) => g.items)
+                          : item.children;
+                        if (!flat?.length) return null;
+                        return (
+                          <ul className="mb-2 ml-2 flex flex-col border-l border-[color:var(--c-border)] pl-4">
+                            {flat.map((c) => (
+                              <li key={c.href}>
+                                <Link
+                                  href={c.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="block py-1.5 text-sm text-[color:var(--c-fg-muted)] hover:text-[color:var(--c-fg)]"
+                                >
+                                  {c.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      })()}
                     </li>
                   ))}
                 </ul>
@@ -320,6 +351,8 @@ export function Nav() {
 
       {/* Offset placeholder so content isn't under fixed header */}
       <div aria-hidden className="h-[68px]" />
+
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }

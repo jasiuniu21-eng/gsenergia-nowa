@@ -32,7 +32,7 @@ export function getDoc(type: string, slug: string): Doc | null {
 export function getAll(type: string): Doc[] {
   return listSlugs(type)
     .map((s) => getDoc(type, s)!)
-    .filter(Boolean)
+    .filter((d) => d && d.content.trim().length > 0)
     .sort((a, b) => {
       const da = a.frontmatter.date ?? "";
       const db = b.frontmatter.date ?? "";
