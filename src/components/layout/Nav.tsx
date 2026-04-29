@@ -68,7 +68,7 @@ export function Nav() {
         ].join(" ")}
         onMouseLeave={() => setOpenMenu(null)}
       >
-        <div className="w-full px-8 flex h-[68px] items-center justify-between">
+        <div className="w-full px-10 flex h-[120px] items-center justify-between gap-12">
           <Logo />
 
           <div className="hidden lg:flex items-center gap-4">
@@ -350,7 +350,7 @@ export function Nav() {
       </AnimatePresence>
 
       {/* Offset placeholder so content isn't under fixed header */}
-      <div aria-hidden className="h-[68px]" />
+      <div aria-hidden className="h-[120px]" />
 
       <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>

@@ -43,22 +43,30 @@ export function Hero() {
           className="font-display font-medium text-balance mx-auto max-w-[18ch] leading-[1.02] tracking-[-0.03em]"
           style={{ fontSize: "var(--fs-display-xl)" }}
         >
-          Energia,{" "}
-          <span className="block sm:inline whitespace-nowrap">
-            która{" "}
-            <AnimatePresence mode="wait">
-              <motion.em
-                key={ROTATING_WORDS[idx]}
-                initial={reduced ? false : { opacity: 0, y: -24 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={reduced ? undefined : { opacity: 0, y: 24 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="inline-block italic font-medium"
-                style={{ color: "#26890d" }}
-              >
-                {ROTATING_WORDS[idx]}.
-              </motion.em>
-            </AnimatePresence>
+          {/* Static text for SEO/screen readers — Google indexes the full phrase */}
+          <span className="sr-only">
+            Audyty energetyczne dla przemysłu — energia, która się zwraca, liczy, opłaca, pracuje i oszczędza.
+          </span>
+
+          {/* Visual rotating presentation (hidden from assistive tech to avoid duplicate read) */}
+          <span aria-hidden="true">
+            Energia,{" "}
+            <span className="block sm:inline whitespace-nowrap">
+              która{" "}
+              <AnimatePresence mode="wait">
+                <motion.em
+                  key={ROTATING_WORDS[idx]}
+                  initial={reduced ? false : { opacity: 0, y: -24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduced ? undefined : { opacity: 0, y: 24 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="inline-block italic font-medium"
+                  style={{ color: "#26890d" }}
+                >
+                  {ROTATING_WORDS[idx]}.
+                </motion.em>
+              </AnimatePresence>
+            </span>
           </span>
         </motion.h1>
 

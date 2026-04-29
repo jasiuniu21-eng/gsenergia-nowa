@@ -39,3 +39,26 @@ export function getAll(type: string): Doc[] {
       return db.localeCompare(da);
     });
 }
+
+export type LatestPost = {
+  slug: string;
+  title: string;
+  date: string | null;
+  excerpt: string;
+};
+
+export function getLatestPosts(n: number = 3): LatestPost[] {
+  return getAll("posts")
+    .slice(0, n)
+    .map((post) => {
+      const excerpt =
+        (post.frontmatter.excerpt as string | undefined) ??
+        post.content.replace(/[#*_`>\-\[\]()]/g, "").trim().slice(0, 160) + "…";
+      return {
+        slug: post.slug,
+        title: (post.frontmatter.title as string) ?? post.slug,
+        date: (post.frontmatter.date as string | undefined) ?? null,
+        excerpt,
+      };
+    });
+}
