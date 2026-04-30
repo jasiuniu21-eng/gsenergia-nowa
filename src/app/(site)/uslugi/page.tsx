@@ -1,67 +1,275 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SERVICES } from "@/lib/site";
+import { Suspense } from "react";
+import { ArrowRight, CaretRight, Phone, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
+
 import { getAll } from "@/lib/content";
+import { SITE } from "@/lib/site";
+import {
+  ServicesGrid,
+  type CategoryKey,
+  type ServiceItem,
+} from "@/components/sections/ServicesGrid";
 
 export const metadata: Metadata = {
-  title: "Usługi audytów energetycznych · GS Energia",
+  title: "Wszystkie usługi",
   description:
-    "Kompleksowe usługi audytów energetycznych dla firm i instytucji: audyt przedsiębiorstwa, audyt efektywności, audyt chłodniczy, EMS/telemetria, dekarbonizacja i więcej. GS Energia – Kraków, 400+ audytów od 2008.",
+    "Audyty energetyczne, EMS, BESS, fotowoltaika, kogeneracja, ESG. 65 usług dla zakładów produkcyjnych. Od 2008 r.",
+  alternates: { canonical: "https://gsenergia.pl/uslugi" },
 };
 
-export default async function UslugiPage() {
-  const uslugiDocs = await Promise.resolve(getAll("uslugi"));
+/** Map slug → existing /public/uslugi/*.jpg image when one fits. */
+const SLUG_IMAGE_MAP: Record<string, string> = {
+  "audyt-energetyczny-przedsiebiorstwa": "/uslugi/01-audyt-przedsiebiorstwa.jpg",
+  "audyt-efektywnosci-energetycznej": "/uslugi/02-audyt-efektywnosci.jpg",
+  "magazyn-energii-bess": "/uslugi/03-bess.png",
+  "przemyslowy-magazyn-energii-dla-firm": "/uslugi/03-bess.png",
+  "magazynowanie-energii-dla-domu-i-malych-obiektow": "/uslugi/03-bess.png",
+  "banki-energii": "/uslugi/03-bess.png",
+  "om-bess": "/uslugi/03-bess.png",
+  "ems-telemetria": "/uslugi/04-ems.jpg",
+  "ems-i-telemetria_2": "/uslugi/04-ems.jpg",
+  "swiadectwa-charakterystyki-energetycznej": "/uslugi/05-swiadectwo.jpg",
+  "swiadectwo-charakterystyki-energetycznej-jaslo": "/uslugi/05-swiadectwo.jpg",
+  "swiadectwo-charakterystyki-energetycznej-michalowice": "/uslugi/05-swiadectwo.jpg",
+  "swiadectwo-charakterystyki-energetycznej-sosnowiec": "/uslugi/05-swiadectwo.jpg",
+  "swiadectwo-charakterystyki-energetycznej-tarnow": "/uslugi/05-swiadectwo.jpg",
+  "swiadectwo-charakterystyki-energetycznej-wieliczka": "/uslugi/05-swiadectwo.jpg",
+  "swiadectwo-charakterystyki-energetycznej-zielonki": "/uslugi/05-swiadectwo.jpg",
+  "co-zawiera-swiadectwo-energetyczne": "/uslugi/05-swiadectwo.jpg",
+  "czemu-sluza-swiadectwa-energetyczne": "/uslugi/05-swiadectwo.jpg",
+  "jak-interpretowac-swiadectwa": "/uslugi/05-swiadectwo.jpg",
+  "wzor-swiadectwa": "/uslugi/05-swiadectwo.jpg",
+  "zlec-wykonanie-swiadectwa-budynku": "/uslugi/05-swiadectwo.jpg",
+  "zlec-wykonanie-swiadectwa-domu": "/uslugi/05-swiadectwo.jpg",
+  "zlec-wykonanie-swiadectwa-mieszkania-lokalu": "/uslugi/05-swiadectwo.jpg",
+  "spoldzielnie-energetyczne": "/uslugi/06-spoldzielnie.png",
+  "okresowa-kontrola-systemu-klimatyzacji-i-ogrzewania": "/uslugi/07-klimatyzacja.jpg",
+  "chlodnictwo-klimatyzacja-efektywne-energetycznie": "/uslugi/07-klimatyzacja.jpg",
+  "dekarbonizacja": "/uslugi/08-dekarbonizacja.jpg",
+  "audyt-energetyczny-kotlowni": "/uslugi/09-ogrzewanie.jpg",
+  "ocena-efektywnosci-energetycznej-kotlow": "/uslugi/09-ogrzewanie.jpg",
+  "audyt-energetyczny-wezlow-cieplnych": "/uslugi/09-ogrzewanie.jpg",
+  "kogeneracja": "/uslugi/10-kogeneracja.jpg",
+  "o-kogeneracji": "/uslugi/10-kogeneracja.jpg",
+  "korzysci-z-kogeneracji": "/uslugi/10-kogeneracja.jpg",
+  "potencjal-kogeneracji-w-ue-i-polsce": "/uslugi/10-kogeneracja.jpg",
+  "technologie-wodorowe": "/uslugi/11-wodor.jpg",
+  "audyt-wodorowy": "/uslugi/11-wodor.jpg",
+  "audyt-energetyczny-budynku": "/uslugi/12-audyt-budynku.jpg",
+  "audyt-energetyczny-budynku-jednorodzinnego": "/uslugi/12-audyt-budynku.jpg",
+  "audyt-energetyczny-katowice": "/uslugi/12-audyt-budynku.jpg",
+  "audyt-energetyczny-krakow": "/uslugi/12-audyt-budynku.jpg",
+  "audyt-energetyczny-lodz": "/uslugi/12-audyt-budynku.jpg",
+  "audyt-energetyczny-warszawa": "/uslugi/12-audyt-budynku.jpg",
+  "audyt-energetyczny-wroclaw": "/uslugi/12-audyt-budynku.jpg",
+  "audyt-chlodniczy": "/uslugi/13-chlodniczy.jpg",
+  "odnawialne-zrodla-energii": "/uslugi/14-oze.jpg",
+  "fotowoltaika": "/uslugi/14-oze.jpg",
+  "fotowoltaika-dom": "/uslugi/14-oze.jpg",
+  "audyt-energetyczny-na-cele-oze": "/uslugi/14-oze.jpg",
+};
+
+const FALLBACK_IMAGE = "/uslugi/15-pozostale.jpg";
+
+function categorize(slug: string): CategoryKey {
+  const s = slug.toLowerCase();
+
+  // Audyty: slugs starting with audyt-
+  if (s.startsWith("audyt-")) return "audyty";
+
+  // OZE / fotowoltaika
+  if (
+    s.includes("oze") ||
+    s.includes("pv") ||
+    s.includes("solarne") ||
+    s.includes("fotowoltaika") ||
+    s.includes("odnawialne")
+  ) {
+    return "oze";
+  }
+
+  // Magazyny i EMS
+  if (
+    s.includes("bess") ||
+    s.includes("magazyn") ||
+    s.includes("ems") ||
+    s.includes("telemetria") ||
+    s.includes("monitoring") ||
+    s.includes("banki-energii")
+  ) {
+    return "ems";
+  }
+
+  // Budynki
+  if (
+    s.includes("budynek") ||
+    s.includes("budynku") ||
+    s.includes("swiadectwo") ||
+    s.includes("swiadectwa") ||
+    s.includes("klimatyzacj") ||
+    s.includes("kotlow") ||
+    s.includes("wezlow-cieplnych") ||
+    s.includes("ogrzewani") ||
+    s.includes("chlodnictwo")
+  ) {
+    return "budynki";
+  }
+
+  // Strategia
+  if (
+    s.includes("dekarbonizacja") ||
+    s.includes("csrd") ||
+    s.includes("esg") ||
+    s.includes("strategia") ||
+    s.includes("plan") ||
+    s.includes("studium")
+  ) {
+    return "strategia";
+  }
+
+  // Wdrożenie
+  if (
+    s.includes("wdrozenie") ||
+    s.includes("realizacja") ||
+    s.includes("kogeneracja") ||
+    s.includes("serwis") ||
+    s.includes("wodor") ||
+    s.includes("outsourcing")
+  ) {
+    return "wdrozenie";
+  }
+
+  return "pozostale";
+}
+
+function buildServices(): ServiceItem[] {
+  const docs = getAll("uslugi");
+  return docs
+    .map((d): ServiceItem => {
+      const title = (d.frontmatter.title as string | undefined) ?? d.slug;
+      const excerpt = (d.frontmatter.excerpt as string | undefined) ?? "";
+      const image = SLUG_IMAGE_MAP[d.slug] ?? null;
+      return {
+        slug: d.slug,
+        title,
+        excerpt,
+        image,
+        category: categorize(d.slug),
+      };
+    })
+    .sort((a, b) => a.title.localeCompare(b.title, "pl"));
+}
+
+export default function UslugiPage() {
+  const services = buildServices();
+  // For services without a mapped image, prefer fallback image so the grid stays visually consistent.
+  const withFallback: ServiceItem[] = services.map((s) =>
+    s.image ? s : { ...s, image: FALLBACK_IMAGE },
+  );
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-4">Usługi audytów energetycznych</h1>
-      <p className="text-lg text-gray-600 mb-12 max-w-2xl">
-        GS Energia świadczy kompleksowe usługi z zakresu efektywności energetycznej dla
-        dużych przedsiębiorstw i instytucji publicznych. Ponad 400 zrealizowanych audytów
-        od 2008 roku.
-      </p>
-
-      {/* Primary services grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        {SERVICES?.map((service) => (
-          <Link
-            key={service.href}
-            href={service.href}
-            className="block border border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-md transition-all"
+    <>
+      {/* 1. Hero */}
+      <section className="bg-white text-[#222328]">
+        <div className="container-site py-[clamp(4rem,7vw,7rem)]">
+          {/* Breadcrumbs */}
+          <nav
+            aria-label="Okruszki"
+            className="flex items-center gap-1.5 text-[12px] text-[#222328]/55 mb-6"
           >
-            <h2 className="text-lg font-semibold mb-2">{service.label}</h2>
-            {service.description && (
-              <p className="text-sm text-gray-600">{service.description}</p>
-            )}
-          </Link>
-        ))}
-      </div>
+            <Link href="/" className="hover:text-[#26890d] transition-colors">
+              Strona główna
+            </Link>
+            <CaretRight size={11} weight="bold" className="text-[#222328]/30" />
+            <span className="text-[#222328]/80">Usługi</span>
+          </nav>
 
-      {/* Additional uslugi from content */}
-      {uslugiDocs.length > 0 && (
-        <section>
-          <h2 className="text-2xl font-semibold mb-6">Dodatkowe usługi</h2>
-          <ul className="space-y-4">
-            {uslugiDocs.map((doc) => (
-              <li key={doc.slug}>
-                <Link
-                  href={`/uslugi/${doc.slug}`}
-                  className="flex items-start gap-4 p-4 border border-gray-100 rounded-lg hover:border-blue-400 transition-colors"
-                >
-                  <div>
-                    <h3 className="font-medium">{doc.frontmatter.title}</h3>
-                    {doc.frontmatter.excerpt && (
-                      <p className="text-sm text-gray-500 mt-1">
-                        {doc.frontmatter.excerpt}
-                      </p>
-                    )}
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-    </div>
+          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            Pełna oferta
+          </p>
+
+          <h1
+            className="font-display text-balance max-w-[20ch]"
+            style={{
+              fontSize: "clamp(2.5rem, 4vw + 1rem, 4.25rem)",
+              fontWeight: 100,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.05,
+            }}
+          >
+            Wszystkie nasze usługi
+            <span style={{ color: "#8DC73F" }}>.</span>
+          </h1>
+
+          <p className="mt-6 max-w-[60ch] text-[1.05rem] text-[#222328]/70 leading-relaxed">
+            {services.length} usług w jednym miejscu. Audyty, EMS, BESS, fotowoltaika,
+            kogeneracja, ESG, dekarbonizacja. Od pomiaru po wdrożenie.
+          </p>
+
+          <div className="mt-8">
+            <Link
+              href={SITE.surveyUrl}
+              className="inline-flex items-center gap-2 rounded-full bg-[#26890d] px-6 py-3.5 text-sm font-medium text-white hover:bg-[#1f7a0a] transition-colors shadow-[0_8px_24px_-8px_rgba(38,137,13,0.5)]"
+            >
+              Nie wiesz, której usługi potrzebujesz? Zamów bezpłatną konsultację
+              <ArrowRight size={14} weight="bold" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 2 + 3. Filter + grid */}
+      <section className="bg-[#fafaf7] border-t border-black/[0.06]">
+        <div className="container-site py-[clamp(3rem,5vw,5rem)]">
+          <Suspense fallback={null}>
+            <ServicesGrid services={withFallback} />
+          </Suspense>
+        </div>
+      </section>
+
+      {/* 4. CTA strip */}
+      <section className="bg-[oklch(0.16_0.02_150)] text-white py-[clamp(4rem,6vw,6rem)]">
+        <div className="container-site">
+          <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-[52ch]">
+              <h2
+                className="font-display"
+                style={{
+                  fontSize: "clamp(1.85rem, 2.5vw + 1rem, 2.75rem)",
+                  fontWeight: 100,
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1.1,
+                }}
+              >
+                Nie znalazłeś swojej usługi
+                <span style={{ color: "#8DC73F" }}>?</span>
+              </h2>
+              <p className="mt-4 text-white/70 leading-relaxed">
+                Zadzwoń lub wyślij zapytanie — przygotujemy ofertę dopasowaną do Twojego
+                zakładu.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href={SITE.phoneHref}
+                className="inline-flex items-center gap-2 rounded-full bg-[#8DC73F] px-6 py-3.5 text-sm font-medium text-[#0e1a10] hover:bg-[#9ed64f] transition-colors"
+              >
+                <Phone size={15} weight="fill" />
+                Zadzwoń: {SITE.phone}
+              </Link>
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3.5 text-sm font-medium text-white hover:border-[#8DC73F] hover:text-[#8DC73F] transition-colors"
+              >
+                <EnvelopeSimple size={15} weight="bold" />
+                Wyślij zapytanie
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

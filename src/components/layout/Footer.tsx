@@ -24,16 +24,25 @@ const COLS = [
       { label: "Realizacje", href: "/realizacje" },
       { label: "Blog", href: "/blog" },
       { label: "Kontakt", href: "/kontakt" },
+      { label: "Cennik", href: "/cennik" },
+    ],
+  },
+  {
+    title: "Branże",
+    links: [
+      { label: "Audyt — Spożywcza", href: "/branze/spozywcza" },
+      { label: "Audyt — Motoryzacja", href: "/branze/motoryzacja" },
+      { label: "Audyt — Energetyka", href: "/branze/energetyka" },
+      { label: "Audyt — Chemia", href: "/branze/chemia" },
     ],
   },
   {
     title: "Lokalizacje",
     links: [
-      { label: "Audyt — Kraków", href: "/uslugi/audyt-energetyczny-krakow" },
-      { label: "Audyt — Warszawa", href: "/uslugi/audyt-energetyczny-warszawa" },
-      { label: "Audyt — Wrocław", href: "/uslugi/audyt-energetyczny-wroclaw" },
-      { label: "Audyt — Łódź", href: "/uslugi/audyt-energetyczny-lodz" },
-      { label: "Audyt — Katowice", href: "/uslugi/audyt-energetyczny-katowice" },
+      { label: "Audyt — Kraków", href: "/lokalizacje/krakow" },
+      { label: "Audyt — Warszawa", href: "/lokalizacje/warszawa" },
+      { label: "Audyt — Wrocław", href: "/lokalizacje/wroclaw" },
+      { label: "Audyt — Katowice", href: "/lokalizacje/katowice" },
     ],
   },
 ];
@@ -92,10 +101,10 @@ export function Footer() {
           </div>
 
           {/* Columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {COLS.map((col) => (
               <div key={col.title}>
-                <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-white/40 mb-4">
+                <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-white/65 mb-4">
                   {col.title}
                 </p>
                 <ul className="space-y-2.5">
@@ -116,7 +125,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-white/50">
+        <div className="mt-14 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-white/65">
           <p>© {new Date().getFullYear()} GS Energia · NIP 685-221-14-17 · Wszystkie prawa zastrzeżone.</p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li>

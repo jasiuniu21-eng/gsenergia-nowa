@@ -14,7 +14,14 @@ export function Nav() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [isMac, setIsMac] = useState(false);
   const reduced = useReducedMotion();
+
+  useEffect(() => {
+    if (typeof navigator !== "undefined") {
+      setIsMac(/Mac|iPhone|iPad|iPod/.test(navigator.platform));
+    }
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -132,11 +139,14 @@ export function Nav() {
             <div className="flex items-center gap-2 ml-2">
               <button
                 type="button"
-                aria-label="Szukaj"
+                aria-label="Szukaj (Cmd+K)"
                 onClick={() => setSearchOpen(true)}
-                className="inline-flex size-8 items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-colors"
+                className="group inline-flex items-center gap-2 rounded-full pl-2.5 pr-2 py-1.5 text-white/70 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#86bc25] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
-                <MagnifyingGlass size={16} weight="bold" />
+                <MagnifyingGlass size={15} weight="bold" />
+                <kbd className="hidden md:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono border border-white/25 rounded text-white/70 group-hover:text-white/90 group-hover:border-white/35 transition-colors">
+                  {isMac ? "⌘ K" : "Ctrl K"}
+                </kbd>
               </button>
             </div>
           </div>
@@ -145,7 +155,7 @@ export function Nav() {
             type="button"
             aria-label="Szukaj"
             onClick={() => setSearchOpen(true)}
-            className="lg:hidden inline-flex size-11 items-center justify-center rounded-full text-black/60 hover:bg-black/5 transition-colors"
+            className="lg:hidden inline-flex size-11 items-center justify-center rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#86bc25]"
           >
             <MagnifyingGlass size={20} weight="bold" />
           </button>
@@ -153,7 +163,7 @@ export function Nav() {
             type="button"
             aria-label={mobileOpen ? "Zamknij menu" : "Otwórz menu"}
             aria-expanded={mobileOpen}
-            className="lg:hidden inline-flex size-11 items-center justify-center rounded-full text-black/60 hover:bg-black/5 transition-colors active:scale-[0.98]"
+            className="lg:hidden inline-flex size-11 items-center justify-center rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-colors active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#86bc25]"
             onClick={() => setMobileOpen((v) => !v)}
           >
             {mobileOpen ? <X size={20} weight="bold" /> : <List size={20} weight="bold" />}
@@ -352,7 +362,11 @@ export function Nav() {
       {/* Offset placeholder so content isn't under fixed header */}
       <div aria-hidden className="h-[120px]" />
 
-      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <SearchOverlay
+        open={searchOpen}
+        onOpen={() => setSearchOpen(true)}
+        onClose={() => setSearchOpen(false)}
+      />
     </>
   );
 }

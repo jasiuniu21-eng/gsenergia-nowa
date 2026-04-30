@@ -86,7 +86,7 @@ export function HelpCalculator() {
                 style={{ ["--pct" as string]: `${pct}%` }}
                 className="gs-range w-full"
               />
-              <div className="mt-3 flex justify-between text-xs text-white/50 font-medium">
+              <div className="mt-3 flex justify-between text-xs text-white/70 font-medium">
                 <span>50 tys.</span>
                 <span>5 mln.</span>
               </div>
@@ -104,7 +104,7 @@ export function HelpCalculator() {
                   {formatPLN(annualSavings)}
                 </motion.span>
               </div>
-              <div className="mt-2 text-xs text-white/50">(18% niżej)</div>
+              <div className="mt-2 text-xs text-white/70">(18% niżej)</div>
             </div>
 
             <div className="rounded-2xl bg-[#26890d]/15 ring-1 ring-[#86bc25]/30 p-6 text-center">
@@ -116,7 +116,7 @@ export function HelpCalculator() {
                   {formatPLN(fiveYearSavings)}
                 </motion.span>
               </div>
-              <div className="mt-2 text-xs text-white/50">(+ inflacja energii)</div>
+              <div className="mt-2 text-xs text-white/70">(+ inflacja energii)</div>
             </div>
 
             <div className="rounded-2xl bg-[#26890d]/15 ring-1 ring-[#86bc25]/30 p-6 text-center">
@@ -126,7 +126,7 @@ export function HelpCalculator() {
               <div className="mt-3 font-display leading-tight" style={{ fontWeight: 100, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#86bc25" }}>
                 &lt; 18 miesięcy
               </div>
-              <div className="mt-2 text-xs text-white/50">(średni czas zwrotu)</div>
+              <div className="mt-2 text-xs text-white/70">(średni czas zwrotu)</div>
             </div>
           </div>
         </div>

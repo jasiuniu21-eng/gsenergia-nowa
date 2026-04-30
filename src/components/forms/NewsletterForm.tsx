@@ -216,7 +216,7 @@ export function NewsletterForm({ variant }: NewsletterFormProps) {
 
     return (
       <form onSubmit={onSubmit} noValidate className="relative">
-        <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-white/40 mb-3">
+        <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-white/65 mb-3">
           Newsletter
         </p>
         <p className="text-sm text-white/75 mb-4 max-w-[42ch]">
