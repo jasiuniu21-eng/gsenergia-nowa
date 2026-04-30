@@ -1,6 +1,7 @@
 import { Nav } from "@/components/layout/Nav";
 import { FloatingCTA } from "@/components/layout/FloatingCTA";
 import { Footer } from "@/components/layout/Footer";
+import { CookieBanner } from "@/components/layout/CookieBanner";
 
 export default function SiteLayout({
   children,
@@ -17,6 +18,7 @@ export default function SiteLayout({
       <main>{children}</main>
       <Footer />
       <FloatingCTA />
+      <CookieBanner />
     </>
   );
 }

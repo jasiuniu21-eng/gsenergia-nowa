@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SITE } from "@/lib/site";
 import { localBusinessSchema } from "@/lib/seo";
+import { Analytics } from "@/components/analytics/Analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gsenergia.pl"),
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="pl" className="h-full" suppressHydrationWarning>
       <body className="min-h-full">
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

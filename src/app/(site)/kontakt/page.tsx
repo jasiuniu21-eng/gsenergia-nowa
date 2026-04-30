@@ -1,96 +1,161 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import {
+  MapPin,
+  Phone,
+  EnvelopeSimple,
+  Clock,
+  ArrowUpRight,
+} from "@phosphor-icons/react/dist/ssr";
 import { SITE } from "@/lib/site";
+import { ContactForm } from "@/components/forms/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Kontakt · GS Energia — Kraków",
+  title: "Kontakt",
   description:
-    "Skontaktuj się z GS Energia — audytorzy energetyczni z Krakowa. Tel.: +48 606 590 931, e-mail: biuro@gsenergia.pl. Rynek Główny 28, 31-010 Kraków.",
+    "Skontaktuj się z GS Energia — bezpłatna konsultacja energetyczna, audyty, BESS, fotowoltaika. Kraków · Rynek Główny 28. Tel. +48 606 590 931.",
+  alternates: { canonical: "https://gsenergia.pl/kontakt" },
 };
 
 export default function KontaktPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-4">Kontakt</h1>
-      <p className="text-lg text-gray-600 mb-12 max-w-2xl">
-        Zadzwoń, napisz lub wypełnij krótką ankietę konsultacyjną — odpowiemy w ciągu
-        jednego dnia roboczego i bezpłatnie ocenimy zakres potrzebnego audytu.
-      </p>
+    <>
+      {/* HERO */}
+      <section className="bg-white">
+        <div className="container-site pt-[clamp(4rem,7vw,6.5rem)] pb-[clamp(2rem,4vw,3rem)]">
+          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            Kontakt
+          </p>
+          <h1
+            className="font-display text-[#222328] max-w-[24ch]"
+            style={{
+              fontSize: "clamp(2.25rem, 4vw + 1rem, 4rem)",
+              fontWeight: 100,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.05,
+            }}
+          >
+            Porozmawiajmy o Twojej energii
+            <span style={{ color: "#8DC73F" }}>.</span>
+          </h1>
+          <p className="mt-5 max-w-[58ch] text-[1.05rem] leading-[1.65] text-[#222328]/70">
+            Wypełnij formularz lub zadzwoń. Odpowiadamy w 24h, konsultacja
+            wstępna jest bezpłatna.
+          </p>
+        </div>
+      </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        {/* NAP block — Local SEO */}
-        <div className="bg-gray-50 rounded-2xl p-8">
-          <h2 className="text-xl font-semibold mb-6">Dane kontaktowe</h2>
+      {/* TWO COLUMNS */}
+      <section className="bg-white">
+        <div className="container-site pb-[clamp(4rem,7vw,7rem)]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16">
+            {/* LEFT — info card */}
+            <div className="rounded-2xl bg-[oklch(0.16_0.02_150)] text-white p-8 lg:p-10">
+              <h2 className="font-display text-2xl mb-6">
+                Skontaktuj się z nami
+              </h2>
 
-          <address className="not-italic space-y-4">
-            <div>
-              <div className="text-xs uppercase tracking-wide text-gray-400 mb-1">Firma</div>
-              <div className="font-semibold text-lg">GS Energia</div>
-            </div>
-
-            <div>
-              <div className="text-xs uppercase tracking-wide text-gray-400 mb-1">Adres</div>
-              <div className="font-medium">Rynek Główny 28</div>
-              <div className="font-medium">31-010 Kraków</div>
-            </div>
-
-            <div>
-              <div className="text-xs uppercase tracking-wide text-gray-400 mb-1">Telefon</div>
               <a
                 href={SITE.phoneHref}
-                className="text-blue-700 font-semibold text-lg hover:underline"
+                className="block font-display text-white hover:text-[#8DC73F] transition-colors"
+                style={{
+                  fontSize: "clamp(1.6rem, 2.4vw + 0.5rem, 2rem)",
+                  fontWeight: 200,
+                  letterSpacing: "-0.01em",
+                }}
               >
-                +48 606 590 931
+                {SITE.phone}
               </a>
-            </div>
-
-            <div>
-              <div className="text-xs uppercase tracking-wide text-gray-400 mb-1">E-mail</div>
               <a
                 href={SITE.emailHref}
-                className="text-blue-700 font-medium hover:underline"
+                className="mt-2 inline-flex items-center gap-2 text-[1.05rem] text-white/85 hover:text-white transition-colors"
               >
-                biuro@gsenergia.pl
+                <EnvelopeSimple size={16} weight="bold" className="text-[#8DC73F]" />
+                {SITE.email}
+              </a>
+
+              <ul className="mt-8 space-y-4 text-[0.98rem]">
+                <li className="flex items-start gap-3">
+                  <MapPin
+                    size={18}
+                    weight="bold"
+                    className="mt-0.5 shrink-0 text-[#8DC73F]"
+                  />
+                  <span className="text-white/85">
+                    Rynek Główny 28
+                    <br />
+                    31-010 Kraków
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Clock
+                    size={18}
+                    weight="bold"
+                    className="mt-0.5 shrink-0 text-[#8DC73F]"
+                  />
+                  <span className="text-white/85">
+                    Poniedziałek – Piątek 8:00 – 17:00
+                  </span>
+                </li>
+              </ul>
+
+              <div className="mt-8 rounded-xl overflow-hidden ring-1 ring-white/10">
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=19.9314%2C50.0596%2C19.9418%2C50.0644&layer=mapnik&marker=50.0620%2C19.9366"
+                  className="w-full"
+                  style={{
+                    border: 0,
+                    height: 280,
+                    filter: "grayscale(0.4) contrast(1.1)",
+                  }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Lokalizacja GS Energia — Rynek Główny 28, Kraków"
+                />
+              </div>
+            </div>
+
+            {/* RIGHT — form */}
+            <div>
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BOTTOM CTA STRIP */}
+      <section className="bg-[#f6f7f4]">
+        <div className="container-site py-[clamp(2.5rem,5vw,4rem)]">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <p className="text-[1.05rem] text-[#222328]">
+              Nie chcesz pisać? Zadzwoń od razu —{" "}
+              <a
+                href={SITE.phoneHref}
+                className="font-medium text-[#26890d] hover:underline"
+              >
+                {SITE.phone}
+              </a>
+              .
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={SITE.phoneHref}
+                className="inline-flex items-center gap-2 rounded-full bg-[#26890d] text-white px-6 py-3 text-sm font-medium hover:bg-[#1f6f0a] transition-colors"
+              >
+                <Phone size={14} weight="bold" />
+                Zadzwoń teraz
+              </a>
+              <a
+                href={SITE.emailHref}
+                className="inline-flex items-center gap-2 rounded-full border border-black/15 text-[#222328] px-6 py-3 text-sm font-medium hover:bg-white transition-colors"
+              >
+                <EnvelopeSimple size={14} weight="bold" />
+                Wyślij e-mail
+                <ArrowUpRight size={12} weight="bold" />
               </a>
             </div>
-
-            <div>
-              <div className="text-xs uppercase tracking-wide text-gray-400 mb-1">NIP</div>
-              <div className="text-gray-700">{SITE.nip}</div>
-            </div>
-          </address>
-        </div>
-
-        {/* CTA / Survey */}
-        <div className="flex flex-col gap-6">
-          <div className="border border-blue-200 rounded-2xl p-8 bg-blue-50">
-            <h2 className="text-xl font-semibold mb-3">Bezpłatna konsultacja energetyczna</h2>
-            <p className="text-gray-700 text-sm mb-5">
-              Wypełnij krótką ankietę (ok. 5 minut) — nasi audytorzy skontaktują się z Tobą
-              bezpłatnie i ocenią, jakiego rodzaju audyt jest potrzebny Twojej firmie.
-            </p>
-            <Link
-              href={SITE.surveyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-800 transition-colors"
-            >
-              Wypełnij ankietę →
-            </Link>
-          </div>
-
-          <div className="border border-gray-200 rounded-2xl p-6">
-            <h3 className="font-semibold mb-2">Godziny kontaktu</h3>
-            <p className="text-sm text-gray-600">Poniedziałek – Piątek: 8:00 – 17:00</p>
-            <p className="text-sm text-gray-600 mt-1">W pilnych sprawach — telefon całą dobę.</p>
           </div>
         </div>
-      </div>
-
-      {/* Map embed placeholder */}
-      <div className="rounded-2xl overflow-hidden border border-gray-200 h-64 bg-gray-100 flex items-center justify-center text-gray-400 text-sm">
-        Rynek Główny 28, 31-010 Kraków — GS Energia
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

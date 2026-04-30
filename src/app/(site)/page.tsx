@@ -4,9 +4,11 @@ import { HelpCalculator } from "@/components/sections/HelpCalculator";
 import { Services } from "@/components/sections/Services";
 import { CaseStudies } from "@/components/sections/CaseStudies";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { ClientsWall } from "@/components/sections/ClientsWall";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { News } from "@/components/sections/News";
+import { Newsletter } from "@/components/sections/Newsletter";
 import { Contact } from "@/components/sections/Contact";
 import { JsonLd, faqSchema, serviceSchema } from "@/lib/seo";
 
@@ -95,9 +97,11 @@ export default function Home() {
       <Services />
       <CaseStudies />
       <WhyUs />
+      <Testimonials />
       <ClientsWall />
       <HowItWorks />
       <News />
+      <Newsletter />
       <Contact />
     </>
   );

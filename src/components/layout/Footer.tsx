@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight, MapPin, Phone, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
 import { SITE } from "@/lib/site";
+import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 const COLS = [
   {
@@ -41,6 +42,11 @@ export function Footer() {
   return (
     <footer className="bg-black text-white">
       <div className="container-site py-[clamp(3rem,5vw,5rem)]">
+        {/* Newsletter banner */}
+        <div className="rounded-2xl bg-white/[0.05] ring-1 ring-white/10 p-7 lg:p-8 mb-14">
+          <NewsletterForm variant="footer" />
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_3fr] gap-12">
           {/* Brand + NAP */}
           <div>
