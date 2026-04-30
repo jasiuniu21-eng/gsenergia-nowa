@@ -110,8 +110,7 @@ export function Testimonials() {
               lineHeight: 1.05,
             }}
           >
-            Tak mówią ci, którzy z nami pracowali
-            <span style={{ color: "#8DC73F" }}>.</span>
+            Klienci o współpracy z nami<span style={{ color: "#8DC73F" }}>.</span>
           </motion.h2>
           <p className="mt-5 text-[1rem] text-[color:var(--c-fg-muted)] leading-[1.6] max-w-[60ch]">
             Realne wypowiedzi dyrektorów technicznych i kierowników utrzymania ruchu —

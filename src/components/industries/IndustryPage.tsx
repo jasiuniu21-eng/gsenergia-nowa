@@ -335,7 +335,7 @@ export function IndustryPage({ data }: Props) {
                   href={c.href}
                   className="mt-6 inline-flex items-center gap-1 text-sm text-[#222328] group-hover:text-[#26890d] transition-colors"
                 >
-                  Czytaj realizację
+                  Zobacz realizację
                   <ArrowUpRight
                     size={14}
                     weight="bold"

@@ -57,7 +57,7 @@ export function HelpCalculator() {
             O ile obniżymy Twój rachunek<span style={{ color: "#86bc25" }}>.</span>
           </h2>
           <p className="mt-5 text-base lg:text-lg text-white/70 max-w-2xl">
-            Przesuń suwak — pokażemy ile zaoszczędzisz po audycie energetycznym GS Energia.
+            Przesuń suwak — pokażemy ile zaoszczędzisz po audycie energetycznym&nbsp;<span className="whitespace-nowrap">GS&nbsp;ENERGIA</span>.
           </p>
         </div>
 

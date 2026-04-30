@@ -9,13 +9,13 @@ import { ArrowUpRight, CaretLeft, CaretRight } from "@phosphor-icons/react/dist/
 const SERVICES = [
   // ── Strona 1 (8 usług) ──
   {
-    img: "/uslugi/01-audyt-przedsiebiorstwa.jpg",
+    img: "/uslugi/01-audyt-przedsiebiorstwa.png",
     title: "Audyt Energetyczny Przedsiębiorstwa",
     desc: "Obowiązkowy co 4 lata audyt dla dużych firm.",
     href: "/uslugi/audyt-energetyczny-przedsiebiorstwa",
   },
   {
-    img: "/uslugi/02-audyt-efektywnosci.jpg",
+    img: "/uslugi/02-audyt-efektywnosci.png",
     title: "Audyt Efektywności Energetycznej",
     desc: "Identyfikacja oszczędności + białe certyfikaty.",
     href: "/uslugi/audyt-efektywnosci-energetycznej",
@@ -27,13 +27,13 @@ const SERVICES = [
     href: "/uslugi/aktualne-i-planowane-nabory",
   },
   {
-    img: "/uslugi/04-ems.jpg",
+    img: "/uslugi/04-ems.png",
     title: "EMS / Telemetria",
     desc: "Inteligentne zarządzanie i monitoring energii.",
     href: "/uslugi",
   },
   {
-    img: "/uslugi/05-swiadectwo.jpg",
+    img: "/uslugi/05-swiadectwo.png",
     title: "Świadectwo Charakterystyki Energetycznej",
     desc: "Pełna dokumentacja energetyczna budynków.",
     href: "/uslugi/audyt-energetyczny-budynku",
@@ -45,56 +45,56 @@ const SERVICES = [
     href: "/uslugi",
   },
   {
-    img: "/uslugi/07-klimatyzacja.jpg",
+    img: "/uslugi/07-klimatyzacja.png",
     title: "Kontrola Klimatyzacji i Ogrzewania",
     desc: "Ocena efektywności systemów HVAC.",
     href: "/uslugi/audyt-energetyczny-wezlow-cieplnych",
   },
   {
-    img: "/uslugi/08-dekarbonizacja.jpg",
+    img: "/uslugi/08-dekarbonizacja.png",
     title: "Dekarbonizacja",
     desc: "Strategia redukcji CO₂, ślad węglowy, CSRD.",
     href: "/uslugi",
   },
   // ── Strona 2 (7 usług + Pozostałe) ──
   {
-    img: "/uslugi/09-ogrzewanie.jpg",
+    img: "/uslugi/09-ogrzewanie.png",
     title: "Kontrola Systemu Ogrzewania",
     desc: "Ocena efektywności kotłów i instalacji.",
     href: "/uslugi/audyt-energetyczny-kotlowni",
   },
   {
-    img: "/uslugi/10-kogeneracja.jpg",
+    img: "/uslugi/10-kogeneracja.png",
     title: "Kogeneracja, Trigeneracja",
     desc: "Audyt, finansowanie i wdrożenie.",
     href: "/uslugi",
   },
   {
-    img: "/uslugi/11-wodor.jpg",
+    img: "/uslugi/11-wodor.png",
     title: "Technologie Wodorowe",
     desc: "Audyt, analiza opłacalności, wdrożenia.",
     href: "/uslugi/audyt-wodorowy",
   },
   {
-    img: "/uslugi/12-audyt-budynku.jpg",
+    img: "/uslugi/12-audyt-budynku.png",
     title: "Audyt Energetyczny Budynku",
     desc: "Oświetlenie, elektroenergetyczny, termowizja.",
     href: "/uslugi/audyt-energetyczny-budynku",
   },
   {
-    img: "/uslugi/13-chlodniczy.jpg",
+    img: "/uslugi/13-chlodniczy.png",
     title: "Audyt Chłodniczy",
     desc: "Efektywność urządzeń chłodniczych i klimatyzacji.",
     href: "/uslugi/audyt-chlodniczy",
   },
   {
-    img: "/uslugi/14-oze.jpg",
+    img: "/uslugi/14-oze.png",
     title: "Odnawialne Źródła Energii",
     desc: "Projektowanie, dobór i nadzór instalacji OZE.",
     href: "/uslugi/audyt-energetyczny-na-cele-oze",
   },
   {
-    img: "/uslugi/15-pozostale.jpg",
+    img: "/uslugi/15-pozostale.png",
     title: "Pozostałe usługi",
     desc: "Zobacz pełną listę 65 usług.",
     href: "/uslugi",
@@ -146,8 +146,7 @@ export function Services() {
                 lineHeight: 1.05,
               }}
             >
-              Wszystkie nasze usługi
-              <span style={{ color: "#86bc25" }}>.</span>
+              Nasze usługi<span style={{ color: "#86bc25" }}>.</span>
             </motion.h2>
           </div>
 

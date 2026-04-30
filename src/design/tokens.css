@@ -50,8 +50,8 @@
   --c-amber:       var(--c-amber-500);
 
   /* -------- Typography -------- */
-  --font-display: "Gambarino", "Gambarino Variable", ui-serif, Georgia, serif;
-  --font-body: "General Sans", "General Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", "Gambarino", ui-serif, Georgia, serif;
+  --font-body: "Noto Sans Display", "Noto Sans", "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
 
   /* Fluid display scale (clamp min @ 375px, max @ 1400px) */

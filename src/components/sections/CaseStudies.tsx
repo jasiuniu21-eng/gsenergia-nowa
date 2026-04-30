@@ -141,7 +141,7 @@ export function CaseStudies() {
                 href={c.href}
                 className="mt-6 inline-flex items-center gap-1 text-sm text-[#222328] group-hover:text-[#26890d] transition-colors"
               >
-                Czytaj realizację
+                Zobacz realizację
                 <ArrowUpRight size={14} weight="bold" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </motion.article>

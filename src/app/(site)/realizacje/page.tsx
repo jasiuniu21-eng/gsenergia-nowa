@@ -272,9 +272,9 @@ export default function RealizacjeListPage() {
                   <Link
                     href={`/realizacje/${doc.slug}`}
                     className="mt-6 inline-flex items-center gap-1 text-sm text-[#222328] group-hover:text-[#26890d] transition-colors"
-                    aria-label={`Czytaj realizację: ${meta.client}`}
+                    aria-label={`Zobacz realizację: ${meta.client}`}
                   >
-                    Czytaj realizację
+                    Zobacz realizację
                     <ArrowUpRight
                       size={14}
                       weight="bold"
