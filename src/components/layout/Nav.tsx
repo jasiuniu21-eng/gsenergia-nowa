@@ -70,8 +70,8 @@ export function Nav() {
         className={[
           "fixed inset-x-0 top-0 z-40 transition-[background-color,backdrop-filter] duration-300",
           scrolled
-            ? "bg-black/35 backdrop-blur-md"
-            : "bg-black/25 backdrop-blur-sm",
+            ? "bg-[#0F2A1F]/85 backdrop-blur-xl"
+            : "bg-gradient-to-b from-[#0F2A1F]/45 via-[#0F2A1F]/25 to-transparent",
         ].join(" ")}
         onMouseLeave={() => setOpenMenu(null)}
       >
