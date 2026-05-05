@@ -44,6 +44,11 @@ export function HeroVideo() {
     };
   }, []);
 
+  // Soft mask hides any color-space rendering mismatch between video and CSS bg
+  const fadeMask =
+    "linear-gradient(to bottom, transparent 0%, #000 12%, #000 100%), " +
+    "linear-gradient(to right,  transparent 0%, #000 6%,  #000 94%, transparent 100%)";
+
   return (
     <div
       aria-hidden="true"
@@ -57,6 +62,12 @@ export function HeroVideo() {
         preload="auto"
         poster="/video/drzewo-poster.jpg"
         className="w-full h-full object-contain object-bottom"
+        style={{
+          maskImage: fadeMask,
+          WebkitMaskImage: fadeMask,
+          maskComposite: "intersect",
+          WebkitMaskComposite: "source-in",
+        }}
       >
         <source src="/video/drzewo.mp4" type="video/mp4" />
         <source src="/video/drzewo.webm" type="video/webm" />
