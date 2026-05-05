@@ -32,9 +32,9 @@ export function ClientsWall() {
   return (
     <section
       aria-labelledby="clients-heading"
-      className="bg-white text-[#222328] border-y border-black/10"
+      className="bg-[#fcfcfc] text-[#222328] border-b border-black/10"
     >
-      <div className="container-site py-[clamp(4rem,7vw,7rem)]">
+      <div className="container-site pt-4 pb-[clamp(4rem,7vw,7rem)]">
         <motion.h2
           id="clients-heading"
           initial={reduced ? false : { opacity: 0, y: 12 }}
