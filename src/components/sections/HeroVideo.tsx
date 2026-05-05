@@ -56,7 +56,8 @@ export function HeroVideo() {
         playsInline
         preload="auto"
         poster="/video/drzewo-poster.jpg"
-        className="w-full h-full object-contain object-center"
+        className="w-full h-full object-contain"
+        style={{ objectPosition: "calc(50% - 10px) center" }}
       >
         <source src="/video/drzewo.mp4" type="video/mp4" />
         <source src="/video/drzewo.webm" type="video/webm" />
