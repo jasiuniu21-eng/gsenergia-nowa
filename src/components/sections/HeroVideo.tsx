@@ -16,12 +16,20 @@ export function HeroVideo() {
     // Ensure muted (required for autoplay) and trigger load+play
     v.muted = true;
     v.playsInline = true;
+    // Freeze on last frame instead of looping
+    const onEnded = () => {
+      // Hold the final frame
+      if (v.duration && Number.isFinite(v.duration)) {
+        v.currentTime = Math.max(0, v.duration - 0.05);
+      }
+      v.pause();
+    };
+    v.addEventListener("ended", onEnded);
     v.load();
     const tryPlay = () => {
       const p = v.play();
       if (p && typeof p.then === "function") {
         p.catch(() => {
-          // Autoplay rejected — try again on next user interaction
           const onInteract = () => {
             v.play().catch(() => undefined);
             window.removeEventListener("pointerdown", onInteract);
@@ -31,6 +39,9 @@ export function HeroVideo() {
       }
     };
     tryPlay();
+    return () => {
+      v.removeEventListener("ended", onEnded);
+    };
   }, []);
 
   return (
@@ -41,7 +52,6 @@ export function HeroVideo() {
       <video
         ref={videoRef}
         autoPlay
-        loop
         muted
         playsInline
         preload="auto"
@@ -51,12 +61,6 @@ export function HeroVideo() {
         <source src="/video/drzewo.mp4" type="video/mp4" />
         <source src="/video/drzewo.webm" type="video/webm" />
       </video>
-
-      {/* Subtle dark overlay so text overlay stays readable */}
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"
-        aria-hidden="true"
-      />
     </div>
   );
 }
