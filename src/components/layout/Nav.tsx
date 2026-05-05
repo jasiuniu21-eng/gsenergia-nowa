@@ -67,12 +67,7 @@ export function Nav() {
   return (
     <>
       <header
-        className={[
-          "fixed inset-x-0 top-0 z-40 transition-[background-color,backdrop-filter] duration-300",
-          scrolled
-            ? "bg-[#0F2A1F]/85 backdrop-blur-xl"
-            : "bg-gradient-to-b from-[#0F2A1F]/45 via-[#0F2A1F]/25 to-transparent",
-        ].join(" ")}
+        className="fixed inset-x-0 top-0 z-40 bg-gradient-to-b from-[#0F2A1F]/45 via-[#0F2A1F]/25 to-transparent"
         onMouseLeave={() => setOpenMenu(null)}
       >
         <div className="w-full px-10 flex h-[120px] items-center justify-between gap-12">
