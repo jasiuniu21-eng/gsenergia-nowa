@@ -47,7 +47,7 @@ export function HeroVideo() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none select-none absolute inset-0 overflow-hidden flex items-center justify-center"
+      className="pointer-events-none select-none absolute inset-0 overflow-hidden flex items-end justify-center"
     >
       <video
         ref={videoRef}
@@ -56,7 +56,7 @@ export function HeroVideo() {
         playsInline
         preload="auto"
         poster="/video/drzewo-poster.jpg"
-        className="w-[80%] h-[80%] object-contain"
+        className="w-full h-full object-contain object-bottom"
       >
         <source src="/video/drzewo.mp4" type="video/mp4" />
         <source src="/video/drzewo.webm" type="video/webm" />
