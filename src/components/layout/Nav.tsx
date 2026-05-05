@@ -78,8 +78,13 @@ export function Nav() {
         <div className="w-full px-10 flex h-[120px] items-center justify-between gap-12">
           <Logo />
 
-          <div className="hidden lg:flex items-center gap-4">
-            <nav aria-label="Główna" className="flex items-center gap-0">
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Wordware-style pill — all menu items in one rounded container */}
+            <nav
+              aria-label="Główna"
+              className="flex items-center gap-0 p-1 rounded-[10px] bg-[#F4EFDF]"
+              style={{ fontFamily: "var(--font-mono)" }}
+            >
               {NAV.map((item) => {
                 const hasChildren = !!(item.children?.length || item.groups?.length);
                 const isOpen = openMenu === item.label;
@@ -93,62 +98,55 @@ export function Nav() {
                     <Link
                       href={item.href}
                       className={[
-                        "group/link relative inline-flex items-center gap-1.5 px-3.5 py-2 text-[0.92rem] font-medium leading-none transition-colors",
-                        isOpen ? "text-white" : "text-white/75 hover:text-white",
+                        "inline-flex items-center gap-1 px-3.5 h-[34px] rounded-md text-[12px] font-medium uppercase tracking-[0.08em] leading-none transition-colors",
+                        isOpen
+                          ? "bg-black/10 text-[#0F2A1F]"
+                          : "text-[#0F2A1F]/85 hover:bg-black/5 hover:text-[#0F2A1F]",
                       ].join(" ")}
                       onFocus={() => hasChildren && setOpenMenu(item.label)}
                     >
-                      <span className="relative">
-                        {item.label}
-                        {/* Animated underline */}
-                        <span
-                          aria-hidden="true"
-                          className={[
-                            "absolute left-0 -bottom-1 h-[1.5px] bg-[#86bc25] transition-all duration-300 ease-out",
-                            isOpen ? "w-full" : "w-0 group-hover/link:w-full",
-                          ].join(" ")}
-                        />
-                      </span>
+                      {item.label}
                       {hasChildren && (
                         <svg
-                          width="10"
-                          height="10"
-                          viewBox="0 0 10 10"
-                          aria-hidden="true"
+                          width="9" height="9" viewBox="0 0 10 10" aria-hidden="true"
                           className={[
                             "transition-transform duration-300 opacity-60",
                             isOpen ? "rotate-180 opacity-100" : "",
                           ].join(" ")}
                         >
-                          <path
-                            d="M1.5 3.5L5 7l3.5-3.5"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
+                          <path d="M1.5 3.5L5 7l3.5-3.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       )}
                     </Link>
                   </div>
                 );
               })}
+
+              {/* Yellow CTA pill — Wordware "Sauna OS" style */}
+              <Link
+                href={SITE.surveyUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="ml-1 inline-flex items-center h-[34px] px-4 rounded-md bg-[#F1FF6A] text-[#0F2A1F] text-[12px] font-semibold uppercase tracking-[0.08em] leading-none hover:bg-[#E5F44C] transition-colors"
+                style={{ fontFamily: "var(--font-mono)" }}
+              >
+                Konsultacja
+              </Link>
             </nav>
 
-            <div className="flex items-center gap-2 ml-2">
-              <button
-                type="button"
-                aria-label="Szukaj (Cmd+K)"
-                onClick={() => setSearchOpen(true)}
-                className="group inline-flex items-center gap-2 rounded-full pl-2.5 pr-2 py-1.5 text-white/70 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#86bc25] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-              >
-                <MagnifyingGlass size={15} weight="bold" />
-                <kbd className="hidden md:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono border border-white/25 rounded text-white/70 group-hover:text-white/90 group-hover:border-white/35 transition-colors">
-                  {isMac ? "⌘ K" : "Ctrl K"}
-                </kbd>
-              </button>
-            </div>
+            {/* Search pill outside main pill */}
+            <button
+              type="button"
+              aria-label="Szukaj (Cmd+K)"
+              onClick={() => setSearchOpen(true)}
+              className="group inline-flex items-center gap-2 rounded-[10px] pl-3 pr-2 h-[42px] bg-[#F4EFDF] text-[#0F2A1F]/70 hover:text-[#0F2A1F] hover:bg-[#EBE3CC] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#86bc25] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              style={{ fontFamily: "var(--font-mono)" }}
+            >
+              <MagnifyingGlass size={15} weight="bold" />
+              <kbd className="hidden md:inline-flex items-center px-1.5 py-0.5 text-[10px] border border-black/15 rounded text-[#0F2A1F]/60">
+                {isMac ? "⌘ K" : "Ctrl K"}
+              </kbd>
+            </button>
           </div>
 
           <button
