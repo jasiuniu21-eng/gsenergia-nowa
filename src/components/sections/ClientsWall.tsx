@@ -32,7 +32,7 @@ export function ClientsWall() {
   return (
     <section
       aria-labelledby="clients-heading"
-      className="bg-[#fcfcfc] text-[#222328] border-b border-black/10"
+      className="bg-white text-[#222328] border-b border-black/10"
     >
       <div className="container-site pt-4 pb-[clamp(4rem,7vw,7rem)]">
         <motion.h2
