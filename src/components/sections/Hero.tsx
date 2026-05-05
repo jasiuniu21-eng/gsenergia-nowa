@@ -5,7 +5,7 @@ import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { SITE } from "@/lib/site";
-import { EnergyFlower } from "./EnergyFlower";
+import { HeroVideo } from "./HeroVideo";
 
 const ROTATING_WORDS = [
   "się zwraca",
@@ -30,9 +30,9 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden min-h-[100vh] flex flex-col bg-white text-[color:var(--c-ink-900)]"
+      className="relative isolate overflow-hidden min-h-[100vh] flex flex-col bg-black text-white"
     >
-      <EnergyFlower />
+      <HeroVideo />
 
       <div className="container-site relative z-10 mt-auto mb-auto pt-[clamp(6rem,12vw,9rem)] pb-[clamp(3rem,6vw,5rem)] text-center">
         <motion.h1
@@ -74,7 +74,7 @@ export function Hero() {
           initial={reduced ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="mt-7 mx-auto max-w-[58ch] text-[color:var(--c-fg-muted)] leading-[1.55]"
+          className="mt-7 mx-auto max-w-[58ch] text-white/70 leading-[1.55]"
           style={{ fontSize: "clamp(1.05rem, 0.95rem + 0.35vw, 1.25rem)" }}
         >
           Audyty energetyczne, EMS, BESS i fotowoltaika dla zakładów produkcyjnych.
@@ -98,7 +98,7 @@ export function Hero() {
           </Link>
           <Link
             href="/uslugi"
-            className="group inline-flex items-center gap-2 rounded-full border border-black/15 bg-white text-[color:var(--c-ink-900)] px-6 py-3.5 text-[0.98rem] leading-none hover:border-black/40 transition-colors"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-transparent text-white px-6 py-3.5 text-[0.98rem] leading-none hover:border-white/50 transition-colors"
           >
             Zobacz usługi
           </Link>
@@ -110,9 +110,9 @@ export function Hero() {
         initial={reduced ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.4 }}
-        className="relative z-10 border-t border-black/10 bg-white/70 backdrop-blur-sm"
+        className="relative z-10 border-t border-white/10 bg-black/60 backdrop-blur-sm"
       >
-        <ul className="container-site py-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[0.78rem] tracking-[0.08em] uppercase font-semibold text-[color:var(--c-fg-muted)]">
+        <ul className="container-site py-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[0.78rem] tracking-[0.08em] uppercase font-semibold text-white/70">
           <li>400+ zakładów</li>
           <li className="opacity-30">·</li>
           <li>ISO 50001</li>

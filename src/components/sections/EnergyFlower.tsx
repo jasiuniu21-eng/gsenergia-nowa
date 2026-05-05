@@ -39,88 +39,87 @@ export function EnergyFlower() {
       const BX = W * 0.5;       // base X (root)
       const BY = H * 0.95;      // base Y (root level)
 
-      // ── Thick trunk ──
-      ox.lineWidth = 60 * scale;
-      ox.lineCap = "round";
-      ox.beginPath();
-      ox.moveTo(BX, BY);
-      ox.quadraticCurveTo(BX - 6 * scale, BY - 130 * scale, BX, BY - 250 * scale);
-      ox.stroke();
+      // ── Blossom-tree silhouette (5 clover-blooms on curving stems) ──
+      // Each blossom = 4-leaf clover (4 overlapping circles) packed with digits + ⚡
 
-      // ── Lightning bolt on trunk ──
-      const TRUNK_MID_X = BX;
-      const TRUNK_MID_Y = BY - 120 * scale;
-      const bs = 90 * scale;
+      type Blossom = { cx: number; cy: number; r: number };
+      const blossoms: Blossom[] = [
+        // 3 top blossoms
+        { cx: BX - 220 * scale, cy: BY - 410 * scale, r: 80 * scale },
+        { cx: BX +  10 * scale, cy: BY - 470 * scale, r: 90 * scale },
+        { cx: BX + 220 * scale, cy: BY - 380 * scale, r: 80 * scale },
+        // 2 lower blossoms
+        { cx: BX - 200 * scale, cy: BY - 220 * scale, r: 70 * scale },
+        { cx: BX + 240 * scale, cy: BY - 200 * scale, r: 65 * scale },
+      ];
+
+      // Base point (where all stems converge)
+      const BASE_X = BX;
+      const BASE_Y = BY - 30 * scale;
+
+      // Curved stems from base to each blossom
+      ox.lineWidth = 12 * scale;
+      ox.lineCap = "round";
+      ox.lineJoin = "round";
+      blossoms.forEach((b, i) => {
+        // S-curve via two control points (cubic-like via two quadratics)
+        const dx = b.cx - BASE_X;
+        const swing = (i % 2 === 0 ? 1 : -1) * 40 * scale;
+        const cpx1 = BASE_X + dx * 0.15 + swing * 0.6;
+        const cpy1 = BASE_Y + (b.cy - BASE_Y) * 0.55;
+        const cpx2 = BASE_X + dx * 0.65 - swing * 0.4;
+        const cpy2 = BASE_Y + (b.cy - BASE_Y) * 0.85;
+        ox.beginPath();
+        ox.moveTo(BASE_X, BASE_Y);
+        ox.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, b.cx, b.cy);
+        ox.stroke();
+      });
+
+      // Small leaf-circles along each stem (decorative offshoots)
+      blossoms.forEach((b, i) => {
+        for (let k = 0; k < 2; k++) {
+          const t = 0.35 + k * 0.25;
+          const lx = BASE_X + (b.cx - BASE_X) * t;
+          const ly = BASE_Y + (b.cy - BASE_Y) * t;
+          const dir = i % 2 === 0 ? -1 : 1;
+          ox.beginPath();
+          ox.arc(lx + dir * 26 * scale, ly - 4 * scale, 18 * scale, 0, Math.PI * 2);
+          ox.fill();
+        }
+      });
+
+      // Base calyx — bell at the bottom where stems converge
       ox.beginPath();
-      ox.moveTo(TRUNK_MID_X + bs * 0.18, TRUNK_MID_Y - bs * 0.85);
-      ox.lineTo(TRUNK_MID_X - bs * 0.42, TRUNK_MID_Y + bs * 0.05);
-      ox.lineTo(TRUNK_MID_X - bs * 0.05, TRUNK_MID_Y + bs * 0.05);
-      ox.lineTo(TRUNK_MID_X - bs * 0.18, TRUNK_MID_Y + bs * 0.85);
-      ox.lineTo(TRUNK_MID_X + bs * 0.42, TRUNK_MID_Y - bs * 0.05);
-      ox.lineTo(TRUNK_MID_X + bs * 0.05, TRUNK_MID_Y - bs * 0.05);
-      ox.closePath();
+      ox.ellipse(BASE_X, BASE_Y, 38 * scale, 18 * scale, 0, 0, Math.PI * 2);
       ox.fill();
 
-      // ── Recursive branches ──
-      function branch(
-        x: number, y: number,
-        angle: number, len: number, width: number, depth: number
-      ) {
-        if (depth === 0 || len < 8 * scale) return;
-        const ex = x + Math.cos(angle) * len;
-        const ey = y + Math.sin(angle) * len;
-        if (ox) {
-          ox.lineWidth = Math.max(1.5 * scale, width);
+      // Each blossom = 4 overlapping circles (clover petals) + center
+      blossoms.forEach((b) => {
+        const offs: [number, number][] = [
+          [0, -b.r * 0.55],
+          [b.r * 0.55, 0],
+          [0, b.r * 0.55],
+          [-b.r * 0.55, 0],
+        ];
+        offs.forEach(([dxp, dyp]) => {
           ox.beginPath();
-          ox.moveTo(x, y);
-          // gentle curve
-          const cpx = x + Math.cos(angle) * len * 0.5 + Math.sin(angle) * 8 * scale;
-          const cpy = y + Math.sin(angle) * len * 0.5 - Math.cos(angle) * 8 * scale;
-          ox.quadraticCurveTo(cpx, cpy, ex, ey);
-          ox.stroke();
-        }
-        // Two child branches (left/right)
-        branch(ex, ey, angle - 0.45 - Math.random() * 0.18, len * 0.72, width * 0.65, depth - 1);
-        branch(ex, ey, angle + 0.45 + Math.random() * 0.18, len * 0.72, width * 0.65, depth - 1);
-        // Sometimes a middle branch
-        if (depth > 2 && Math.random() < 0.5) {
-          branch(ex, ey, angle + (Math.random() - 0.5) * 0.3, len * 0.55, width * 0.5, depth - 1);
-        }
-      }
-
-      // Top of trunk position
-      const TX = BX, TY = BY - 250 * scale;
-      // Seed with a deterministic feel — start big branches
-      [-Math.PI / 2, -Math.PI / 2 - 0.7, -Math.PI / 2 + 0.7,
-       -Math.PI / 2 - 1.3, -Math.PI / 2 + 1.3].forEach((a) => {
-        branch(TX, TY, a, 110 * scale, 14 * scale, 5);
+          ox.arc(b.cx + dxp, b.cy + dyp, b.r * 0.62, 0, Math.PI * 2);
+          ox.fill();
+        });
       });
 
-      // ── Foliage clusters (filled circles for a leafy canopy silhouette) ──
-      const clusters: [number, number, number][] = []; // x, y, r
-      function spawnLeaves(x: number, y: number, angle: number, len: number, depth: number) {
-        if (depth === 0 || len < 8 * scale) return;
-        const ex = x + Math.cos(angle) * len;
-        const ey = y + Math.sin(angle) * len;
-        // Add leaf cluster at endpoints (tips)
-        if (depth <= 2) {
-          const r = (28 + Math.random() * 20) * scale;
-          clusters.push([ex, ey, r]);
-        }
-        spawnLeaves(ex, ey, angle - 0.45, len * 0.72, depth - 1);
-        spawnLeaves(ex, ey, angle + 0.45, len * 0.72, depth - 1);
-      }
-      [-Math.PI / 2, -Math.PI / 2 - 0.7, -Math.PI / 2 + 0.7,
-       -Math.PI / 2 - 1.3, -Math.PI / 2 + 1.3].forEach((a) => {
-        spawnLeaves(TX, TY, a, 110 * scale, 5);
-      });
-      clusters.forEach(([x, y, r]) => {
-        ox.beginPath();
-        ox.arc(x, y, r, 0, Math.PI * 2);
-        ox.fill();
-      });
+      // Big lightning bolt mark inside each blossom (will be filled with ⚡ chars)
+      const boltZones = blossoms.map((b) => ({
+        cx: b.cx,
+        cy: b.cy,
+        rx: b.r * 0.20, // thin
+        ry: b.r * 0.55, // tall
+      }));
 
-      // (sun removed)
+      // Old `clusters` interface kept for compatibility with reveal logic below
+      const clusters: [number, number, number][] = blossoms.map((b) => [b.cx, b.cy, b.r * 1.0]);
+
+      // Sun off-screen (legacy)
       const SX = -1000, SY = -1000, SR = 0;
 
       // ── Sample grid ──
@@ -132,13 +131,13 @@ export function EnergyFlower() {
         return id[(yi * W + xi) * 4 + 3] > 40;
       };
 
-      const STEP_Y = Math.max(10, Math.round(Math.min(W, H) / 80));
+      const STEP_Y = Math.max(10, Math.round(Math.min(W, H) / 100));
+      // Mostly digits, sprinkle of lightning bolts
       const chars = [
-        "audyt", "ROI", "kWh", "MWh", "GWh",
-        "ISO", "OZE", "PV", "BESS", "EMS", "ESG",
-        "moc", "zysk", "zwrot", "efekt",
-        "−15%", "−20%", "−30%", "↓CO₂", "↑ROI",
-        "Net0", "CSRD", "audit",
+        "0","1","2","3","4","5","6","7","8","9",
+        "0","1","2","3","4","5","6","7","8","9",
+        "0","1","2","3","4","5","6","7","8","9",
+        "⚡",
       ];
       type Particle = {
         x: number; y: number;
@@ -161,32 +160,28 @@ export function EnergyFlower() {
         let x = 0;
         while (x < W) {
           if (!inside(x, y)) { x += 8; continue; }
-          let hue = 128, sat: number, lit: number, sz: number;
-          // Bolt zone — yellow, on the trunk
-          const dxB = x - TRUNK_MID_X;
-          const dyB = y - TRUNK_MID_Y;
-          const inBolt = Math.abs(dxB) < bs * 0.5 && Math.abs(dyB) < bs * 0.95;
-          if (inBolt) {
-            // Lightning bolt — Deloitte green for contrast on white
-            hue = 108 + Math.random() * 4;
-            sat = 82 + Math.random() * 8;
-            lit = 30 + Math.random() * 10;
-            sz = 7 + Math.random() * 2;
-          } else if (y > BY - 250 * scale) {
-            // Trunk — soft warm gray on white
-            hue = 0;
-            sat = 0;
-            lit = 70 + Math.random() * 12;
-            sz = 6 + Math.random() * 1.5;
-          } else {
-            // Canopy — pastel mint → soft lime on white
-            const t = (BY - 250 * scale - y) / (BY - 250 * scale - H * 0.05);
-            hue = 110 + t * 6;
-            sat = 30 + Math.random() * 22;
-            lit = 60 + t * 14 + Math.random() * 10;
-            sz = 7 + Math.random() * 2;
+          let sat: number, lit: number, sz: number;
+          // Detect bolt zone — narrow vertical strip in any blossom center
+          let inBolt = false;
+          for (const bz of boltZones) {
+            const dx = x - bz.cx, dy = y - bz.cy;
+            if (Math.abs(dx) < bz.rx && Math.abs(dy) < bz.ry) {
+              inBolt = true;
+              break;
+            }
           }
-          const word = chars[Math.floor(Math.random() * chars.length)];
+          // Pure white characters with subtle brightness variation
+          const hue = 0;
+          sat = 0;
+          if (inBolt) {
+            lit = 92 + Math.random() * 6;
+            sz = 9 + Math.random() * 2;
+          } else {
+            lit = 78 + Math.random() * 16;
+            sz = 7 + Math.random() * 2.5;
+          }
+          // Force ⚡ in bolt zones, otherwise mostly digits
+          const word = inBolt ? "⚡" : chars[Math.floor(Math.random() * chars.length)];
           const wpx = measure(word, sz);
           // place anchor at the word center
           const cx = x + wpx / 2;
@@ -205,16 +200,66 @@ export function EnergyFlower() {
         }
       }
 
-      // ── Water fill (bottom-up — tree grows from roots) ──
-      let maxY = 0, minY = 99999;
+      // ── 3-phase reveal (Wordware-style: trunk grows → branches extend → leaves bloom) ──
+      const TRUNK_TOP_Y = BY - 250 * scale;
+
+      // For canopy normalization
+      let maxRadialFromTop = 0;
       all.forEach((p) => {
-        if (p.y > maxY) maxY = p.y;
-        if (p.y < minY) minY = p.y;
+        if (p.y >= TRUNK_TOP_Y) return;
+        const dx = p.x - BX, dy = p.y - TRUNK_TOP_Y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d > maxRadialFromTop) maxRadialFromTop = d;
       });
-      const TOTAL = 3600, FADE = 200;
+      maxRadialFromTop = Math.max(maxRadialFromTop, 1);
+
+      // Sort clusters by distance from trunk top (closer first)
+      const orderedClusters = clusters
+        .map(([cx, cy, cr]) => ({
+          cx, cy, cr,
+          d: Math.sqrt((cx - BX) ** 2 + (cy - TRUNK_TOP_Y) ** 2),
+        }))
+        .sort((a, b) => a.d - b.d);
+      const maxClusterD = Math.max(orderedClusters[orderedClusters.length - 1]?.d || 1, 1);
+
+      // Helper: which leaf cluster (if any) does this particle belong to?
+      const findCluster = (x: number, y: number) => {
+        for (const c of orderedClusters) {
+          const dx = x - c.cx, dy = y - c.cy;
+          if (dx * dx + dy * dy < c.cr * c.cr) return c;
+        }
+        return null;
+      };
+
+      // Phase timings (ms)
+      const PHASE_TRUNK_END   = 1100;
+      const PHASE_BRANCH_START =  900;
+      const PHASE_BRANCH_END  = 2600;
+      const PHASE_LEAF_START  = 2300;
+      const PHASE_LEAF_END    = 3700;
+      const FADE = 220;
+
       all.forEach((p) => {
-        const norm = 1 - (p.y - minY) / (maxY - minY);
-        p.revealAt = norm * TOTAL + (Math.random() - 0.5) * 140;
+        if (p.y >= TRUNK_TOP_Y) {
+          // PHASE 1 — trunk grows bottom→top
+          const norm = (p.y - TRUNK_TOP_Y) / Math.max(BY - TRUNK_TOP_Y, 1); // 0 top → 1 bottom
+          p.revealAt = (1 - norm) * PHASE_TRUNK_END + (Math.random() - 0.5) * 80;
+        } else {
+          const cluster = findCluster(p.x, p.y);
+          if (cluster) {
+            // PHASE 3 — leaves bloom (per-cluster timing, then random within)
+            const clusterNorm = cluster.d / maxClusterD; // 0 closest, 1 farthest
+            const clusterStart = PHASE_LEAF_START + clusterNorm * (PHASE_LEAF_END - PHASE_LEAF_START - 400);
+            p.revealAt = clusterStart + Math.random() * 400;
+          } else {
+            // PHASE 2 — branches extend radially outward from trunk top
+            const dx = p.x - BX, dy = p.y - TRUNK_TOP_Y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const radialNorm = dist / maxRadialFromTop;
+            p.revealAt = PHASE_BRANCH_START + radialNorm * (PHASE_BRANCH_END - PHASE_BRANCH_START)
+                       + (Math.random() - 0.5) * 180;
+          }
+        }
         if (p.revealAt < 0) p.revealAt = 0;
       });
 
