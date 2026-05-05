@@ -93,12 +93,12 @@ export default function Home() {
       <JsonLd data={faqSchema(FAQS)} />
 
       <Hero />
+      <ClientsWall />
       <HelpCalculator />
       <Services />
       <CaseStudies />
       <WhyUs />
       <Testimonials />
-      <ClientsWall />
       <HowItWorks />
       <News />
       <Newsletter />
