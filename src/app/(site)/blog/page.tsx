@@ -82,14 +82,14 @@ export default async function BlogPage({
           </ol>
         </nav>
 
-        <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-4">
+        <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-4">
           Blog
         </p>
         <h1
           className="font-display max-w-[20ch]"
           style={{
             fontSize: "clamp(2.5rem, 4vw + 1rem, 4.25rem)",
-            fontWeight: 100,
+            fontWeight: 300,
             letterSpacing: "-0.02em",
             lineHeight: 1.04,
           }}
@@ -118,7 +118,7 @@ export default async function BlogPage({
                   color="white"
                   className="relative drop-shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition-transform duration-700 group-hover:scale-105"
                 />
-                <span className="absolute top-6 left-6 text-[11px] font-mono uppercase tracking-[0.22em] text-white/90 bg-black/15 backdrop-blur px-3 py-1.5 rounded-full">
+                <span className="absolute top-6 left-6 text-[11px] font-mono uppercase tracking-[0.18em] text-white/90 bg-black/15 backdrop-blur px-3 py-1.5 rounded-full">
                   Polecane
                 </span>
               </div>
@@ -127,7 +127,7 @@ export default async function BlogPage({
                 {formatDate(featured.frontmatter.date as string | undefined) && (
                   <time
                     dateTime={featured.frontmatter.date as string | undefined}
-                    className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d]"
+                    className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d]"
                   >
                     {formatDate(featured.frontmatter.date as string | undefined)}
                   </time>
@@ -154,7 +154,7 @@ export default async function BlogPage({
       {/* Block C: Grid */}
       <section className="container-site pb-[clamp(3rem,5vw,5rem)]">
         {!isFirstPage && (
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-subtle)] mb-8">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-subtle)] mb-8">
             Strona {page} z {totalPages}
           </p>
         )}

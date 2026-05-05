@@ -30,7 +30,7 @@ export function BloomHero() {
           initial={reduced ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.2 }}
-          className="k7-mono text-[11px] tracking-[0.22em] uppercase mb-8 flex items-center gap-2"
+          className="k7-mono text-[11px] tracking-[0.18em] uppercase mb-8 flex items-center gap-2"
           style={{ color: "var(--k7-accent)" }}
         >
           <span

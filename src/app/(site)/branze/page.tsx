@@ -37,7 +37,7 @@ export default function BranzeIndex() {
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <nav
             aria-label="Breadcrumb"
-            className="mb-10 text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-muted)]"
+            className="mb-10 text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-muted)]"
           >
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <li>
@@ -50,7 +50,7 @@ export default function BranzeIndex() {
             </ol>
           </nav>
 
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-4">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-4">
             Branże
           </p>
 
@@ -58,7 +58,7 @@ export default function BranzeIndex() {
             className="font-display text-balance"
             style={{
               fontSize: "clamp(2.75rem, 5.5vw, 5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -86,14 +86,14 @@ export default function BranzeIndex() {
                   href={`/branze/${slug}`}
                   className="group flex flex-col rounded-2xl border border-black/10 bg-white p-8 lg:p-10 hover:border-[#26890d]/40 hover:shadow-[0_24px_60px_-30px_rgba(38,137,13,0.35)] transition-all"
                 >
-                  <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d]">
+                  <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d]">
                     Branża
                   </p>
                   <h2
                     className="mt-3 font-display text-[#222328]"
                     style={{
                       fontSize: "clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem)",
-                      fontWeight: 100,
+                      fontWeight: 300,
                       letterSpacing: "-0.02em",
                       lineHeight: 1.1,
                     }}

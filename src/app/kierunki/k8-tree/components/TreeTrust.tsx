@@ -99,7 +99,7 @@ export function TreeTrust() {
           className="text-center mb-16"
         >
           <p
-            className="k8-mono text-[11px] tracking-[0.22em] mb-6 uppercase font-semibold"
+            className="k8-mono text-[11px] tracking-[0.18em] mb-6 uppercase font-semibold"
             style={{ color: "var(--k8-accent-dim)" }}
           >
             // Zaufali nam

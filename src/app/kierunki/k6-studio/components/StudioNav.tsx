@@ -81,7 +81,7 @@ export function StudioNav() {
                   style={{ borderColor: "var(--k6-line)" }}
                 >
                   <p
-                    className="k6-mono text-[10px] tracking-[0.2em] uppercase"
+                    className="k6-mono text-[10px] tracking-[0.18em] uppercase"
                     style={{ color: "var(--k6-accent)" }}
                   >
                     // Siedem dziedzin

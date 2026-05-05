@@ -258,14 +258,14 @@ export default function CennikPage() {
             </ol>
           </nav>
 
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Cennik
           </p>
           <h1
             className="font-display max-w-[22ch]"
             style={{
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.02,
             }}
@@ -302,14 +302,14 @@ export default function CennikPage() {
       {/* 2. HONEST PRICING PRINCIPLES */}
       <section className="bg-[#f7f7f4]">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Nasze zasady
           </p>
           <h2
             className="font-display max-w-[22ch]"
             style={{
               fontSize: "clamp(2rem, 3.8vw, 3.25rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -342,14 +342,14 @@ export default function CennikPage() {
       {/* 3. PRICING TIERS */}
       <section className="bg-white">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Cennik
           </p>
           <h2
             className="font-display max-w-[22ch]"
             style={{
               fontSize: "clamp(2rem, 3.8vw, 3.25rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -405,7 +405,7 @@ export default function CennikPage() {
                       className={`font-display ${priceColor}`}
                       style={{
                         fontSize: "clamp(1.9rem, 3.2vw, 2.6rem)",
-                        fontWeight: 100,
+                        fontWeight: 300,
                         letterSpacing: "-0.02em",
                         lineHeight: 1,
                       }}
@@ -461,14 +461,14 @@ export default function CennikPage() {
       {/* 4. PRICING FACTORS */}
       <section className="bg-[oklch(0.16_0.02_150)] text-white">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] mb-3" style={{ color: "#86bc25" }}>
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] mb-3" style={{ color: "#86bc25" }}>
             Co wpływa na cenę
           </p>
           <h2
             className="font-display max-w-[24ch]"
             style={{
               fontSize: "clamp(2rem, 3.8vw, 3.25rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -507,14 +507,14 @@ export default function CennikPage() {
       {/* 5. PRICING EXAMPLES */}
       <section className="bg-white">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Przykłady
           </p>
           <h2
             className="font-display max-w-[24ch]"
             style={{
               fontSize: "clamp(2rem, 3.8vw, 3.25rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -548,14 +548,14 @@ export default function CennikPage() {
                 </dl>
 
                 <div className="mt-5">
-                  <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#222328]/60">
+                  <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#222328]/60">
                     Cena
                   </p>
                   <p
                     className="font-display mt-1"
                     style={{
                       fontSize: "clamp(1.5rem, 2.4vw, 1.9rem)",
-                      fontWeight: 100,
+                      fontWeight: 300,
                       color: "#26890d",
                       letterSpacing: "-0.02em",
                       lineHeight: 1.05,
@@ -582,14 +582,14 @@ export default function CennikPage() {
       {/* 6. ROI CALCULATOR */}
       <section className="bg-[#f7f7f4]">
         <div className="container-site pt-[clamp(4rem,7vw,7rem)] pb-4">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Kalkulator
           </p>
           <h2
             className="font-display max-w-[22ch]"
             style={{
               fontSize: "clamp(2rem, 3.8vw, 3.25rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -604,14 +604,14 @@ export default function CennikPage() {
       {/* 7. FAQ */}
       <section className="bg-white">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             FAQ
           </p>
           <h2
             className="font-display max-w-[22ch]"
             style={{
               fontSize: "clamp(2rem, 3.8vw, 3.25rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -649,7 +649,7 @@ export default function CennikPage() {
             className="font-display mx-auto max-w-[22ch]"
             style={{
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}

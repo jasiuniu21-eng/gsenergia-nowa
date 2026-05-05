@@ -44,7 +44,7 @@ export function ClientsWall() {
           className="text-center font-display"
           style={{
             fontSize: "clamp(2.5rem, 4vw + 1rem, 4rem)",
-            fontWeight: 100,
+            fontWeight: 300,
             letterSpacing: "-0.02em",
             lineHeight: 1.05,
           }}

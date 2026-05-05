@@ -66,7 +66,7 @@ export function WhyUs() {
     >
       <div className="container-site py-[clamp(4rem,7vw,7rem)]">
         <div className="max-w-[44ch] mb-12">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Dlaczego my
           </p>
           <motion.h2
@@ -78,8 +78,8 @@ export function WhyUs() {
             className="font-display"
             style={{
               fontSize: "clamp(2.25rem, 3.5vw + 1rem, 3.5rem)",
-              fontWeight: 100,
-              letterSpacing: "-0.02em",
+              fontWeight: 300,
+              letterSpacing: "-0.025em",
               lineHeight: 1.05,
             }}
           >
@@ -107,7 +107,7 @@ export function WhyUs() {
                 <div className="size-12 rounded-xl bg-[#26890d]/10 text-[#26890d] ring-1 ring-[#26890d]/20 flex items-center justify-center">
                   <Icon size={24} weight="light" />
                 </div>
-                <h3 className="mt-5 font-display text-[1.25rem] tracking-[-0.01em] text-[#222328]">
+                <h3 className="mt-5 font-body font-semibold text-[1.25rem] tracking-tight text-[#222328]">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-[0.95rem] text-[color:var(--c-fg-muted)] leading-relaxed">

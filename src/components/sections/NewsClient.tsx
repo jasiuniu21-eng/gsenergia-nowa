@@ -29,7 +29,7 @@ export function NewsClient({ posts }: { posts: LatestPost[] }) {
       <div className="container-site py-[clamp(4rem,7vw,7rem)]">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
           <div className="max-w-[40ch]">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               Aktualności
             </p>
             <motion.h2
@@ -41,7 +41,7 @@ export function NewsClient({ posts }: { posts: LatestPost[] }) {
               className="font-display"
               style={{
                 fontSize: "clamp(2.25rem, 3.5vw + 1rem, 3.5rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
               }}

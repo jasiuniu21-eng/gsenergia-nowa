@@ -93,7 +93,7 @@ export function Testimonials() {
     >
       <div className="container-site py-[clamp(4rem,7vw,7rem)]">
         <div className="max-w-[52ch] mb-12">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Opinie klientów
           </p>
           <motion.h2
@@ -105,8 +105,8 @@ export function Testimonials() {
             className="font-display"
             style={{
               fontSize: "clamp(2.25rem, 3.5vw + 1rem, 3.5rem)",
-              fontWeight: 100,
-              letterSpacing: "-0.02em",
+              fontWeight: 300,
+              letterSpacing: "-0.025em",
               lineHeight: 1.05,
             }}
           >
@@ -176,14 +176,14 @@ export function Testimonials() {
               }}
               className="flex flex-col items-center text-center gap-2"
             >
-              <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-subtle)]">
+              <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-subtle)]">
                 {s.label}
               </p>
               <p
                 className="font-display text-[#8DC73F]"
                 style={{
                   fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
-                  fontWeight: 100,
+                  fontWeight: 300,
                   letterSpacing: "-0.02em",
                   lineHeight: 1,
                 }}

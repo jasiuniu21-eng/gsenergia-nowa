@@ -81,7 +81,7 @@ export function BloomNav() {
                   style={{ borderColor: "var(--k7-line)" }}
                 >
                   <p
-                    className="k7-mono text-[10px] tracking-[0.2em] uppercase"
+                    className="k7-mono text-[10px] tracking-[0.18em] uppercase"
                     style={{ color: "var(--k7-accent)" }}
                   >
                     // Siedem dziedzin

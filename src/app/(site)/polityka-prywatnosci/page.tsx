@@ -20,7 +20,7 @@ export default function PolitykaPrywatnosciPage() {
         </p>
         <h1
           className="font-display mt-4 text-[clamp(2.5rem,6vw,4.25rem)] leading-[1.02] tracking-[-0.02em] text-[#1a1c20]"
-          style={{ fontWeight: 100 }}
+          style={{ fontWeight: 300 }}
         >
           Polityka prywatności<span style={{ color: "#8DC73F" }}>.</span>
         </h1>

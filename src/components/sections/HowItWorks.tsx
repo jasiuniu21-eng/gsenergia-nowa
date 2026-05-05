@@ -84,7 +84,7 @@ export function HowItWorks() {
               <div className="flex items-center justify-between">
                 <span
                   className={[
-                    "text-[11px] font-mono uppercase tracking-[0.22em]",
+                    "text-[11px] font-mono uppercase tracking-[0.18em]",
                     c.featured ? "text-[color:var(--c-ink-950)]/75" : "text-[color:var(--c-brand-400)]",
                   ].join(" ")}
                 >

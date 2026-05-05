@@ -22,14 +22,14 @@ export default function KontaktPage() {
       {/* HERO */}
       <section className="bg-white">
         <div className="container-site pt-[clamp(4rem,7vw,6.5rem)] pb-[clamp(2rem,4vw,3rem)]">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Kontakt
           </p>
           <h1
             className="font-display text-[#222328] max-w-[24ch]"
             style={{
               fontSize: "clamp(2.25rem, 4vw + 1rem, 4rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}

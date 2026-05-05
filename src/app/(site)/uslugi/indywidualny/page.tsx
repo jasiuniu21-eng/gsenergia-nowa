@@ -157,7 +157,7 @@ export default function KlientIndywidualnyPage() {
           {/* Breadcrumbs */}
           <nav
             aria-label="Breadcrumb"
-            className="mb-10 text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-muted)]"
+            className="mb-10 text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-muted)]"
           >
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <li>
@@ -185,7 +185,7 @@ export default function KlientIndywidualnyPage() {
             </ol>
           </nav>
 
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-4">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-4">
             Dla osób fizycznych
           </p>
 
@@ -193,7 +193,7 @@ export default function KlientIndywidualnyPage() {
             className="font-display"
             style={{
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -239,14 +239,14 @@ export default function KlientIndywidualnyPage() {
       <section className="bg-white border-b border-black/5">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[44ch] mb-12">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               Co możemy dla Ciebie zrobić
             </p>
             <h2
               className="font-display text-[#222328]"
               style={{
                 fontSize: "clamp(2rem, 3vw + 0.8rem, 3rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}
@@ -302,14 +302,14 @@ export default function KlientIndywidualnyPage() {
       <section className="bg-[oklch(0.98_0.01_140)]">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[60ch] mb-12">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               Dotacje
             </p>
             <h2
               className="font-display text-[#222328]"
               style={{
                 fontSize: "clamp(2rem, 3vw + 0.8rem, 3rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}
@@ -348,14 +348,14 @@ export default function KlientIndywidualnyPage() {
       <section className="bg-white border-y border-black/5">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[44ch] mb-12">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               Jak działamy
             </p>
             <h2
               className="font-display text-[#222328]"
               style={{
                 fontSize: "clamp(2rem, 3vw + 0.8rem, 3rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}
@@ -394,14 +394,14 @@ export default function KlientIndywidualnyPage() {
       <section className="bg-white border-b border-black/5">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[44ch] mb-10">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               FAQ
             </p>
             <h2
               className="font-display text-[#222328]"
               style={{
                 fontSize: "clamp(2rem, 3vw + 0.8rem, 3rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}
@@ -447,7 +447,7 @@ export default function KlientIndywidualnyPage() {
                   className="font-display text-[#26890d]"
                   style={{
                     fontSize: "clamp(1.6rem, 1.5vw + 1rem, 2.2rem)",
-                    fontWeight: 100,
+                    fontWeight: 300,
                     letterSpacing: "-0.02em",
                     lineHeight: 1.05,
                   }}
@@ -470,7 +470,7 @@ export default function KlientIndywidualnyPage() {
             className="font-display mx-auto max-w-[20ch]"
             style={{
               fontSize: "clamp(2.25rem, 4vw + 0.8rem, 3.75rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -503,7 +503,7 @@ export default function KlientIndywidualnyPage() {
       {/* ─── 8. Related links ─────────────────────────────────────────────── */}
       <section className="bg-white">
         <div className="container-site py-[clamp(3rem,5vw,5rem)]">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-5">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-5">
             Powiązane
           </p>
           <ul className="flex flex-wrap gap-x-8 gap-y-3">

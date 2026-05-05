@@ -26,7 +26,7 @@ export function TreeSwiadectwa() {
         >
           <div>
             <p
-              className="k8-mono text-[11px] tracking-[0.2em] uppercase mb-4"
+              className="k8-mono text-[11px] tracking-[0.18em] uppercase mb-4"
               style={{ color: "var(--k8-accent)" }}
             >
               // Dla klientów indywidualnych

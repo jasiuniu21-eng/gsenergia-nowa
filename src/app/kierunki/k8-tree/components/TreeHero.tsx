@@ -33,7 +33,7 @@ export function TreeHero() {
           initial={reduced ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.4 }}
-          className="k8-mono text-[11px] tracking-[0.22em] uppercase mb-8 flex items-center gap-2"
+          className="k8-mono text-[11px] tracking-[0.18em] uppercase mb-8 flex items-center gap-2"
           style={{ color: "var(--k8-accent)" }}
         >
           <span
@@ -126,7 +126,7 @@ function LiveCounter({ reduced }: { reduced: boolean }) {
       borderColor: "var(--k8-line-strong)",
       backdropFilter: "blur(8px)",
     }}>
-      <p className="k8-mono text-[10px] tracking-[0.2em] uppercase flex items-center gap-2" style={{ color: "var(--k8-accent)" }}>
+      <p className="k8-mono text-[10px] tracking-[0.18em] uppercase flex items-center gap-2" style={{ color: "var(--k8-accent)" }}>
         <span
           aria-hidden="true"
           className="inline-block h-[6px] w-[6px] rounded-full"

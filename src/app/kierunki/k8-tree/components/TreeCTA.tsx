@@ -29,7 +29,7 @@ export function TreeCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
-          className="k8-mono text-[11px] tracking-[0.2em] mb-10 flex items-center justify-center gap-2"
+          className="k8-mono text-[11px] tracking-[0.18em] mb-10 flex items-center justify-center gap-2"
           style={{ color: "var(--k8-accent)" }}
         >
           <span aria-hidden="true">//</span>

@@ -54,7 +54,7 @@ export function NotFoundContent() {
         <span
           className="font-display leading-none"
           style={{
-            fontWeight: 100,
+            fontWeight: 300,
             color: "#8DC73F",
             opacity: 0.15,
             fontSize: "clamp(16rem, 42vw, 36rem)",
@@ -81,7 +81,7 @@ export function NotFoundContent() {
         <motion.h1
           variants={item}
           className="font-display tracking-[-0.02em] leading-[1.05]"
-          style={{ fontWeight: 100, fontSize: "clamp(3rem, 7vw, 5rem)" }}
+          style={{ fontWeight: 300, fontSize: "clamp(3rem, 7vw, 5rem)" }}
         >
           Tej strony nie ma na mapie
           <span style={{ color: "#8DC73F" }}>.</span>
@@ -129,7 +129,7 @@ export function NotFoundContent() {
 
         <motion.p
           variants={item}
-          className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-[color:var(--c-fg-muted)] mt-16 opacity-70"
+          className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-[color:var(--c-fg-muted)] mt-16 opacity-70"
         >
           Kod błędu: 404
         </motion.p>

@@ -240,7 +240,7 @@ export function LocationPage({ data }: { data: LocationData }) {
             </ol>
           </nav>
 
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Lokalizacja · {voivodeship}
           </p>
 
@@ -248,7 +248,7 @@ export function LocationPage({ data }: { data: LocationData }) {
             className="font-display"
             style={{
               fontSize: "clamp(2.75rem, 5.5vw, 5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.02,
             }}
@@ -292,14 +292,14 @@ export function LocationPage({ data }: { data: LocationData }) {
       {/* 2. WHY US HERE */}
       <section className="bg-[#f7f7f4]">
         <div className="container-site py-[clamp(4rem,6vw,6rem)]">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Dlaczego my w {cityIn}
           </p>
           <h2
             className="font-display max-w-[28ch]"
             style={{
               fontSize: "clamp(2rem, 3.5vw, 3.25rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -334,7 +334,7 @@ export function LocationPage({ data }: { data: LocationData }) {
             className="font-display max-w-[28ch]"
             style={{
               fontSize: "clamp(1.75rem, 3vw, 2.75rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -365,14 +365,14 @@ export function LocationPage({ data }: { data: LocationData }) {
       {/* 4. CLIENTS */}
       <section className="bg-[#f7f7f4]">
         <div className="container-site py-[clamp(4rem,6vw,6rem)]">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Zaufanie
           </p>
           <h2
             className="font-display max-w-[28ch]"
             style={{
               fontSize: "clamp(1.75rem, 3vw, 2.75rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -422,7 +422,7 @@ export function LocationPage({ data }: { data: LocationData }) {
             </div>
 
             <div className="rounded-2xl bg-[oklch(0.16_0.02_150)] text-white p-7 lg:p-8">
-              <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#86bc25] mb-3">
+              <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#86bc25] mb-3">
                 Kontakt — {city}
               </p>
               <h3 className="font-display text-[1.6rem] tracking-[-0.01em] mb-6">
@@ -485,7 +485,7 @@ export function LocationPage({ data }: { data: LocationData }) {
             className="font-display max-w-[28ch]"
             style={{
               fontSize: "clamp(1.75rem, 3vw, 2.75rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -523,14 +523,14 @@ export function LocationPage({ data }: { data: LocationData }) {
       {/* 7. FAQ */}
       <section className="bg-white">
         <div className="container-site py-[clamp(4rem,6vw,6rem)]">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             FAQ — {cityIn}
           </p>
           <h2
             className="font-display max-w-[28ch]"
             style={{
               fontSize: "clamp(1.75rem, 3vw, 2.75rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -566,7 +566,7 @@ export function LocationPage({ data }: { data: LocationData }) {
             className="font-display mx-auto max-w-[24ch]"
             style={{
               fontSize: "clamp(2rem, 3.75vw, 3.5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}

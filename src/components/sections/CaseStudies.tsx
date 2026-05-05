@@ -72,7 +72,7 @@ export function CaseStudies() {
       <div className="container-site py-[clamp(4rem,7vw,7rem)]">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
           <div className="max-w-[40ch]">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               Realizacje
             </p>
             <motion.h2
@@ -84,8 +84,8 @@ export function CaseStudies() {
               className="font-display"
               style={{
                 fontSize: "clamp(2.25rem, 3.5vw + 1rem, 3.5rem)",
-                fontWeight: 100,
-                letterSpacing: "-0.02em",
+                fontWeight: 300,
+                letterSpacing: "-0.025em",
                 lineHeight: 1.05,
               }}
             >
@@ -117,14 +117,14 @@ export function CaseStudies() {
               <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-subtle)]">
                 {c.sector}
               </p>
-              <h3 className="mt-2 font-display text-[1.25rem] tracking-[-0.01em] text-[#222328]">
+              <h3 className="mt-2 font-body font-semibold text-[1.25rem] tracking-tight text-[#222328]">
                 {c.client}
               </h3>
 
               <div className="mt-6 flex items-baseline gap-2.5">
                 <span
                   className="font-display tracking-[-0.03em] text-[#26890d]"
-                  style={{ fontSize: "clamp(2.2rem, 2vw + 1rem, 2.8rem)", fontWeight: 100 }}
+                  style={{ fontSize: "clamp(2.2rem, 2vw + 1rem, 2.8rem)", fontWeight: 300 }}
                 >
                   {c.metric}
                 </span>

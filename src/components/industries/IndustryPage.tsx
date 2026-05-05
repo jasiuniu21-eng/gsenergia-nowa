@@ -84,7 +84,7 @@ export function IndustryPage({ data }: Props) {
           {/* Breadcrumbs */}
           <nav
             aria-label="Breadcrumb"
-            className="mb-10 text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-muted)]"
+            className="mb-10 text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-muted)]"
           >
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <li>
@@ -105,7 +105,7 @@ export function IndustryPage({ data }: Props) {
             </ol>
           </nav>
 
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-4">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-4">
             Branża
           </p>
 
@@ -116,7 +116,7 @@ export function IndustryPage({ data }: Props) {
             className="font-display text-balance"
             style={{
               fontSize: "clamp(2.75rem, 5.5vw, 5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -174,13 +174,13 @@ export function IndustryPage({ data }: Props) {
                   className="font-display tracking-[-0.02em] leading-none"
                   style={{
                     fontSize: "clamp(2rem, 3vw + 0.8rem, 3.25rem)",
-                    fontWeight: 100,
+                    fontWeight: 300,
                     color: "#8DC73F",
                   }}
                 >
                   {m.value}
                 </p>
-                <p className="mt-3 text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-muted)]">
+                <p className="mt-3 text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-muted)]">
                   {m.label}
                 </p>
               </div>
@@ -193,14 +193,14 @@ export function IndustryPage({ data }: Props) {
       <section className="bg-white border-b border-black/5">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[44ch] mb-12">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               Wyzwania
             </p>
             <h2
               className="font-display text-[#222328]"
               style={{
                 fontSize: "clamp(2rem, 3vw + 0.8rem, 3rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}
@@ -243,14 +243,14 @@ export function IndustryPage({ data }: Props) {
       <section className="bg-[oklch(0.98_0.01_140)] border-b border-black/5">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[48ch] mb-12">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               Co robimy
             </p>
             <h2
               className="font-display text-[#222328]"
               style={{
                 fontSize: "clamp(2rem, 3vw + 0.8rem, 3rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}
@@ -292,14 +292,14 @@ export function IndustryPage({ data }: Props) {
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
             <div className="max-w-[44ch]">
-              <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+              <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
                 Realizacje
               </p>
               <h2
                 className="font-display text-[#222328]"
                 style={{
                   fontSize: "clamp(2rem, 3vw + 0.8rem, 3rem)",
-                  fontWeight: 100,
+                  fontWeight: 300,
                   letterSpacing: "-0.02em",
                   lineHeight: 1.1,
                 }}
@@ -355,14 +355,14 @@ export function IndustryPage({ data }: Props) {
       <section className="bg-white border-y border-black/5">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[44ch] mb-10">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               FAQ
             </p>
             <h2
               className="font-display text-[#222328]"
               style={{
                 fontSize: "clamp(2rem, 3vw + 0.8rem, 3rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}
@@ -405,7 +405,7 @@ export function IndustryPage({ data }: Props) {
             className="font-display mx-auto max-w-[24ch]"
             style={{
               fontSize: "clamp(2.25rem, 4vw + 0.8rem, 3.75rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}

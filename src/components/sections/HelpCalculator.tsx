@@ -50,10 +50,10 @@ export function HelpCalculator() {
       <div className="container-site relative py-[clamp(4rem,7vw,7rem)]">
         {/* Header */}
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-[0.2em] font-medium" style={{ color: "#86bc25" }}>
+          <p className="text-xs uppercase tracking-[0.18em] font-medium" style={{ color: "#86bc25" }}>
             Kalkulator oszczędności
           </p>
-          <h2 className="mt-4 font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.05] tracking-tight" style={{ fontWeight: 100 }}>
+          <h2 className="mt-4 font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.05] tracking-[-0.025em]" style={{ fontWeight: 300 }}>
             O ile obniżymy Twój rachunek<span style={{ color: "#86bc25" }}>.</span>
           </h2>
           <p className="mt-5 text-base lg:text-lg text-white/70 max-w-2xl">
@@ -68,7 +68,7 @@ export function HelpCalculator() {
             <div className="text-sm uppercase tracking-[0.18em] text-white/60 font-medium">
               Twój roczny rachunek za prąd
             </div>
-            <div className="mt-3 font-display leading-none" style={{ fontWeight: 100, fontSize: "clamp(3rem, 6vw, 5rem)" }}>
+            <div className="mt-3 font-display leading-none tracking-[-0.025em]" style={{ fontWeight: 400, fontSize: "clamp(3rem, 6vw, 5rem)" }}>
               <motion.span key={Math.round(annualBill / 10_000)} {...swap} className="inline-block tabular-nums">
                 {formatPLN(annualBill)}
               </motion.span>
@@ -99,7 +99,7 @@ export function HelpCalculator() {
               <div className="text-xs uppercase tracking-[0.18em] text-white/70 font-medium">
                 Oszczędność rocznie
               </div>
-              <div className="mt-3 font-display leading-tight" style={{ fontWeight: 100, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#86bc25" }}>
+              <div className="mt-3 font-display leading-tight" style={{ fontWeight: 300, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#86bc25" }}>
                 <motion.span key={`y-${Math.round(annualSavings / 10_000)}`} {...swap} className="inline-block tabular-nums">
                   {formatPLN(annualSavings)}
                 </motion.span>
@@ -111,7 +111,7 @@ export function HelpCalculator() {
               <div className="text-xs uppercase tracking-[0.18em] text-white/70 font-medium">
                 W 5 lat
               </div>
-              <div className="mt-3 font-display leading-tight" style={{ fontWeight: 100, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#86bc25" }}>
+              <div className="mt-3 font-display leading-tight" style={{ fontWeight: 300, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#86bc25" }}>
                 <motion.span key={`f-${Math.round(fiveYearSavings / 10_000)}`} {...swap} className="inline-block tabular-nums">
                   {formatPLN(fiveYearSavings)}
                 </motion.span>
@@ -123,7 +123,7 @@ export function HelpCalculator() {
               <div className="text-xs uppercase tracking-[0.18em] text-white/70 font-medium">
                 ROI audytu
               </div>
-              <div className="mt-3 font-display leading-tight" style={{ fontWeight: 100, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#86bc25" }}>
+              <div className="mt-3 font-display leading-tight" style={{ fontWeight: 300, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#86bc25" }}>
                 &lt; 18 miesięcy
               </div>
               <div className="mt-2 text-xs text-white/70">(średni czas zwrotu)</div>

@@ -139,7 +139,7 @@ export default async function BlogPostPage({
           {dateLabel && (
             <time
               dateTime={dateRaw}
-              className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d]"
+              className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d]"
             >
               {dateLabel}
             </time>
@@ -149,7 +149,7 @@ export default async function BlogPostPage({
             className="mt-4 font-display"
             style={{
               fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.08,
             }}
@@ -199,7 +199,7 @@ export default async function BlogPostPage({
               <span style={{ fontSize: "1.05rem", letterSpacing: "0.02em" }}>GS</span>
             </div>
             <div className="flex-1">
-              <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-subtle)]">
+              <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-subtle)]">
                 Autor: GS Energia
               </p>
               <p className="mt-2 font-display text-[1.25rem] tracking-[-0.01em] text-[#222328]">
@@ -227,14 +227,14 @@ export default async function BlogPostPage({
             <div className="container-site py-[clamp(4rem,6vw,6rem)]">
               <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
                 <div>
-                  <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+                  <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
                     Czytaj dalej
                   </p>
                   <h2
                     className="font-display"
                     style={{
                       fontSize: "clamp(1.75rem, 2.5vw + 1rem, 2.5rem)",
-                      fontWeight: 100,
+                      fontWeight: 300,
                       letterSpacing: "-0.02em",
                       lineHeight: 1.1,
                     }}

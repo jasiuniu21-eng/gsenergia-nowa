@@ -241,7 +241,7 @@ export default function KierunkiHub() {
               GS Energia
             </span>
             <span className="h-4 w-px bg-white/20" />
-            <span className="text-[11px] uppercase tracking-[0.22em] text-white/50">
+            <span className="text-[11px] uppercase tracking-[0.18em] text-white/50">
               Design Review · 11 kierunków
             </span>
           </div>
@@ -355,7 +355,7 @@ function VariantCard({ v, index }: { v: Variant; index: number }) {
       {/* Top meta bar */}
       <div className="relative flex items-center justify-between px-7 pt-6">
         <span
-          className="text-[10.5px] uppercase tracking-[0.22em] font-medium"
+          className="text-[10.5px] uppercase tracking-[0.18em] font-medium"
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             color: mutedInk,
@@ -381,7 +381,7 @@ function VariantCard({ v, index }: { v: Variant; index: number }) {
       {/* Middle preview — real H1 font in accent color */}
       <div className="relative px-7 pt-10 lg:pt-16">
         <p
-          className="text-[10.5px] uppercase tracking-[0.2em]"
+          className="text-[10.5px] uppercase tracking-[0.18em]"
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             color: mutedInk,
@@ -428,7 +428,7 @@ function VariantCard({ v, index }: { v: Variant; index: number }) {
         style={{ borderColor: subtleLine }}
       >
         <p
-          className="text-[10.5px] uppercase tracking-[0.2em] mb-2"
+          className="text-[10.5px] uppercase tracking-[0.18em] mb-2"
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             color: v.accentHex,
@@ -562,7 +562,7 @@ function DirectionDecor({ variant: v }: { variant: Variant }) {
           <span style={{ fontSize: "0.45em", verticalAlign: "super" }}>%</span>
         </div>
         <p
-          className="mt-1 text-[9.5px] uppercase tracking-[0.2em]"
+          className="mt-1 text-[9.5px] uppercase tracking-[0.18em]"
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             color: v.inkHex,

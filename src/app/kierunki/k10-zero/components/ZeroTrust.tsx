@@ -99,7 +99,7 @@ export function ZeroTrust() {
           className="text-center mb-16"
         >
           <p
-            className="k10-mono text-[11px] tracking-[0.22em] mb-6 uppercase font-semibold"
+            className="k10-mono text-[11px] tracking-[0.18em] mb-6 uppercase font-semibold"
             style={{ color: "var(--k10-accent-dim)" }}
           >
             // Zaufali nam

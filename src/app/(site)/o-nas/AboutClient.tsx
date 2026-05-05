@@ -169,7 +169,7 @@ export function AboutClient() {
             initial={reduced ? false : { opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: EASE }}
-            className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-5"
+            className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-5"
           >
             O nas
           </motion.p>
@@ -180,7 +180,7 @@ export function AboutClient() {
             className="font-display max-w-[22ch]"
             style={{
               fontSize: "clamp(2.6rem, 5vw + 1rem, 5.25rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.025em",
               lineHeight: 1.02,
             }}
@@ -222,7 +222,7 @@ export function AboutClient() {
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20">
             <div>
-              <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+              <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
                 Nasza misja
               </p>
               <motion.h2
@@ -233,7 +233,7 @@ export function AboutClient() {
                 className="font-display"
                 style={{
                   fontSize: "clamp(2rem, 3vw + 1rem, 3.25rem)",
-                  fontWeight: 100,
+                  fontWeight: 300,
                   letterSpacing: "-0.02em",
                   lineHeight: 1.05,
                 }}
@@ -267,7 +267,7 @@ export function AboutClient() {
       <section className="relative bg-[oklch(0.16_0.02_150)] text-white">
         <div className="container-site py-[clamp(4rem,8vw,8rem)]">
           <div className="max-w-[44ch] mb-14">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#86bc25] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#86bc25] mb-3">
               Historia
             </p>
             <motion.h2
@@ -278,7 +278,7 @@ export function AboutClient() {
               className="font-display"
               style={{
                 fontSize: "clamp(2rem, 3.2vw + 1rem, 3.5rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
               }}
@@ -304,7 +304,7 @@ export function AboutClient() {
                     className="font-display text-[#86bc25]"
                     style={{
                       fontSize: "clamp(2rem, 2.4vw + 1rem, 3rem)",
-                      fontWeight: 100,
+                      fontWeight: 300,
                       letterSpacing: "-0.02em",
                       lineHeight: 1,
                     }}
@@ -330,7 +330,7 @@ export function AboutClient() {
       <section className="relative bg-white text-[#222328] border-t border-black/10">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[48ch] mb-14">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               W co wierzymy
             </p>
             <motion.h2
@@ -341,7 +341,7 @@ export function AboutClient() {
               className="font-display"
               style={{
                 fontSize: "clamp(2rem, 3vw + 1rem, 3.25rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
               }}
@@ -383,7 +383,7 @@ export function AboutClient() {
       <section className="relative bg-[oklch(0.16_0.02_150)] text-white">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[60ch] mb-12">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#86bc25] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#86bc25] mb-3">
               Zespół
             </p>
             <motion.h2
@@ -394,7 +394,7 @@ export function AboutClient() {
               className="font-display"
               style={{
                 fontSize: "clamp(2rem, 3vw + 1rem, 3.25rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
               }}
@@ -449,7 +449,7 @@ export function AboutClient() {
       <section className="relative bg-white text-[#222328] border-t border-black/10">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[52ch] mb-12">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               Akredytacje
             </p>
             <motion.h2
@@ -460,7 +460,7 @@ export function AboutClient() {
               className="font-display"
               style={{
                 fontSize: "clamp(2rem, 3vw + 1rem, 3.25rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
               }}
@@ -519,7 +519,7 @@ export function AboutClient() {
               className="font-display max-w-[20ch]"
               style={{
                 fontSize: "clamp(2.25rem, 4vw + 1rem, 4.25rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.025em",
                 lineHeight: 1.04,
               }}

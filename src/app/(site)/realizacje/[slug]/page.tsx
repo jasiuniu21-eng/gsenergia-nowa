@@ -142,7 +142,7 @@ export default async function RealizacjaPage({
         >
           <nav
             aria-label="Breadcrumb"
-            className="mb-10 text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-muted)]"
+            className="mb-10 text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-muted)]"
           >
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <li>
@@ -174,7 +174,7 @@ export default async function RealizacjaPage({
           </nav>
 
           {dateStr ? (
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-4">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-4">
               {dateStr}
             </p>
           ) : null}
@@ -183,7 +183,7 @@ export default async function RealizacjaPage({
             className="font-display"
             style={{
               fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -217,14 +217,14 @@ export default async function RealizacjaPage({
                   className="font-display text-[#26890d]"
                   style={{
                     fontSize: "clamp(1.3rem, 1.5vw + 0.6rem, 1.75rem)",
-                    fontWeight: 100,
+                    fontWeight: 300,
                     letterSpacing: "-0.02em",
                     lineHeight: 1.1,
                   }}
                 >
                   {t.value}
                 </p>
-                <p className="mt-3 text-[10px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-muted)]">
+                <p className="mt-3 text-[10px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-muted)]">
                   {t.label}
                 </p>
               </div>
@@ -241,7 +241,7 @@ export default async function RealizacjaPage({
         >
           <div
             className="prose prose-zinc max-w-none
-              prose-headings:font-display prose-headings:font-light prose-headings:tracking-[-0.01em]
+              prose-headings:font-display prose-headings:font-normal prose-headings:tracking-[-0.01em]
               prose-h2:text-[#26890d] prose-h2:mt-12 prose-h2:mb-5
               prose-h3:text-[#222328]
               prose-p:leading-[1.75] prose-p:text-[#222328]/85
@@ -260,14 +260,14 @@ export default async function RealizacjaPage({
         <section className="bg-white border-b border-black/5">
           <div className="container-site py-[clamp(4rem,7vw,7rem)]">
             <div className="mb-10">
-              <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+              <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
                 Usługi w tej realizacji
               </p>
               <h2
                 className="font-display text-[#222328]"
                 style={{
                   fontSize: "clamp(1.6rem, 2vw + 0.8rem, 2.2rem)",
-                  fontWeight: 100,
+                  fontWeight: 300,
                   letterSpacing: "-0.02em",
                   lineHeight: 1.1,
                 }}
@@ -316,14 +316,14 @@ export default async function RealizacjaPage({
           <div className="container-site py-[clamp(4rem,7vw,7rem)]">
             <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
               <div>
-                <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+                <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
                   Inne realizacje
                 </p>
                 <h2
                   className="font-display text-[#222328]"
                   style={{
                     fontSize: "clamp(1.6rem, 2vw + 0.8rem, 2.2rem)",
-                    fontWeight: 100,
+                    fontWeight: 300,
                     letterSpacing: "-0.02em",
                     lineHeight: 1.1,
                   }}
@@ -394,7 +394,7 @@ export default async function RealizacjaPage({
             className="font-display mx-auto max-w-[22ch]"
             style={{
               fontSize: "clamp(2.25rem, 4vw + 0.8rem, 3.75rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}

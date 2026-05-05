@@ -129,7 +129,7 @@ export function Services() {
       <div className="container-site relative py-[clamp(4rem,7vw,7rem)]">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
           <div className="max-w-[640px]">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#86bc25] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#86bc25] mb-3">
               Oferta · {page + 1}/{PAGE_COUNT}
             </p>
             <motion.h2
@@ -141,8 +141,8 @@ export function Services() {
               className="font-display text-balance"
               style={{
                 fontSize: "clamp(2.25rem, 3.5vw + 1rem, 3.5rem)",
-                fontWeight: 100,
-                letterSpacing: "-0.02em",
+                fontWeight: 300,
+                letterSpacing: "-0.025em",
                 lineHeight: 1.05,
               }}
             >
@@ -211,7 +211,7 @@ export function Services() {
 
                   {/* Content */}
                   <div className="absolute inset-0 flex flex-col justify-end p-5">
-                    <h3 className="font-display text-[1.1rem] tracking-[-0.01em] text-white leading-tight">
+                    <h3 className="font-body font-medium text-[1.1rem] tracking-tight text-white leading-tight">
                       {s.title}
                     </h3>
                     <p className="mt-1.5 text-[0.85rem] text-white/80 leading-tight line-clamp-2">

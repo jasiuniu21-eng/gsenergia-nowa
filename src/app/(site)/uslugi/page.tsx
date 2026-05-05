@@ -185,7 +185,7 @@ export default function UslugiPage() {
             <span className="text-[#222328]/80">Usługi</span>
           </nav>
 
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Pełna oferta
           </p>
 
@@ -193,7 +193,7 @@ export default function UslugiPage() {
             className="font-display text-balance max-w-[20ch]"
             style={{
               fontSize: "clamp(2.5rem, 4vw + 1rem, 4.25rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -237,7 +237,7 @@ export default function UslugiPage() {
                 className="font-display"
                 style={{
                   fontSize: "clamp(1.85rem, 2.5vw + 1rem, 2.75rem)",
-                  fontWeight: 100,
+                  fontWeight: 300,
                   letterSpacing: "-0.02em",
                   lineHeight: 1.1,
                 }}

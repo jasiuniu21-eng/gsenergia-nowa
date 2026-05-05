@@ -33,7 +33,7 @@ export function Contact() {
           <div>
             <motion.p
               {...reveal(0)}
-              className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#86bc25] mb-3"
+              className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#86bc25] mb-3"
             >
               Kontakt
             </motion.p>
@@ -44,7 +44,7 @@ export function Contact() {
               className="font-display"
               style={{
                 fontSize: "clamp(2.25rem, 3.5vw + 1rem, 3.5rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
               }}

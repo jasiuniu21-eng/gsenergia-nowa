@@ -96,7 +96,7 @@ export function Nav() {
                     <Link
                       href={item.href}
                       className={[
-                        "inline-flex items-center gap-1 px-3.5 h-[34px] rounded-md text-[12px] font-medium uppercase tracking-[0.08em] leading-none transition-colors",
+                        "inline-flex items-center gap-1 px-3.5 h-[34px] rounded-md text-[11.5px] font-medium uppercase tracking-[0.06em] leading-none transition-colors",
                         isOpen
                           ? "bg-black/10 text-[#0F2A1F]"
                           : "text-[#0F2A1F]/85 hover:bg-black/5 hover:text-[#0F2A1F]",
@@ -125,7 +125,7 @@ export function Nav() {
                 href={SITE.surveyUrl}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="ml-1 inline-flex items-center h-[34px] px-4 rounded-md bg-[#F1FF6A] text-[#0F2A1F] text-[12px] font-semibold uppercase tracking-[0.08em] leading-none hover:bg-[#E5F44C] transition-colors"
+                className="ml-1 inline-flex items-center h-[34px] px-4 rounded-md bg-[#F1FF6A] text-[#0F2A1F] text-[11.5px] font-semibold uppercase tracking-[0.06em] leading-none hover:bg-[#E5F44C] transition-colors"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
                 Konsultacja
@@ -196,7 +196,7 @@ export function Nav() {
                       {cols.map((col, ci) => (
                         <div key={ci}>
                           {col.label && (
-                            <p className="mb-5 text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-subtle)]">
+                            <p className="mb-5 text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-subtle)]">
                               {col.label}
                             </p>
                           )}

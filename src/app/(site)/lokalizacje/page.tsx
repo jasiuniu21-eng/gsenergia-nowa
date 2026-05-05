@@ -46,14 +46,14 @@ export default function LocationsIndex() {
             </ol>
           </nav>
 
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
             Lokalizacje
           </p>
           <h1
             className="font-display max-w-[24ch]"
             style={{
               fontSize: "clamp(2.75rem, 5.5vw, 5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.02,
             }}
@@ -76,7 +76,7 @@ export default function LocationsIndex() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-2 flex items-center gap-1.5">
+                      <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-2 flex items-center gap-1.5">
                         <MapPin size={12} weight="bold" />
                         {c.voivodeship}
                       </p>

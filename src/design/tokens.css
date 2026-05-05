@@ -50,9 +50,9 @@
   --c-amber:       var(--c-amber-500);
 
   /* -------- Typography -------- */
-  --font-display: "Instrument Serif", "Tiempos Headline", ui-serif, Georgia, serif;
-  --font-body: "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Fraunces", "Tiempos Headline", ui-serif, Georgia, serif;
+  --font-body: "Inter Tight", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Fluid display scale (clamp min @ 375px, max @ 1400px) */
   --fs-display-xl: clamp(2.75rem, 1.2rem + 6.6vw, 6rem);

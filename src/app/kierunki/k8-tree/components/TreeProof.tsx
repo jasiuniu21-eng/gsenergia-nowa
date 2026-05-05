@@ -15,7 +15,7 @@ export function TreeProof() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8 }}
-          className="k8-mono text-[11px] tracking-[0.2em] mb-16 flex items-center gap-2"
+          className="k8-mono text-[11px] tracking-[0.18em] mb-16 flex items-center gap-2"
           style={{ color: "var(--k8-accent)" }}
         >
           <span aria-hidden="true">//</span>

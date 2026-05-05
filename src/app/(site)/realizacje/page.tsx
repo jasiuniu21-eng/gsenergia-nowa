@@ -66,7 +66,7 @@ export default function RealizacjeListPage() {
         <div className="container-site py-[clamp(5rem,9vw,8rem)]">
           <nav
             aria-label="Breadcrumb"
-            className="mb-10 text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-muted)]"
+            className="mb-10 text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-muted)]"
           >
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <li>
@@ -83,7 +83,7 @@ export default function RealizacjeListPage() {
             </ol>
           </nav>
 
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-4">
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-4">
             Realizacje
           </p>
 
@@ -91,7 +91,7 @@ export default function RealizacjeListPage() {
             className="font-display max-w-[18ch]"
             style={{
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}
@@ -120,7 +120,7 @@ export default function RealizacjeListPage() {
                   className="font-display text-[#26890d]"
                   style={{
                     fontSize: "clamp(1.8rem, 2vw + 1rem, 2.6rem)",
-                    fontWeight: 100,
+                    fontWeight: 300,
                     letterSpacing: "-0.02em",
                     lineHeight: 1.05,
                   }}
@@ -141,14 +141,14 @@ export default function RealizacjeListPage() {
         <section className="bg-white border-b border-black/5">
           <div className="container-site py-[clamp(4rem,7vw,7rem)]">
             <div className="mb-10">
-              <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+              <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
                 Najnowsza realizacja
               </p>
               <h2
                 className="font-display text-[#222328]"
                 style={{
                   fontSize: "clamp(1.6rem, 2vw + 0.8rem, 2.2rem)",
-                  fontWeight: 100,
+                  fontWeight: 300,
                   letterSpacing: "-0.02em",
                   lineHeight: 1.1,
                 }}
@@ -169,12 +169,12 @@ export default function RealizacjeListPage() {
                   <div className="relative aspect-[4/3] md:aspect-auto bg-gradient-to-br from-[#26890d] to-[#8DC73F] flex items-center justify-center">
                     <ChartLineUp size={120} weight="thin" className="text-white/90" />
                     <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-white/95">
-                      <span className="text-[11px] font-mono uppercase tracking-[0.22em]">
+                      <span className="text-[11px] font-mono uppercase tracking-[0.18em]">
                         {meta.sector}
                       </span>
                       <span
                         className="font-display text-[1.6rem]"
-                        style={{ fontWeight: 100 }}
+                        style={{ fontWeight: 300 }}
                       >
                         {meta.metric}
                       </span>
@@ -182,7 +182,7 @@ export default function RealizacjeListPage() {
                   </div>
                   <div className="p-8 md:p-10 flex flex-col justify-center">
                     {dateStr ? (
-                      <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[color:var(--c-fg-muted)] mb-3">
+                      <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[color:var(--c-fg-muted)] mb-3">
                         {dateStr}
                       </p>
                     ) : null}
@@ -190,7 +190,7 @@ export default function RealizacjeListPage() {
                       className="font-display text-[#222328]"
                       style={{
                         fontSize: "clamp(1.5rem, 2vw + 0.6rem, 2.1rem)",
-                        fontWeight: 100,
+                        fontWeight: 300,
                         letterSpacing: "-0.02em",
                         lineHeight: 1.15,
                       }}
@@ -223,14 +223,14 @@ export default function RealizacjeListPage() {
       <section className="bg-[oklch(0.98_0.01_140)] border-b border-black/5">
         <div className="container-site py-[clamp(4rem,7vw,7rem)]">
           <div className="max-w-[40ch] mb-12">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               Wszystkie realizacje
             </p>
             <h2
               className="font-display text-[#222328]"
               style={{
                 fontSize: "clamp(2rem, 3vw + 0.8rem, 3rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}
@@ -292,14 +292,14 @@ export default function RealizacjeListPage() {
       <section className="bg-white border-b border-black/5">
         <div className="container-site py-[clamp(4rem,7vw,6rem)]">
           <div className="max-w-[44ch] mb-10">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#26890d] mb-3">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#26890d] mb-3">
               Branże
             </p>
             <h2
               className="font-display text-[#222328]"
               style={{
                 fontSize: "clamp(1.8rem, 2.5vw + 0.6rem, 2.4rem)",
-                fontWeight: 100,
+                fontWeight: 300,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}
@@ -329,7 +329,7 @@ export default function RealizacjeListPage() {
             className="font-display mx-auto max-w-[24ch]"
             style={{
               fontSize: "clamp(2.25rem, 4vw + 0.8rem, 3.75rem)",
-              fontWeight: 100,
+              fontWeight: 300,
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
             }}

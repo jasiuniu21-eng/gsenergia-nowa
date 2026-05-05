@@ -99,7 +99,7 @@ export function LightTrust() {
           className="text-center mb-16"
         >
           <p
-            className="k9-mono text-[11px] tracking-[0.22em] mb-6 uppercase font-semibold"
+            className="k9-mono text-[11px] tracking-[0.18em] mb-6 uppercase font-semibold"
             style={{ color: "var(--k9-accent-dim)" }}
           >
             // Zaufali nam
