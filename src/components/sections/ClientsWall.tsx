@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 const ALL_LOGOS = Array.from({ length: 94 }, (_, i) => {
@@ -17,16 +17,6 @@ export function ClientsWall() {
   const reduced = useReducedMotion();
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(0);
-
-  // Auto-advance every 6s
-  useEffect(() => {
-    if (reduced) return;
-    const id = setInterval(() => {
-      setDirection(1);
-      setPage((p) => (p + 1) % PAGE_COUNT);
-    }, 6000);
-    return () => clearInterval(id);
-  }, [reduced]);
 
   const next = () => {
     setDirection(1);
