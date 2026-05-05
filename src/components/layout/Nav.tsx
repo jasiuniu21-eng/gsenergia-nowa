@@ -68,10 +68,8 @@ export function Nav() {
     <>
       <header
         className={[
-          "fixed inset-x-0 top-0 z-40 transition-[background-color,border-color,backdrop-filter] duration-300",
-          scrolled
-            ? "bg-black/95 backdrop-blur-xl border-b border-white/10"
-            : "bg-black border-b border-white/10",
+          "fixed inset-x-0 top-0 z-40 transition-[background-color,backdrop-filter] duration-300",
+          scrolled ? "bg-transparent backdrop-blur-md" : "bg-transparent",
         ].join(" ")}
         onMouseLeave={() => setOpenMenu(null)}
       >
