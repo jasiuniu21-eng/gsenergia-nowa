@@ -273,7 +273,7 @@ export function NewsletterForm({ variant }: NewsletterFormProps) {
 
   // ───────────────────────── SECTION VARIANT ─────────────────────────
   return (
-    <section className="bg-[oklch(0.16_0.02_150)] text-white border-t border-white/10">
+    <section id="newsletter" className="bg-[oklch(0.16_0.02_150)] text-white border-t border-white/10">
       <div className="container-site py-[clamp(4rem,7vw,7rem)]">
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-center">
           {/* LEFT — copy */}

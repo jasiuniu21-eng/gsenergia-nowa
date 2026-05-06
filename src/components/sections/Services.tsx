@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useReducedMotion, useScroll, useMotionValueEvent } from "framer-motion";
 
 type Service = {
   img: string;
@@ -107,18 +107,40 @@ const PAGE_COUNT = Math.ceil(SERVICES.length / PER_PAGE);
 
 export function Services() {
   const reduced = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(0);
+
+  // Scroll-driven page swap: section is 200vh tall, sticky inside.
+  // 0–50% scroll progress → page 1, 50–100% → page 2.
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const next = latest < 0.5 ? 0 : 1;
+    setPage((prev) => {
+      if (prev !== next) setDirection(next > prev ? 1 : -1);
+      return next;
+    });
+  });
 
   const slice = SERVICES.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
 
   return (
     <section
+      ref={sectionRef}
       aria-labelledby="services-heading"
       className="relative bg-black text-white"
+      style={{ height: `${PAGE_COUNT * 100}vh` }}
     >
+      {/* Hidden anchors for ScrollSpy — virtual sub-sections within the sticky area */}
+      <div id="services-1" className="absolute top-0 h-[100vh] w-px pointer-events-none" aria-hidden="true" />
+      <div id="services-2" className="absolute top-[100vh] h-[100vh] w-px pointer-events-none" aria-hidden="true" />
+
+      <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
       {/* ── Black header bar — "Oferta." + page indicator ── */}
-      <div className="relative w-full bg-black border-b border-white/5">
+      <div className="relative w-full bg-black border-b border-white/5 shrink-0">
         <div className="container-site flex items-center justify-between py-7 lg:py-9">
           <motion.h2
             id="services-heading"
@@ -142,8 +164,8 @@ export function Services() {
         </div>
       </div>
 
-      {/* ── 3×3 grid of tiles + vertical dot pagination ── */}
-      <div className="relative">
+      {/* ── 3×3 grid of tiles ── */}
+      <div className="relative flex-1 overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.ul
             key={page}
@@ -211,26 +233,7 @@ export function Services() {
           </motion.ul>
         </AnimatePresence>
 
-        {/* Vertical dot pagination on right edge */}
-        {PAGE_COUNT > 1 && (
-          <div className="absolute right-3 lg:right-6 top-1/2 -translate-y-1/2 flex flex-col gap-2.5 z-10">
-            {Array.from({ length: PAGE_COUNT }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  setDirection(i > page ? 1 : -1);
-                  setPage(i);
-                }}
-                aria-label={`Strona ${i + 1} z ${PAGE_COUNT}`}
-                className={`size-2.5 rounded-full transition-all ${
-                  i === page
-                    ? "bg-[#86bc25] ring-2 ring-[#86bc25]/30 ring-offset-2 ring-offset-black"
-                    : "bg-white/30 hover:bg-white/60"
-                }`}
-              />
-            ))}
-          </div>
-        )}
+      </div>
       </div>
     </section>
   );

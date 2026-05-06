@@ -2,7 +2,7 @@ import { HeroVideo } from "./HeroVideo";
 
 export function Hero() {
   return (
-    <section
+    <section id="hero"
       aria-labelledby="hero-heading"
       className="relative isolate overflow-hidden min-h-[85vh] flex flex-col bg-white"
     >

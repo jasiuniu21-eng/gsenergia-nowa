@@ -60,7 +60,7 @@ export function WhyUs() {
   const reduced = useReducedMotion();
 
   return (
-    <section
+    <section id="why-us"
       aria-labelledby="why-us-heading"
       className="relative bg-white text-[#222328] border-t border-black/10"
     >

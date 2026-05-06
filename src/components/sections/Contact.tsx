@@ -23,7 +23,7 @@ export function Contact() {
   });
 
   return (
-    <section
+    <section id="contact"
       aria-labelledby="contact-heading"
       className="relative bg-[oklch(0.16_0.02_150)] text-white"
     >

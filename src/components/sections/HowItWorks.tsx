@@ -36,7 +36,7 @@ export function HowItWorks() {
   const reduced = useReducedMotion();
 
   return (
-    <section
+    <section id="how-it-works"
       aria-labelledby="how-heading"
       className="relative overflow-hidden bg-[oklch(0.17_0.02_150)] text-[color:var(--c-ink-50)]"
     >

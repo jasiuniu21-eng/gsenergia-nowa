@@ -22,7 +22,7 @@ export function NewsClient({ posts }: { posts: LatestPost[] }) {
   const reduced = useReducedMotion();
 
   return (
-    <section
+    <section id="news"
       aria-labelledby="news-heading"
       className="relative bg-white text-[#222328] border-t border-black/10"
     >

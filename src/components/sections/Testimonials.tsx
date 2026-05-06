@@ -87,7 +87,7 @@ export function Testimonials() {
   const reduced = useReducedMotion();
 
   return (
-    <section
+    <section id="testimonials"
       aria-labelledby="testimonials-heading"
       className="relative bg-white text-[#222328] border-t border-black/10"
     >

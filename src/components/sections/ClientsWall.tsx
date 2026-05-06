@@ -30,7 +30,7 @@ export function ClientsWall() {
   const slice = ALL_LOGOS.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
 
   return (
-    <section
+    <section id="clients"
       aria-labelledby="clients-heading"
       className="bg-white text-[#222328] border-b border-black/10"
     >
