@@ -138,7 +138,7 @@ export function Services() {
       <div id="services-1" className="absolute top-0 h-[100vh] w-px pointer-events-none" aria-hidden="true" />
       <div id="services-2" className="absolute top-[100vh] h-[100vh] w-px pointer-events-none" aria-hidden="true" />
 
-      <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
+      <div className="sticky top-[88px] h-[calc(100vh-88px)] flex flex-col overflow-hidden">
       {/* ── Black header bar — "Oferta." + page indicator ── */}
       <div className="relative w-full bg-black border-b border-white/5 shrink-0">
         <div className="container-site flex items-center justify-between py-7 lg:py-9">
