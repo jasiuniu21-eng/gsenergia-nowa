@@ -135,8 +135,8 @@ export function Services() {
       style={{ height: `${PAGE_COUNT * 100}vh` }}
     >
       {/* Hidden anchors for ScrollSpy — virtual sub-sections within the sticky area */}
-      <div id="services-1" className="absolute top-0 h-[100vh] w-px pointer-events-none" aria-hidden="true" />
-      <div id="services-2" className="absolute top-[100vh] h-[100vh] w-px pointer-events-none" aria-hidden="true" />
+      <div id="services-1" data-snap-inner className="absolute top-0 h-[100vh] w-px pointer-events-none" aria-hidden="true" />
+      <div id="services-2" data-snap-inner className="absolute top-[100vh] h-[100vh] w-px pointer-events-none" aria-hidden="true" />
 
       <div className="sticky top-[88px] h-[calc(100vh-88px)] flex flex-col overflow-hidden">
       {/* ── Black header bar — "Oferta." + page indicator ── */}
