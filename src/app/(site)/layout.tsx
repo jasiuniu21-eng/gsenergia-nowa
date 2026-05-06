@@ -3,6 +3,7 @@ import { FloatingCTA } from "@/components/layout/FloatingCTA";
 import { Footer } from "@/components/layout/Footer";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { ScrollSpy } from "@/components/layout/ScrollSpy";
+import { SnapScroll } from "@/components/layout/SnapScroll";
 
 export default function SiteLayout({
   children,
@@ -19,6 +20,7 @@ export default function SiteLayout({
       />
       <Nav />
       <ScrollSpy />
+      <SnapScroll />
       <main>{children}</main>
       <Footer />
       <FloatingCTA />

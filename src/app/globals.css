@@ -52,31 +52,13 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: "ss01", "ss02", "cv01", "cv11";
-  /* Section-by-section mandatory snap scrolling (full trap, like gsenergia.pl) */
-  scroll-snap-type: y mandatory;
+  /* JS-controlled section scrolling lives in <SnapScroll>. Keep just smooth + offset. */
   scroll-padding-top: 88px;
   scroll-behavior: smooth;
 }
 
-/* Disable on mobile where it feels jumpy + on reduced-motion users */
-@media (max-width: 768px) {
-  html { scroll-snap-type: none; }
-}
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-snap-type: none; scroll-behavior: auto; }
-}
-
-/* Snap-align every direct section in main */
-main > section,
-main > [data-snap] {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-/* Inner snap markers (e.g., Services has 2 pages within one tall section) */
-[data-snap-inner] {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  html { scroll-behavior: auto; }
 }
 
 body {
