@@ -51,26 +51,32 @@ function ServicesPage({
       aria-labelledby={`${id}-heading`}
       className="relative bg-black text-white h-[calc(100vh-88px)] flex flex-col"
     >
-      {/* Black header bar — sticky to top of section */}
+      {/* Black header bar — only on first page; subsequent pages show just the indicator */}
       <div className="relative w-full bg-black border-b border-white/5 shrink-0">
         <div className="container-site flex items-center justify-between py-5 lg:py-6">
-          <motion.h2
-            id={`${id}-heading`}
-            initial={reduced ? false : { opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-white"
-            style={{
-              fontSize: "clamp(2.25rem, 4.5vw + 1rem, 4rem)",
-              fontWeight: 600,
-              letterSpacing: "-0.025em",
-              lineHeight: 1,
-            }}
-          >
-            Oferta<span style={{ color: "#86bc25" }}>.</span>
-          </motion.h2>
-          <span className="font-mono text-[0.95rem] text-white/70 tabular-nums">
+          {pageIndex === 0 ? (
+            <motion.h2
+              id={`${id}-heading`}
+              initial={reduced ? false : { opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="font-display text-white"
+              style={{
+                fontSize: "clamp(2.25rem, 4.5vw + 1rem, 4rem)",
+                fontWeight: 600,
+                letterSpacing: "-0.025em",
+                lineHeight: 1,
+              }}
+            >
+              Oferta<span style={{ color: "#86bc25" }}>.</span>
+            </motion.h2>
+          ) : (
+            <h2 id={`${id}-heading`} className="sr-only">
+              Oferta — strona {pageIndex + 1}
+            </h2>
+          )}
+          <span className="font-mono text-[0.95rem] text-white/70 tabular-nums ml-auto">
             {pageIndex + 1}/{totalPages}
           </span>
         </div>
