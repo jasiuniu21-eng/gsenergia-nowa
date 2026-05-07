@@ -30,7 +30,7 @@ export function HeroVideo() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none select-none absolute inset-0 overflow-hidden flex items-center justify-center"
+      className="pointer-events-none select-none absolute inset-0 overflow-hidden"
     >
       <video
         ref={videoRef}
@@ -39,13 +39,14 @@ export function HeroVideo() {
         loop
         playsInline
         preload="auto"
-        poster="/video/drzewo-poster.jpg"
-        className="w-full h-full object-contain"
-        style={{ objectPosition: "center center" }}
+        poster="/video/hero-poster.jpg"
+        className="w-full h-full object-cover"
       >
-        <source src="/video/drzewo.webm" type="video/webm" />
-        <source src="/video/drzewo.mp4" type="video/mp4" />
+        <source src="/video/hero.webm" type="video/webm" />
+        <source src="/video/hero.mp4" type="video/mp4" />
       </video>
+      {/* Dark overlay so text stays readable over any video content */}
+      <div className="absolute inset-0 bg-[oklch(0.14_0.03_150)]/60" />
     </div>
   );
 }

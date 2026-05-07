@@ -17,11 +17,14 @@ export function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden flex flex-col lg:flex-row"
+      className="relative isolate overflow-hidden flex flex-col"
       style={{ height: "100svh", minHeight: 640, background: "#06100a" }}
     >
-      {/* ─── LEFT PANEL ─── */}
-      <div className="relative z-10 flex flex-col justify-between lg:w-[46%] w-full px-8 md:px-14 lg:px-16 pt-28 pb-10">
+      {/* Full-bleed background video */}
+      <HeroVideo />
+
+      {/* Content layer */}
+      <div className="relative z-10 flex flex-col justify-between h-full px-8 md:px-14 lg:px-20 pt-28 pb-10 max-w-[900px]">
 
         {/* Headline block */}
         <div
@@ -48,18 +51,15 @@ export function Hero() {
           >
             Obniżamy<br />
             koszty energii<br />
-            <span
-              className="relative inline-block"
-              style={{ color: "#8dc73f" }}
-            >
+            <span style={{ color: "#8dc73f" }}>
               o 15–30%
             </span>
           </h1>
 
           {/* Sub */}
           <p
-            className="text-white/45 leading-relaxed"
-            style={{ fontSize: "1rem", maxWidth: "36ch" }}
+            className="text-white/60 leading-relaxed"
+            style={{ fontSize: "1rem", maxWidth: "42ch" }}
           >
             Kompleksowe audyty, ISO&nbsp;50001 i outsourcing mediów
             dla zakładów przemysłowych i budynków komercyjnych.
@@ -74,15 +74,15 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-[13px] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
               style={{
                 background: "#26890d",
-                boxShadow: "0 4px 28px rgba(38,137,13,0.45)",
+                boxShadow: "0 4px 28px rgba(38,137,13,0.55)",
               }}
             >
               Bezpłatna wycena
             </Link>
             <Link
               href="/realizacje"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-[13px] font-medium border text-white/50 hover:text-white hover:border-white/25 transition-all duration-200"
-              style={{ borderColor: "rgba(255,255,255,0.1)" }}
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-[13px] font-medium border text-white/60 hover:text-white hover:border-white/30 transition-all duration-200"
+              style={{ borderColor: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", background: "rgba(255,255,255,0.04)" }}
             >
               <span>→</span> Realizacje
             </Link>
@@ -92,7 +92,7 @@ export function Hero() {
         {/* Stats bar */}
         <div
           className="flex flex-wrap items-end gap-8 border-t pt-8"
-          style={{ borderColor: "rgba(255,255,255,0.07)", animation: "heroInStats 0.9s cubic-bezier(0.22,1,0.36,1) 0.85s both" }}
+          style={{ borderColor: "rgba(255,255,255,0.1)", animation: "heroInStats 0.9s cubic-bezier(0.22,1,0.36,1) 0.85s both" }}
         >
           {STATS.map(({ num, unit, label }) => (
             <div key={label} className="flex flex-col">
@@ -105,17 +105,12 @@ export function Hero() {
               >
                 {num}
                 {unit && (
-                  <span
-                    className="text-[0.38em] text-white/35 ml-1 align-top mt-1.5 inline-block font-semibold"
-                  >
+                  <span className="text-[0.38em] text-white/35 ml-1 align-top mt-1.5 inline-block font-semibold">
                     {unit}
                   </span>
                 )}
               </p>
-              <p
-                className="text-white/30 uppercase tracking-[0.12em] mt-1.5"
-                style={{ fontSize: "9px" }}
-              >
+              <p className="text-white/35 uppercase tracking-[0.12em] mt-1.5" style={{ fontSize: "9px" }}>
                 {label}
               </p>
             </div>
@@ -139,60 +134,11 @@ export function Hero() {
                 </div>
               ))}
             </div>
-            <p className="text-white/22 ml-1" style={{ fontSize: "10px" }}>
+            <p className="text-white/25 ml-1" style={{ fontSize: "10px" }}>
               PGE, Orlen, Shell i inni
             </p>
           </div>
         </div>
-      </div>
-
-      {/* ─── RIGHT PANEL — VIDEO ─── */}
-      <div
-        className="hidden lg:block absolute right-0 top-0 bottom-0"
-        style={{ width: "56%" }}
-        aria-hidden
-      >
-        {/* Feather blend from left */}
-        <div
-          className="absolute inset-y-0 left-0 z-10 pointer-events-none"
-          style={{
-            width: "180px",
-            background: "linear-gradient(to right, #06100a 0%, rgba(6,16,10,0.6) 50%, transparent 100%)",
-          }}
-        />
-
-        {/* Accent vertical line at blend edge */}
-        <div
-          className="absolute inset-y-0 z-20 pointer-events-none"
-          style={{
-            left: "1px",
-            width: "1px",
-            background:
-              "linear-gradient(to bottom, transparent 8%, rgba(141,199,63,0.28) 28%, rgba(141,199,63,0.28) 72%, transparent 92%)",
-          }}
-        />
-
-        {/* The video — VISIBLE */}
-        <HeroVideo />
-
-        {/* Very subtle top/bottom fade only */}
-        <div
-          className="absolute inset-0 pointer-events-none z-[1]"
-          style={{
-            background:
-              "linear-gradient(to bottom, #06100a 0%, transparent 12%, transparent 82%, #06100a 100%)",
-          }}
-        />
-      </div>
-
-      {/* Mobile: dark overlay for readability */}
-      <div
-        className="lg:hidden absolute inset-0 pointer-events-none"
-        style={{ background: "rgba(6,16,10,0.75)" }}
-        aria-hidden
-      />
-      <div className="lg:hidden absolute inset-0 pointer-events-none" aria-hidden>
-        <HeroVideo />
       </div>
     </section>
   );
