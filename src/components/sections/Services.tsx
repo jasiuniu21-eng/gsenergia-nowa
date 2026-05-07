@@ -49,10 +49,10 @@ function ServicesPage({
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className="relative bg-black text-white h-[calc(100vh-88px)] flex flex-col"
+      className="relative bg-[oklch(0.12_0.02_150)] text-white h-[calc(100vh-88px)] flex flex-col"
     >
       {/* Black header bar — only on first page; subsequent pages show just the indicator */}
-      <div className="relative w-full bg-black border-b border-white/5 shrink-0">
+      <div className="relative w-full bg-[oklch(0.12_0.02_150)] border-b border-white/5 shrink-0">
         <div className="container-site flex items-center justify-between py-5 lg:py-6">
           {pageIndex === 0 ? (
             <motion.h2
@@ -63,8 +63,8 @@ function ServicesPage({
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="font-display text-white"
               style={{
-                fontSize: "clamp(2.25rem, 4.5vw + 1rem, 4rem)",
-                fontWeight: 600,
+                fontSize: "clamp(2rem, 3vw + 0.5rem, 3rem)",
+                fontWeight: 700,
                 letterSpacing: "-0.025em",
                 lineHeight: 1,
               }}
@@ -112,7 +112,7 @@ function ServicesPage({
                     className="font-display text-white leading-[1.1]"
                     style={{
                       fontSize: "clamp(1.05rem, 1.2vw + 0.4rem, 1.5rem)",
-                      fontWeight: 500,
+                      fontWeight: 600,
                       letterSpacing: "-0.015em",
                     }}
                     itemProp="name"

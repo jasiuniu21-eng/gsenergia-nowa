@@ -49,7 +49,7 @@ const COLS = [
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-[oklch(0.12_0.02_150)] text-white">
       <div className="container-site py-[clamp(3rem,5vw,5rem)]">
         {/* Newsletter banner */}
         <div className="rounded-2xl bg-white/[0.05] ring-1 ring-white/10 p-7 lg:p-8 mb-14">
@@ -59,7 +59,7 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_3fr] gap-12">
           {/* Brand + NAP */}
           <div>
-            <p className="font-display text-[1.5rem] tracking-[-0.02em]">
+            <p className="font-display text-[1.6rem] tracking-[-0.03em]" style={{ fontWeight: 800 }}>
               GS <span style={{ color: "#86bc25" }}>Energia</span>
             </p>
             <p className="mt-3 text-sm text-white/60 leading-relaxed max-w-[34ch]">

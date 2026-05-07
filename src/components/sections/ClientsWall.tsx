@@ -43,8 +43,8 @@ export function ClientsWall() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center font-display"
           style={{
-            fontSize: "clamp(2.5rem, 4vw + 1rem, 4rem)",
-            fontWeight: 300,
+            fontSize: "clamp(2rem, 3vw + 0.5rem, 3rem)",
+            fontWeight: 700,
             letterSpacing: "-0.02em",
             lineHeight: 1.05,
           }}

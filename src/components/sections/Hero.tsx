@@ -1,153 +1,198 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { HeroVideo } from "./HeroVideo";
 import { SITE } from "@/lib/site";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay },
-  }),
-};
 
 const STATS = [
   { num: "18", unit: "lat", label: "na rynku" },
   { num: "400+", unit: "", label: "projektów" },
-  { num: "30%", unit: "", label: "śr. oszczędność" },
+  { num: "30%", unit: "", label: "średnia oszczędność" },
 ];
+
+const CLIENTS = ["PGE", "PKN", "SHL", "KGH"];
 
 export function Hero() {
   return (
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden min-h-[100svh] flex flex-col justify-end bg-[#0c1f12]"
+      className="relative isolate overflow-hidden flex flex-col lg:flex-row"
+      style={{ height: "100svh", minHeight: 640, background: "#06100a" }}
     >
-      {/* Background video */}
-      <HeroVideo />
+      {/* ─── LEFT PANEL ─── */}
+      <div className="relative z-10 flex flex-col justify-between lg:w-[46%] w-full px-8 md:px-14 lg:px-16 pt-28 pb-10">
 
-      {/* Dark gradient overlay — bottom-to-mid */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(12,31,18,0.96) 0%, rgba(12,31,18,0.72) 40%, rgba(12,31,18,0.20) 70%, transparent 100%)",
-        }}
-      />
-
-      {/* Content overlay */}
-      <div className="relative z-10 container-site pb-16 pt-32 md:pb-20">
-        {/* Eyebrow */}
-        <motion.p
-          initial="hidden"
-          animate="visible"
-          custom={0.3}
-          variants={fadeUp}
-          className="flex items-center gap-3 text-[11px] font-semibold tracking-[0.16em] uppercase text-[color:var(--c-brand-400)] mb-6"
+        {/* Headline block */}
+        <div
+          className="flex flex-col gap-5"
+          style={{ animation: "heroIn 1s cubic-bezier(0.22,1,0.36,1) 0.35s both" }}
         >
-          <span className="block w-7 h-px bg-[color:var(--c-brand-400)]" aria-hidden />
-          Audyty i zarządzanie energią od 2008
-        </motion.p>
+          {/* Eyebrow */}
+          <p
+            className="flex items-center gap-3 text-[10.5px] font-semibold tracking-[0.22em] uppercase"
+            style={{ color: "#8dc73f" }}
+          >
+            <span className="block w-8 h-px bg-current" aria-hidden />
+            Audyty energetyczne · od 2008
+          </p>
 
-        {/* H1 */}
-        <motion.h1
-          id="hero-heading"
-          initial="hidden"
-          animate="visible"
-          custom={0.45}
-          variants={fadeUp}
-          className="font-display text-white leading-[1.0] tracking-tight mb-6"
-          style={{ fontSize: "clamp(2.8rem, 6.5vw, 5.5rem)", fontWeight: 800 }}
-        >
-          Obniżamy koszty energii
-          <br />
-          <span style={{ color: "var(--c-brand-400)" }}>o 15–30%</span>
-        </motion.h1>
-
-        {/* Sub */}
-        <motion.p
-          initial="hidden"
-          animate="visible"
-          custom={0.6}
-          variants={fadeUp}
-          className="text-white/55 text-lg md:text-xl font-light leading-relaxed max-w-md mb-10"
-        >
-          Kompleksowe audyty energetyczne, ISO 50001 i outsourcing mediów dla przemysłu i budynków.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          custom={0.72}
-          variants={fadeUp}
-          className="flex flex-wrap items-center gap-4 mb-16 md:mb-20"
-        >
-          <Link
-            href={SITE.surveyUrl}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="inline-flex items-center gap-2 rounded-lg px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
+          {/* H1 */}
+          <h1
+            id="hero-heading"
+            className="font-display text-white leading-[0.92] tracking-tight"
             style={{
-              background: "var(--c-brand-500)",
-              boxShadow: "0 4px 24px rgba(134,188,37,0.35)",
+              fontSize: "clamp(3rem, 4.8vw + 0.5rem, 5.2rem)",
+              fontWeight: 800,
             }}
           >
-            Zamów bezpłatną wycenę
-          </Link>
-          <Link
-            href="/realizacje"
-            className="text-white/50 text-sm font-medium hover:text-white/80 transition-colors flex items-center gap-1.5"
+            Obniżamy<br />
+            koszty energii<br />
+            <span
+              className="relative inline-block"
+              style={{ color: "#8dc73f" }}
+            >
+              o 15–30%
+            </span>
+          </h1>
+
+          {/* Sub */}
+          <p
+            className="text-white/45 leading-relaxed"
+            style={{ fontSize: "1rem", maxWidth: "36ch" }}
           >
-            <span>→</span> Zobacz realizacje
-          </Link>
-        </motion.div>
+            Kompleksowe audyty, ISO&nbsp;50001 i outsourcing mediów
+            dla zakładów przemysłowych i budynków komercyjnych.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <Link
+              href={SITE.surveyUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg text-[13px] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
+              style={{
+                background: "#26890d",
+                boxShadow: "0 4px 28px rgba(38,137,13,0.45)",
+              }}
+            >
+              Bezpłatna wycena
+            </Link>
+            <Link
+              href="/realizacje"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-[13px] font-medium border text-white/50 hover:text-white hover:border-white/25 transition-all duration-200"
+              style={{ borderColor: "rgba(255,255,255,0.1)" }}
+            >
+              <span>→</span> Realizacje
+            </Link>
+          </div>
+        </div>
 
         {/* Stats bar */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          custom={0.88}
-          variants={fadeUp}
-          className="flex flex-wrap gap-8 md:gap-12 border-t border-white/10 pt-8"
+        <div
+          className="flex flex-wrap items-end gap-8 border-t pt-8"
+          style={{ borderColor: "rgba(255,255,255,0.07)", animation: "heroInStats 0.9s cubic-bezier(0.22,1,0.36,1) 0.85s both" }}
         >
           {STATS.map(({ num, unit, label }) => (
-            <div key={label} className="flex flex-col gap-1">
+            <div key={label} className="flex flex-col">
               <p
                 className="font-display text-white leading-none"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)", fontWeight: 800 }}
+                style={{
+                  fontSize: "clamp(2rem, 2.8vw, 2.75rem)",
+                  fontWeight: 800,
+                }}
               >
                 {num}
                 {unit && (
-                  <span className="text-[0.45em] font-semibold ml-1 text-white/60 align-top mt-1 inline-block">
+                  <span
+                    className="text-[0.38em] text-white/35 ml-1 align-top mt-1.5 inline-block font-semibold"
+                  >
                     {unit}
                   </span>
                 )}
               </p>
-              <p className="text-xs text-white/35 uppercase tracking-widest font-medium">{label}</p>
+              <p
+                className="text-white/30 uppercase tracking-[0.12em] mt-1.5"
+                style={{ fontSize: "9px" }}
+              >
+                {label}
+              </p>
             </div>
           ))}
 
-          {/* Social proof */}
-          <div className="ml-auto hidden md:flex items-center gap-2 self-center">
-            <div className="flex -space-x-2">
-              {["PGE", "PKN", "SHL"].map((t) => (
+          {/* Client avatars */}
+          <div className="ml-auto hidden xl:flex items-center gap-2 pb-0.5">
+            <div className="flex -space-x-1.5">
+              {CLIENTS.map((t) => (
                 <div
                   key={t}
-                  className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[8px] font-bold text-white/60"
+                  className="w-7 h-7 rounded-full border flex items-center justify-center font-bold"
+                  style={{
+                    fontSize: "7px",
+                    background: "rgba(141,199,63,0.08)",
+                    borderColor: "rgba(141,199,63,0.22)",
+                    color: "rgba(141,199,63,0.65)",
+                  }}
                 >
                   {t}
                 </div>
               ))}
             </div>
-            <p className="text-xs text-white/35">PGE, Orlen, Shell i inni</p>
+            <p className="text-white/22 ml-1" style={{ fontSize: "10px" }}>
+              PGE, Orlen, Shell i inni
+            </p>
           </div>
-        </motion.div>
+        </div>
+      </div>
+
+      {/* ─── RIGHT PANEL — VIDEO ─── */}
+      <div
+        className="hidden lg:block absolute right-0 top-0 bottom-0"
+        style={{ width: "56%" }}
+        aria-hidden
+      >
+        {/* Feather blend from left */}
+        <div
+          className="absolute inset-y-0 left-0 z-10 pointer-events-none"
+          style={{
+            width: "180px",
+            background: "linear-gradient(to right, #06100a 0%, rgba(6,16,10,0.6) 50%, transparent 100%)",
+          }}
+        />
+
+        {/* Accent vertical line at blend edge */}
+        <div
+          className="absolute inset-y-0 z-20 pointer-events-none"
+          style={{
+            left: "1px",
+            width: "1px",
+            background:
+              "linear-gradient(to bottom, transparent 8%, rgba(141,199,63,0.28) 28%, rgba(141,199,63,0.28) 72%, transparent 92%)",
+          }}
+        />
+
+        {/* The video — VISIBLE */}
+        <HeroVideo />
+
+        {/* Very subtle top/bottom fade only */}
+        <div
+          className="absolute inset-0 pointer-events-none z-[1]"
+          style={{
+            background:
+              "linear-gradient(to bottom, #06100a 0%, transparent 12%, transparent 82%, #06100a 100%)",
+          }}
+        />
+      </div>
+
+      {/* Mobile: dark overlay for readability */}
+      <div
+        className="lg:hidden absolute inset-0 pointer-events-none"
+        style={{ background: "rgba(6,16,10,0.75)" }}
+        aria-hidden
+      />
+      <div className="lg:hidden absolute inset-0 pointer-events-none" aria-hidden>
+        <HeroVideo />
       </div>
     </section>
   );

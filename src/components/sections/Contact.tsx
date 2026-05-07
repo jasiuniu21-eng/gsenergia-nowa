@@ -43,8 +43,8 @@ export function Contact() {
               {...reveal(0.05)}
               className="font-display"
               style={{
-                fontSize: "clamp(2.25rem, 3.5vw + 1rem, 3.5rem)",
-                fontWeight: 300,
+                fontSize: "clamp(2rem, 3vw + 0.5rem, 3rem)",
+                fontWeight: 700,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
               }}

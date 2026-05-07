@@ -285,8 +285,8 @@ export function NewsletterForm({ variant }: NewsletterFormProps) {
               Newsletter
             </p>
             <h2
-              className="font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.02em]"
-              style={{ fontWeight: 300 }}
+              className="font-display text-[clamp(2rem,3vw+0.5rem,3rem)] leading-[1.05] tracking-[-0.02em]"
+              style={{ fontWeight: 700 }}
             >
               Wiedza energetyczna w Twojej skrzynce
               <span style={{ color: "#86bc25" }}>.</span>
