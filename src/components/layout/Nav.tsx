@@ -78,7 +78,6 @@ export function Nav() {
             <nav
               aria-label="Główna"
               className="flex items-center gap-0 p-1 rounded-[10px] bg-[#F4EFDF]"
-              style={{ fontFamily: "var(--font-mono)" }}
             >
               {NAV.map((item) => {
                 const hasChildren = !!(item.children?.length || item.groups?.length);
@@ -93,7 +92,7 @@ export function Nav() {
                     <Link
                       href={item.href}
                       className={[
-                        "inline-flex items-center gap-1 px-3.5 h-[34px] rounded-md text-[11.5px] font-medium uppercase tracking-[0.06em] leading-none transition-colors",
+                        "inline-flex items-center gap-1 px-3.5 h-[34px] rounded-md text-[13px] font-medium leading-none transition-colors",
                         isOpen
                           ? "bg-black/10 text-[#0F2A1F]"
                           : "text-[#0F2A1F]/85 hover:bg-black/5 hover:text-[#0F2A1F]",
@@ -122,10 +121,9 @@ export function Nav() {
                 href={SITE.surveyUrl}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="ml-1 inline-flex items-center h-[34px] px-4 rounded-md bg-[#F1FF6A] text-[#0F2A1F] text-[11.5px] font-semibold uppercase tracking-[0.06em] leading-none hover:bg-[#E5F44C] transition-colors"
-                style={{ fontFamily: "var(--font-mono)" }}
+                className="ml-1 inline-flex items-center h-[34px] px-4 rounded-md bg-[color:var(--c-brand-500)] text-white text-[13px] font-semibold leading-none hover:bg-[color:var(--c-brand-600)] transition-colors"
               >
-                Konsultacja
+                Bezpłatna wycena
               </Link>
             </nav>
 
@@ -135,7 +133,6 @@ export function Nav() {
               aria-label="Szukaj (Cmd+K)"
               onClick={() => setSearchOpen(true)}
               className="group inline-flex items-center gap-2 rounded-[10px] pl-3 pr-2 h-[42px] bg-[#F4EFDF] text-[#0F2A1F]/70 hover:text-[#0F2A1F] hover:bg-[#EBE3CC] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#86bc25] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-              style={{ fontFamily: "var(--font-mono)" }}
             >
               <MagnifyingGlass size={15} weight="bold" />
               <kbd className="hidden md:inline-flex items-center px-1.5 py-0.5 text-[10px] border border-black/15 rounded text-[#0F2A1F]/60">
